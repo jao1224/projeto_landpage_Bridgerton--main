@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imersão Evolutions Brows — A Temporada Mais Aguardada do Ano</title>
+  <meta name="description"
+    content="Um convite exclusivo foi enviado às mulheres mais promissoras do mercado da beleza. Entre para a lista de espera da Imersão Evolutions Brows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+</head>
+
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+  <div id="petals-container" aria-hidden="true"></div>
+  <div id="particles-container" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 1 — HERO
+  ══════════════════════════════ -->
+  <section class="hero" id="hero">
+    <!-- Ornate frame corners -->
+    <div class="frame-corner frame-corner--tl" aria-hidden="true">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <path d="M10 10 L10 65 M10 10 L65 10" stroke="currentColor" stroke-width="1" />
+        <path d="M22 22 L22 52 M22 22 L52 22" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+        <circle cx="10" cy="10" r="3.5" fill="currentColor" />
+        <circle cx="65" cy="10" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="10" cy="65" r="1.5" fill="currentColor" opacity="0.6" />
+        <g transform="translate(37,37)" opacity="0.45">
+          <path d="M0,-9 C4,-4 9,0 0,9 C-9,0 -4,-4 0,-9Z" fill="currentColor" />
+          <path d="M-9,0 C-4,4 0,9 9,0 C0,-9 -4,-4 -9,0Z" fill="currentColor" />
+          <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+        </g>
+      </svg>
+    </div>
+    <div class="frame-corner frame-corner--tr" aria-hidden="true">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <path d="M110 10 L110 65 M110 10 L55 10" stroke="currentColor" stroke-width="1" />
+        <path d="M98 22 L98 52 M98 22 L68 22" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+        <circle cx="110" cy="10" r="3.5" fill="currentColor" />
+        <circle cx="55" cy="10" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="110" cy="65" r="1.5" fill="currentColor" opacity="0.6" />
+        <g transform="translate(83,37)" opacity="0.45">
+          <path d="M0,-9 C4,-4 9,0 0,9 C-9,0 -4,-4 0,-9Z" fill="currentColor" />
+          <path d="M-9,0 C-4,4 0,9 9,0 C0,-9 -4,-4 -9,0Z" fill="currentColor" />
+          <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+        </g>
+      </svg>
+    </div>
+    <div class="frame-corner frame-corner--bl" aria-hidden="true">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <path d="M10 110 L10 55 M10 110 L65 110" stroke="currentColor" stroke-width="1" />
+        <path d="M22 98 L22 68 M22 98 L52 98" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+        <circle cx="10" cy="110" r="3.5" fill="currentColor" />
+        <circle cx="65" cy="110" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="10" cy="55" r="1.5" fill="currentColor" opacity="0.6" />
+        <g transform="translate(37,83)" opacity="0.45">
+          <path d="M0,-9 C4,-4 9,0 0,9 C-9,0 -4,-4 0,-9Z" fill="currentColor" />
+          <path d="M-9,0 C-4,4 0,9 9,0 C0,-9 -4,-4 -9,0Z" fill="currentColor" />
+          <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+        </g>
+      </svg>
+    </div>
+    <div class="frame-corner frame-corner--br" aria-hidden="true">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <path d="M110 110 L110 55 M110 110 L55 110" stroke="currentColor" stroke-width="1" />
+        <path d="M98 98 L98 68 M98 98 L68 98" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+        <circle cx="110" cy="110" r="3.5" fill="currentColor" />
+        <circle cx="55" cy="110" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="110" cy="55" r="1.5" fill="currentColor" opacity="0.6" />
+        <g transform="translate(83,83)" opacity="0.45">
+          <path d="M0,-9 C4,-4 9,0 0,9 C-9,0 -4,-4 0,-9Z" fill="currentColor" />
+          <path d="M-9,0 C-4,4 0,9 9,0 C0,-9 -4,-4 -9,0Z" fill="currentColor" />
+          <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Botanical florals -->
+    <div class="hero__floral hero__floral--left" aria-hidden="true">
+      <svg width="180" height="520" viewBox="0 0 180 520" fill="none" opacity="0.15">
+        <path d="M90 520 Q90 410 60 360 Q30 310 50 255 Q70 200 90 180 Q110 158 130 118 Q152 78 140 18"
+          stroke="currentColor" stroke-width="1.5" fill="none" />
+        <ellipse cx="50" cy="268" rx="30" ry="18" transform="rotate(-30 50 268)" fill="currentColor" opacity="0.4" />
+        <ellipse cx="72" cy="318" rx="25" ry="15" transform="rotate(20 72 318)" fill="currentColor" opacity="0.3" />
+        <ellipse cx="112" cy="202" rx="28" ry="16" transform="rotate(-45 112 202)" fill="currentColor" opacity="0.35" />
+        <g transform="translate(45,258)">
+          <circle cx="0" cy="0" r="13" fill="none" stroke="currentColor" stroke-width="0.8" />
+          <path d="M0,-13 C6,-6 13,0 0,13 C-13,0 -6,-6 0,-13Z" fill="currentColor" opacity="0.5" />
+          <path d="M-13,0 C-6,6 0,13 13,0 C0,-13 -6,-6 -13,0Z" fill="currentColor" opacity="0.4" />
+          <circle cx="0" cy="0" r="4" fill="currentColor" opacity="0.6" />
+        </g>
+        <g transform="translate(120,162)">
+          <circle cx="0" cy="0" r="10" fill="none" stroke="currentColor" stroke-width="0.8" />
+          <path d="M0,-10 C5,-5 10,0 0,10 C-10,0 -5,-5 0,-10Z" fill="currentColor" opacity="0.5" />
+          <path d="M-10,0 C-5,5 0,10 10,0 C0,-10 -5,-5 -10,0Z" fill="currentColor" opacity="0.4" />
+          <circle cx="0" cy="0" r="3" fill="currentColor" opacity="0.6" />
+        </g>
+      </svg>
+    </div>
+    <div class="hero__floral hero__floral--right" aria-hidden="true">
+      <svg width="180" height="520" viewBox="0 0 180 520" fill="none" opacity="0.15">
+        <path d="M90 520 Q90 410 120 360 Q150 310 130 255 Q110 200 90 180 Q70 158 50 118 Q28 78 40 18"
+          stroke="currentColor" stroke-width="1.5" fill="none" />
+        <ellipse cx="130" cy="268" rx="30" ry="18" transform="rotate(30 130 268)" fill="currentColor" opacity="0.4" />
+        <ellipse cx="108" cy="318" rx="25" ry="15" transform="rotate(-20 108 318)" fill="currentColor" opacity="0.3" />
+        <ellipse cx="68" cy="202" rx="28" ry="16" transform="rotate(45 68 202)" fill="currentColor" opacity="0.35" />
+        <g transform="translate(135,258)">
+          <circle cx="0" cy="0" r="13" fill="none" stroke="currentColor" stroke-width="0.8" />
+          <path d="M0,-13 C6,-6 13,0 0,13 C-13,0 -6,-6 0,-13Z" fill="currentColor" opacity="0.5" />
+          <path d="M-13,0 C-6,6 0,13 13,0 C0,-13 -6,-6 -13,0Z" fill="currentColor" opacity="0.4" />
+          <circle cx="0" cy="0" r="4" fill="currentColor" opacity="0.6" />
+        </g>
+        <g transform="translate(60,162)">
+          <circle cx="0" cy="0" r="10" fill="none" stroke="currentColor" stroke-width="0.8" />
+          <path d="M0,-10 C5,-5 10,0 0,10 C-10,0 -5,-5 0,-10Z" fill="currentColor" opacity="0.5" />
+          <path d="M-10,0 C-5,5 0,10 10,0 C0,-10 -5,-5 -10,0Z" fill="currentColor" opacity="0.4" />
+          <circle cx="0" cy="0" r="3" fill="currentColor" opacity="0.6" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">
+        <span class="eyebrow-line"></span>
+        Fortaleza · Outubro 2026
+        <span class="eyebrow-line"></span>
+      </p>
+      <div class="ornate-divider ornate-divider--hero" aria-hidden="true">
+        <svg viewBox="0 0 400 30" preserveAspectRatio="xMidYMid meet">
+          <line x1="0" y1="15" x2="155" y2="15" stroke="currentColor" stroke-width="0.7" opacity="0.7" />
+          <path d="M155,15 L165,8 L175,15 L165,22 Z" fill="none" stroke="currentColor" stroke-width="0.7"
+            opacity="0.8" />
+          <path d="M175,15 L185,9 L195,15 L185,21 Z" fill="currentColor" opacity="0.9" />
+          <path d="M195,15 L205,8 L215,15 L205,22 Z" fill="none" stroke="currentColor" stroke-width="0.7"
+            opacity="0.8" />
+          <line x1="215" y1="15" x2="400" y2="15" stroke="currentColor" stroke-width="0.7" opacity="0.7" />
+        </svg>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__title-eyebrow">Imersão</span>
+        <span class="hero__title-script" id="typewriter-text">Evolution</span>
+        <span class="hero__title-main">BROWS</span>
+      </h1>
+
+      <div class="ornate-divider ornate-divider--hero" aria-hidden="true">
+        <svg viewBox="0 0 400 30" preserveAspectRatio="xMidYMid meet">
+          <line x1="0" y1="15" x2="155" y2="15" stroke="currentColor" stroke-width="0.7" opacity="0.7" />
+          <path d="M155,15 L165,8 L175,15 L165,22 Z" fill="none" stroke="currentColor" stroke-width="0.7"
+            opacity="0.8" />
+          <path d="M175,15 L185,9 L195,15 L185,21 Z" fill="currentColor" opacity="0.9" />
+          <path d="M195,15 L205,8 L215,15 L205,22 Z" fill="none" stroke="currentColor" stroke-width="0.7"
+            opacity="0.8" />
+          <line x1="215" y1="15" x2="400" y2="15" stroke="currentColor" stroke-width="0.7" opacity="0.7" />
+        </svg>
+      </div>
+
+      <p class="hero__headline">
+        Um convite exclusivo foi enviado às mulheres mais promissoras<br />do mercado da beleza…
+      </p>
+      <p class="hero__subheadline">
+        Apenas aquelas que compreendem que não basta dominar técnicas — é preciso ocupar o lugar de destaque que lhes
+        pertence.
+      </p>
+
+      <a href="#waitlist" class="btn btn--primary btn--glow">
+        <span class="btn__shimmer"></span>
+        <svg class="btn__icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+        <span>Quero entrar para a lista de espera</span>
+      </a>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-indicator__text">Deslize para descobrir</span>
+      <div class="scroll-indicator__bar"></div>
+    </div>
+
+    <!-- Smooth fade into next section -->
+    <div class="hero__fade-bottom" aria-hidden="true"></div>
+  </section>
+
+  <!-- Wave: Hero → Carta -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35 L1440,0 Z" fill="#0E3535"/>
+      <path d="M0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35 L1440,70 L0,70 Z" fill="#16484A"/>
+      <path d="M0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 2 — A CARTA
+  ══════════════════════════════ -->
+  <section class="carta-section" id="carta">
+    <div class="section-floral-border section-floral-border--top" aria-hidden="true">
+      <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,30 Q150,5 300,30 Q450,55 600,30 Q750,5 900,30 Q1050,55 1200,30" stroke="currentColor"
+          stroke-width="0.8" fill="none" opacity="0.4" />
+        <g transform="translate(300,30)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
+          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
+        </g>
+        <g transform="translate(600,30)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
+          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
+        </g>
+        <g transform="translate(900,30)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
+          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
+        </g>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="carta-reveal-container" data-reveal="envelope">
+        
+        <!-- ENVELOPE BACK LAYER -->
+        <div class="envelope-back" aria-hidden="true"></div>
+
+        <div class="carta-wrapper">
+          <p class="section-eyebrow" style="text-align:center; margin-top:2rem;">A Carta</p>
+
+        <div class="carta-content">
+          <p class="carta-greeting">Prezada empreendedora,</p>
+          <p class="carta-text">Nesta nova temporada, observo atentamente aquelas que dominam mais do que técnicas…</p>
+          <p class="carta-text">Mas que compreendem o verdadeiro jogo por trás de um nome respeitado.</p>
+          <p class="carta-text">O mercado está repleto de profissionais.</p>
+          <p class="carta-text carta-text--emphasis">Mas são raras aquelas que se tornam <em>impossíveis de
+              ignorar.</em></p>
+          <p class="carta-text">E é exatamente sobre isso que será o encontro mais aguardado desta temporada…</p>
+        </div>
+
+        <div class="ornate-rose-divider" aria-hidden="true">
+          <svg viewBox="0 0 500 40">
+            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+            <g transform="translate(250,20)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+          </svg>
+        </div>
+
+        <p class="carta-signature">— Lady Whistledown</p>
+        </div>
+
+        <!-- ENVELOPE FRONT LAYER -->
+        <div class="envelope-front" aria-hidden="true">
+           <!-- Bolso da frente com vincos -->
+           <div class="envelope-pocket">
+             <div class="envelope-fold-left"></div>
+             <div class="envelope-fold-right"></div>
+             <div class="envelope-fold-bottom"></div>
+           </div>
+           <!-- Aba superior com selo -->
+           <div class="envelope-flap-wrapper">
+             <div class="envelope-flap-shape"></div>
+             <img src="assets/img/selo.png" alt="Selo da Carta" class="envelope-seal" />
+           </div>
+        </div>
+
+        <div class="carta-action-wrapper" style="position: absolute; top: 450px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.5s;">
+           <button id="btn-open-carta" class="btn btn--primary">Abrir a Carta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: Carta → Sobre o Evento -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,42 Q360,0 720,35 Q1080,70 1440,28 L1440,0 Z" fill="#16484A"/>
+      <path d="M0,42 Q360,0 720,35 Q1080,70 1440,28 L1440,70 L0,70 Z" fill="#0E3535"/>
+      <path d="M0,42 Q360,0 720,35 Q1080,70 1440,28" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 3 — SOBRE O EVENTO
+  ══════════════════════════════ -->
+  <section class="suspense" id="sobre">
+    <div class="suspense__bg-text" aria-hidden="true">EVOLUTIONS</div>
+    <div class="container">
+      <div class="suspense__inner" data-reveal>
+        <p class="section-eyebrow">Sobre o Evento</p>
+        <h2 class="section-title">
+          O evento que transforma profissionais comuns<br />
+          <em>em nomes de referência</em>
+        </h2>
+        <div class="ornate-rose-divider" aria-hidden="true">
+          <svg viewBox="0 0 500 40">
+            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+            <g transform="translate(250,20)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+          </svg>
+        </div>
+        <p class="suspense__text">Este não é mais um evento sobre técnicas. É um encontro criado para empreendedoras que
+          atuam na área das sobrancelhas e que já perceberam que <strong>apenas saber fazer não é mais
+            suficiente.</strong></p>
+        <p class="suspense__text">Aqui, você vai desenvolver clareza sobre o seu negócio, fortalecer seu posicionamento
+          e entender como se tornar uma autoridade no mercado.</p>
+        <p class="suspense__text suspense__text--emphasis">Porque no cenário atual… <em>Não vence quem faz melhor. Vence
+            quem é lembrada, reconhecida e desejada.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: Sobre → Diferencial -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42 L1440,0 Z" fill="#0E3535"/>
+      <path d="M0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42 L1440,70 L0,70 Z" fill="#16484A"/>
+      <path d="M0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 4 — DIFERENCIAL / TÉCNICAS
+  ══════════════════════════════ -->
+  <section class="pillars" id="diferencial">
+    <div class="container">
+      <p class="section-eyebrow" data-reveal>O Diferencial</p>
+      <h2 class="section-title" data-reveal style="text-align:center">Nem todas estão preparadas<br /><em>para o que
+          será revelado aqui…</em></h2>
+      <p class="pillars__intro" data-reveal>Durante esse encontro, você terá acesso a uma nova forma de enxergar o seu
+        negócio — unindo técnica, estratégia e posicionamento.</p>
+
+      <div class="tecnicas-grid" data-reveal>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">01</div>
+          <div class="tecnica-item__content">
+            <h3>Shadow</h3>
+            <p>Técnica de sombreamento que cria profundidade e naturalidade incomparável.</p>
+          </div>
+        </div>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">02</div>
+          <div class="tecnica-item__content">
+            <h3>Fios Realistas</h3>
+            <p>O traço perfeito que define sobrancelhas com precisão e naturalidade.</p>
+          </div>
+        </div>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">03</div>
+          <div class="tecnica-item__content">
+            <h3>Micropigmentação Labial</h3>
+            <p>A técnica que expande seu portfólio e multiplica seu faturamento.</p>
+          </div>
+        </div>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">04</div>
+          <div class="tecnica-item__content">
+            <h3>Brow Lamination</h3>
+            <p>O procedimento mais requisitado do mercado — dominado de verdade.</p>
+          </div>
+        </div>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">05</div>
+          <div class="tecnica-item__content">
+            <h3>Posicionamento</h3>
+            <p>Como se tornar a referência que as clientes buscam — e pagam bem.</p>
+          </div>
+        </div>
+        <div class="tecnica-item">
+          <div class="tecnica-item__number">06</div>
+          <div class="tecnica-item__content">
+            <h3>Marketing</h3>
+            <p>Estratégias validadas para atrair, encantar e fidelizar clientes de alto valor.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="pillars__closing" data-reveal>Porque <strong>talento sem estratégia… passa despercebido.</strong></p>
+    </div>
+  </section>
+
+  <!-- Wave: Diferencial → Autoridade -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,52 Q360,14 720,42 Q1080,70 1440,21 L1440,0 Z" fill="#16484A"/>
+      <path d="M0,52 Q360,14 720,42 Q1080,70 1440,21 L1440,70 L0,70 Z" fill="#0E3535"/>
+      <path d="M0,52 Q360,14 720,42 Q1080,70 1440,21" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 5 — AUTORIDADE
+  ══════════════════════════════ -->
+  <section class="quote-section">
+    <div class="quote-section__bg-rose" aria-hidden="true">
+      <svg viewBox="0 0 400 400" opacity="0.06">
+        <g transform="translate(200,200)">
+          <path d="M0,-100 C50,-50 100,0 0,100 C-100,0 -50,-50 0,-100Z" fill="currentColor" />
+          <path d="M-100,0 C-50,50 0,100 100,0 C0,-100 -50,-50 -100,0Z" fill="currentColor" />
+          <circle cx="0" cy="0" r="25" fill="currentColor" />
+        </g>
+      </svg>
+    </div>
+    <div class="container">
+      <blockquote class="quote" data-reveal>
+        <div class="quote__marks" aria-hidden="true">"</div>
+        <p class="quote__text">Profissionais que hoje são destaque nacional estarão presentes para compartilhar o que
+          realmente funciona no mercado.</p>
+        <p class="quote__subtext">Sem teoria vazia. Sem fórmulas genéricas. Apenas direcionamentos validados que já
+          transformaram empreendedoras comuns em <span class="quote__highlight">grandes referências.</span></p>
+        <footer class="quote__footer">
+          <div class="ornate-rose-divider" aria-hidden="true">
+            <svg viewBox="0 0 300 30">
+              <line x1="0" y1="15" x2="110" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+              <g transform="translate(150,15)">
+                <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+                <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+                <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+              </g>
+              <line x1="190" y1="15" x2="300" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+            </svg>
+          </div>
+          <p class="quote__author">Diretamente das maiores referências do Brasil</p>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Wave: Autoridade → Diamantes -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,35 Q360,70 720,28 Q1080,-14 1440,42 L1440,0 Z" fill="#0E3535"/>
+      <path d="M0,35 Q360,70 720,28 Q1080,-14 1440,42 L1440,70 L0,70 Z" fill="#16484A"/>
+      <path d="M0,35 Q360,70 720,28 Q1080,-14 1440,42" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 6 — OS DIAMANTES
+  ══════════════════════════════ -->
+  <section class="diamantes-section" id="diamantes">
+    <div class="container">
+      <div class="diamantes-inner" data-reveal>
+        <div class="diamantes-gem" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <polygon points="40,5 75,30 65,75 15,75 5,30" fill="none" stroke="currentColor" stroke-width="0.8"
+              opacity="0.7" />
+            <polygon points="40,5 75,30 40,50 5,30" fill="currentColor" opacity="0.15" />
+            <polygon points="40,50 75,30 65,75 15,75 5,30" fill="currentColor" opacity="0.1" />
+            <line x1="40" y1="5" x2="40" y2="75" stroke="currentColor" stroke-width="0.4" opacity="0.5" />
+            <line x1="5" y1="30" x2="75" y2="30" stroke="currentColor" stroke-width="0.4" opacity="0.5" />
+            <line x1="40" y1="5" x2="65" y2="75" stroke="currentColor" stroke-width="0.3" opacity="0.3" />
+            <line x1="40" y1="5" x2="15" y2="75" stroke="currentColor" stroke-width="0.3" opacity="0.3" />
+          </svg>
+        </div>
+        <p class="section-eyebrow" style="text-align:center">Mistério</p>
+        <h2 class="section-title" style="text-align:center">
+          E nesta temporada…<br /><em>algumas serão escolhidas</em>
+        </h2>
+        <div class="ornate-rose-divider" aria-hidden="true">
+          <svg viewBox="0 0 500 40">
+            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+            <g transform="translate(250,20)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+          </svg>
+        </div>
+        <p class="diamantes-text">Entre as participantes, empreendedoras serão reconhecidas como:</p>
+        <p class="diamantes-title">As Diamantes da Temporada.</p>
+        <p class="diamantes-text">Os critérios ainda não foram revelados. Mas uma coisa é certa…</p>
+        <p class="diamantes-text carta-text--emphasis"><em>Você não vai querer descobrir isso depois que tudo já tiver
+            acontecido.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: Diamantes → Urgência -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,21 Q480,70 960,28 Q1200,7 1440,52 L1440,0 Z" fill="#16484A"/>
+      <path d="M0,21 Q480,70 960,28 Q1200,7 1440,52 L1440,70 L0,70 Z" fill="#0E3535"/>
+      <path d="M0,21 Q480,70 960,28 Q1200,7 1440,52" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 7 — URGÊNCIA
+  ══════════════════════════════ -->
+  <section class="urgencia-section" id="urgencia">
+    <div class="container">
+      <div class="urgencia-inner" data-reveal>
+        <p class="section-eyebrow" style="text-align:center">Urgência</p>
+        <h2 class="urgencia-headline">
+          O último e mais aguardado espetáculo da temporada<br />está prestes a começar
+        </h2>
+        <div class="ornate-rose-divider" aria-hidden="true">
+          <svg viewBox="0 0 500 40">
+            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+            <g transform="translate(250,20)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+          </svg>
+        </div>
+        <p class="urgencia-text">E como todo grande evento…</p>
+        <p class="urgencia-text urgencia-text--bold">Nem todas terão acesso.</p>
+        <p class="urgencia-text">Os convites oficiais serão enviados apenas para quem estiver na lista de espera.</p>
+        <a href="#waitlist" class="btn btn--primary btn--glow" style="margin-top:2rem;">
+          <span class="btn__shimmer"></span>
+          <span>Garantir meu lugar agora</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: Urgência → Formulário -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21 L1440,0 Z" fill="#0E3535"/>
+      <path d="M0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21 L1440,70 L0,70 Z" fill="#16484A"/>
+      <path d="M0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21" fill="none" class="gold-line"/>
+    </svg>
+    <div class="section-shimmer-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 8 — FORMULÁRIO (CTA)
+  ══════════════════════════════ -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist__ambient" aria-hidden="true"></div>
+    <div class="waitlist__top-border" aria-hidden="true">
+      <svg viewBox="0 0 1200 50" preserveAspectRatio="none">
+        <path d="M0,25 L550,25" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
+        <g transform="translate(600,25)">
+          <circle cx="0" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.8" />
+          <circle cx="0" cy="0" r="1.5" fill="currentColor" opacity="0.9" />
+        </g>
+        <path d="M650,25 L1200,25" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
+      </svg>
+    </div>
+    <div class="container">
+      <div class="waitlist__wrapper">
+        <div class="waitlist__left" data-reveal>
+          <p class="section-eyebrow">Seção 8 · Formulário</p>
+          <h2 class="waitlist__title">
+            Garanta seu lugar<br /><em>antes da abertura oficial</em>
+          </h2>
+          <div class="ornate-rose-divider ornate-rose-divider--left" aria-hidden="true">
+            <svg viewBox="0 0 250 30">
+              <line x1="0" y1="15" x2="85" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+              <g transform="translate(125,15)">
+                <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+                <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+                <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+              </g>
+              <line x1="165" y1="15" x2="250" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+            </svg>
+          </div>
+          <p class="waitlist__intro">Se você deseja parar de ser apenas mais uma profissional e finalmente se tornar uma
+            referência no seu mercado…</p>
+          <p class="waitlist__intro waitlist__intro--emphasis">Este é o seu momento.</p>
+          <ul class="waitlist__perks">
+            <li class="perk-item" data-reveal data-reveal-delay="1">
+              <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              Acesso antecipado antes da abertura oficial
+            </li>
+            <li class="perk-item" data-reveal data-reveal-delay="2">
+              <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              Condições exclusivas para membros da lista VIP
+            </li>
+            <li class="perk-item" data-reveal data-reveal-delay="3">
+              <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              Conteúdos exclusivos antes do início da imersão
+            </li>
+            <li class="perk-item" data-reveal data-reveal-delay="3">
+              <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              Vagas muito limitadas — as primeiras são as mais disputadas
+            </li>
+          </ul>
+        </div>
+        <div class="waitlist__right" data-reveal data-reveal-delay="2">
+          <div class="form-card">
+            <div class="form-card__corner form-card__corner--tl" aria-hidden="true"><svg width="50" height="50"
+                viewBox="0 0 50 50">
+                <path d="M5 5 L5 25 M5 5 L25 5" stroke="currentColor" stroke-width="1" />
+                <circle cx="5" cy="5" r="2" fill="currentColor" />
+              </svg></div>
+            <div class="form-card__corner form-card__corner--tr" aria-hidden="true"><svg width="50" height="50"
+                viewBox="0 0 50 50">
+                <path d="M45 5 L45 25 M45 5 L25 5" stroke="currentColor" stroke-width="1" />
+                <circle cx="45" cy="5" r="2" fill="currentColor" />
+              </svg></div>
+            <div class="form-card__corner form-card__corner--bl" aria-hidden="true"><svg width="50" height="50"
+                viewBox="0 0 50 50">
+                <path d="M5 45 L5 25 M5 45 L25 45" stroke="currentColor" stroke-width="1" />
+                <circle cx="5" cy="45" r="2" fill="currentColor" />
+              </svg></div>
+            <div class="form-card__corner form-card__corner--br" aria-hidden="true"><svg width="50" height="50"
+                viewBox="0 0 50 50">
+                <path d="M45 45 L45 25 M45 45 L25 45" stroke="currentColor" stroke-width="1" />
+                <circle cx="45" cy="45" r="2" fill="currentColor" />
+              </svg></div>
+
+            <p class="form-card__label">Convite Oficial</p>
+            <h3 class="form-card__title">Preencha seus dados</h3>
+            <form id="waitlist-form" class="form" novalidate>
+              <div class="form__group">
+                <label class="form__label" for="name">Nome</label>
+                <div class="form__input-wrapper">
+                  <input class="form__input" type="text" id="name" name="name" placeholder="Como devemos chamá-la?"
+                    required autocomplete="name" />
+                  <span class="form__input-line"></span>
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="whatsapp">WhatsApp</label>
+                <div class="form__input-wrapper">
+                  <input class="form__input" type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000"
+                    required autocomplete="tel" />
+                  <span class="form__input-line"></span>
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="email">E-mail</label>
+                <div class="form__input-wrapper">
+                  <input class="form__input" type="email" id="email" name="email" placeholder="seu@email.com" required
+                    autocomplete="email" />
+                  <span class="form__input-line"></span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--submit btn--glow" id="submit-btn">
+                <span class="btn__shimmer"></span>
+                <span class="btn__text">Quero receber meu convite exclusivo</span>
+                <span class="btn__loading" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                  </svg>
+                </span>
+              </button>
+              <p class="form__disclaimer">🔒 Seus dados estão seguros. Prometemos não enviar spam.</p>
+            </form>
+            <div class="form-success" id="form-success" aria-hidden="true">
+              <div class="form-success__rose" aria-hidden="true">
+                <svg width="60" height="60" viewBox="0 0 60 60">
+                  <g transform="translate(30,30)">
+                    <path d="M0,-22 C11,-11 22,0 0,22 C-22,0 -11,-11 0,-22Z" fill="currentColor" opacity="0.7" />
+                    <path d="M-22,0 C-11,11 0,22 22,0 C0,-22 -11,-11 -22,0Z" fill="currentColor" opacity="0.6" />
+                    <circle cx="0" cy="0" r="5" fill="currentColor" />
+                  </g>
+                </svg>
+              </div>
+              <h3 class="form-success__title">Convite enviado!</h3>
+              <p class="form-success__text">Você agora faz parte da lista de espera da <strong>Imersão Evolutions
+                  Brows</strong>. Fique de olho no seu WhatsApp e e-mail. A temporada está chegando. 🌹</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: Formulário → Footer -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
+      <path d="M0,0 L0,28 Q360,70 720,35 Q1080,0 1440,49 L1440,0 Z" fill="#0E3535"/>
+      <path d="M0,28 Q360,70 720,35 Q1080,0 1440,49 L1440,70 L0,70 Z" fill="#040a12"/>
+      <path d="M0,28 Q360,70 720,35 Q1080,0 1440,49" fill="none" class="gold-line"/>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 9 — FECHAMENTO
+  ══════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__ornament" aria-hidden="true">
+        <svg viewBox="0 0 500 30">
+          <line x1="0" y1="15" x2="205" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+          <g transform="translate(250,15)">
+            <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.6" />
+            <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.5" />
+            <circle cx="0" cy="0" r="2" fill="currentColor" opacity="0.8" />
+          </g>
+          <line x1="295" y1="15" x2="500" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+        </svg>
+      </div>
+      <p class="footer__closing">A temporada está prestes a começar…</p>
+      <p class="footer__closing-sub">E os olhares estarão voltados para aquelas que ousarem se destacar.</p>
+      <div class="ornate-rose-divider" style="margin: 1.5rem auto;" aria-hidden="true">
+        <svg viewBox="0 0 300 30">
+          <line x1="0" y1="15" x2="110" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+          <g transform="translate(150,15)">
+            <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.5" />
+            <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.4" />
+            <circle cx="0" cy="0" r="2.5" fill="currentColor" opacity="0.7" />
+          </g>
+          <line x1="190" y1="15" x2="300" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+        </svg>
+      </div>
+      <p class="footer__signature">Com expectativa,</p>
+      <p class="footer__brand">— Lady Whistledown</p>
+      <p class="footer__tagline">Imersão Evolutions Brows · Fortaleza · Outubro 2026</p>
+      <p class="footer__copy">© 2026 Evolutions Brows. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

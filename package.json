@@ -1,0 +1,17 @@
+{
+  "name": "erika-projeto",
+  "version": "1.0.0",
+  "description": "Landing page para o evento \"Desenrola AI\" em Fortaleza/CE, previsto para outubro de 2025.",
+  "main": "assets/js/script.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
