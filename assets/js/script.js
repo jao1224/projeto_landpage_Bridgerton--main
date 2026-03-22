@@ -4,6 +4,314 @@
 (function () {
   'use strict';
 
+  /* ═══════════════════════════════════════════════════════════
+     ANIMAÇÃO DE ACENDER A LUZ
+  ═══════════════════════════════════════════════════════════ */
+  (function initLightOn() {
+    const lightOverlay = document.getElementById('light-on-overlay');
+    if (lightOverlay) {
+      setTimeout(() => {
+        lightOverlay.style.display = 'none';
+      }, 2500);
+    }
+  })();
+
+  /* ═══════════════════════════════════════════════════════════
+     TELA DE ABERTURA (Opening Screen)
+  ═══════════════════════════════════════════════════════════ */
+  (function initOpeningScreen() {
+    const openingScreen = document.getElementById('opening-screen');
+    const cartaScreen = document.getElementById('carta-screen');
+    const mainContent = document.getElementById('main-content');
+    const seloIntro = document.getElementById('selo-intro');
+    const textFirst = document.querySelector('.opening-screen__text--first');
+    const textSecond = document.querySelector('.opening-screen__text--second');
+    const textThird = document.querySelector('.opening-screen__text--third');
+    
+    if (!openingScreen || !cartaScreen || !mainContent) return;
+
+    let currentStep = 0;
+    let timeoutId;
+    let isAutoPlaying = true;
+
+    // Função para mostrar a carta
+    function showLetter() {
+      openingScreen.classList.add('fade-out');
+      
+      setTimeout(() => {
+        openingScreen.style.display = 'none';
+        cartaScreen.style.display = 'flex';
+        
+        setTimeout(() => {
+          cartaScreen.classList.add('visible');
+        }, 50);
+      }, 500);
+    }
+
+    // Função para avançar para o próximo texto
+    function nextStep() {
+      if (timeoutId) clearTimeout(timeoutId);
+      isAutoPlaying = false;
+      
+      currentStep++;
+      
+      if (currentStep === 1) {
+        // Esconde primeiro, mostra segundo
+        textFirst.style.display = 'none';
+        textSecond.classList.add('active');
+        
+        timeoutId = setTimeout(() => {
+          nextStep();
+        }, 5000);
+        
+      } else if (currentStep === 2) {
+        // Fade out segundo, mostra terceiro
+        textSecond.classList.add('fade-out');
+        
+        setTimeout(() => {
+          textSecond.style.display = 'none';
+          textThird.classList.add('active');
+          
+          timeoutId = setTimeout(() => {
+            showLetter();
+          }, 5000);
+        }, 800);
+        
+      } else if (currentStep >= 3) {
+        showLetter();
+      }
+    }
+
+    // Clique na tela de abertura avança para o próximo texto
+    openingScreen.addEventListener('click', () => {
+      if (isAutoPlaying) {
+        isAutoPlaying = false;
+      }
+      nextStep();
+    });
+
+    // Timeline automática
+    setTimeout(() => {
+      if (currentStep === 0 && isAutoPlaying) {
+        textFirst.style.display = 'none';
+        textSecond.classList.add('active');
+        currentStep = 1;
+        
+        // Após 5s, fade out do segundo e mostra terceiro
+        setTimeout(() => {
+          if (currentStep === 1 && isAutoPlaying) {
+            textSecond.classList.add('fade-out');
+            
+            setTimeout(() => {
+              textSecond.style.display = 'none';
+              textThird.classList.add('active');
+              currentStep = 2;
+              
+              // Após 5s, mostra carta
+              setTimeout(() => {
+                if (currentStep === 2 && isAutoPlaying) {
+                  showLetter();
+                }
+              }, 5000);
+            }, 800);
+          }
+        }, 5000);
+      }
+    }, 5500);
+
+    // Quando clicar no selo, mostra o site completo
+    if (seloIntro) {
+      const cartaRevealIntro = document.getElementById('carta-reveal-intro');
+      const clickHint = document.getElementById('click-hint');
+      let envelopeOpened = false;
+      let scrollEnabled = false;
+      
+      // Mostrar hint após 3.5 segundos
+      setTimeout(() => {
+        if (clickHint && cartaScreen.classList.contains('visible')) {
+          clickHint.classList.add('visible');
+        }
+      }, 3500);
+      
+      console.log('Selo encontrado, adicionando evento de clique');
+      seloIntro.addEventListener('click', (e) => {
+        console.log('Selo clicado!');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (envelopeOpened) return;
+        envelopeOpened = true;
+        
+        // Esconder hint
+        if (clickHint) {
+          clickHint.style.opacity = '0';
+        }
+        
+        // Parar animação de flutuação da carta
+        if (cartaRevealIntro) {
+          cartaRevealIntro.style.animation = 'none';
+        }
+        
+        // Abrir envelope
+        if (cartaRevealIntro) {
+          cartaRevealIntro.classList.add('is-open');
+        }
+        
+        // Após a animação de abertura, habilitar scroll
+        setTimeout(() => {
+          scrollEnabled = true;
+          
+          // Mostrar o conteúdo principal (mas ainda invisível)
+          mainContent.style.display = 'block';
+          mainContent.style.opacity = '1';
+          mainContent.style.position = 'fixed';
+          mainContent.style.top = '100vh';
+          mainContent.style.left = '0';
+          mainContent.style.right = '0';
+          mainContent.style.bottom = 'auto';
+          mainContent.style.height = '100vh';
+          mainContent.style.zIndex = '9999';
+          mainContent.style.overflow = 'hidden';
+          
+          // Remover transições para controle manual
+          cartaScreen.style.transition = 'none';
+          mainContent.style.transition = 'none';
+          
+          // Adicionar indicador de scroll
+          const scrollHint = document.createElement('p');
+          scrollHint.className = 'scroll-hint-carta';
+          scrollHint.innerHTML = '<span class="hint-desktop">Role para continuar</span><span class="hint-mobile">Deslize para continuar</span>';
+          cartaScreen.appendChild(scrollHint);
+          
+          setTimeout(() => {
+            scrollHint.classList.add('visible');
+          }, 500);
+          
+          // Listener de scroll
+          let scrollProgress = 0;
+          let isTransitioning = false;
+          let animationFrame = null;
+          
+          const updateTransition = () => {
+            if (animationFrame) {
+              cancelAnimationFrame(animationFrame);
+            }
+            
+            animationFrame = requestAnimationFrame(() => {
+              // Carta diminui e fica no fundo
+              const scale = 1 - scrollProgress * 0.5; // Diminui até 50% do tamanho
+              const opacity = 1 - scrollProgress * 0.7; // Fica mais transparente
+              cartaScreen.style.transform = `scale(${scale})`;
+              cartaScreen.style.opacity = String(Math.max(0, opacity));
+              
+              // Hero sobe por cima
+              const translateY = 100 - scrollProgress * 100; // De 100vh para 0vh
+              mainContent.style.transform = `translateY(${translateY}vh)`;
+              
+              // Esconder hint quando começar a rolar
+              if (scrollProgress > 0.1 && scrollHint) {
+                scrollHint.style.opacity = '0';
+              } else if (scrollProgress <= 0.1 && scrollHint) {
+                scrollHint.style.opacity = '';
+              }
+              
+              // Quando completar o scroll
+              if (scrollProgress >= 0.99 && !isTransitioning) {
+                isTransitioning = true;
+                scrollEnabled = false;
+                
+                // Remover listeners
+                window.removeEventListener('wheel', handleScroll);
+                window.removeEventListener('touchmove', handleTouchMove);
+                window.removeEventListener('touchstart', handleTouchStart);
+                document.body.style.overflow = '';
+                
+                // Finalizar transição
+                cartaScreen.style.display = 'none';
+                mainContent.style.position = 'static';
+                mainContent.style.top = 'auto';
+                mainContent.style.height = 'auto';
+                mainContent.style.zIndex = 'auto';
+                mainContent.style.transform = 'none';
+                mainContent.style.overflow = '';
+                
+                // Scroll até o topo
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }, 50);
+              }
+            });
+          };
+          
+          const handleScroll = (e) => {
+            if (!scrollEnabled) return;
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Detectar direção do scroll
+            const delta = e.deltaY || e.detail || -e.wheelDelta;
+            
+            // Ajustar sensibilidade
+            const sensitivity = 0.005;
+            
+            if (delta > 0) {
+              // Scroll para baixo
+              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1);
+            } else {
+              // Scroll para cima
+              scrollProgress = Math.max(scrollProgress - sensitivity * Math.abs(delta), 0);
+            }
+            
+            updateTransition();
+          };
+          
+          // Touch support para mobile
+          let touchStartY = 0;
+          let lastTouchY = 0;
+          
+          const handleTouchStart = (e) => {
+            if (!scrollEnabled) return;
+            touchStartY = e.touches[0].clientY;
+            lastTouchY = touchStartY;
+          };
+          
+          const handleTouchMove = (e) => {
+            if (!scrollEnabled) return;
+            
+            const touchY = e.touches[0].clientY;
+            const delta = lastTouchY - touchY;
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Ajustar sensibilidade para touch
+            const sensitivity = 0.002;
+            
+            if (delta > 0) {
+              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1);
+            } else {
+              scrollProgress = Math.max(scrollProgress - sensitivity * Math.abs(delta), 0);
+            }
+            
+            updateTransition();
+            lastTouchY = touchY;
+          };
+          
+          // Bloquear scroll da página
+          document.body.style.overflow = 'hidden';
+          
+          window.addEventListener('wheel', handleScroll, { passive: false });
+          window.addEventListener('touchstart', handleTouchStart, { passive: false });
+          window.addEventListener('touchmove', handleTouchMove, { passive: false });
+          
+        }, 3000);
+      });
+    } else {
+      console.log('Selo não encontrado!');
+    }
+  })();
+
   /* ─── 1. Ambient canvas (aurora background) ─────────────── */
   (function initAmbientCanvas() {
     const canvas = document.getElementById('ambient-canvas');

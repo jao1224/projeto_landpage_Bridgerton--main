@@ -17,6 +17,74 @@
 
 <body>
 
+  <!-- ══════════════════════════════
+       ANIMAÇÃO DE ACENDER A LUZ
+  ══════════════════════════════ -->
+  <div id="light-on-overlay" class="light-on-overlay"></div>
+
+  <!-- ══════════════════════════════
+       TELA DE ABERTURA
+  ══════════════════════════════ -->
+  <div id="opening-screen" class="opening-screen">
+    <div class="opening-screen__content">
+      <p class="opening-screen__text opening-screen__text--first">
+        Um convite exclusivo foi enviado às mulheres mais promissoras<br />do mercado da beleza…
+      </p>
+      <p class="opening-screen__text opening-screen__text--second">
+        Aquelas que compreendem que não basta dominar técnicas —<br />é preciso ocupar o lugar de destaque que lhes pertence.
+      </p>
+      <p class="opening-screen__text opening-screen__text--third">
+        Nesta temporada, não se trata apenas de técnica…<br />Trata-se de posição, estratégia e reconhecimento.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       TELA DA CARTA (intermediária)
+  ══════════════════════════════ -->
+  <div id="carta-screen" class="carta-screen" style="display: none;">
+    <div class="carta-screen__wrapper">
+      <div class="carta-reveal-container" id="carta-reveal-intro">
+        <div class="envelope-back" aria-hidden="true"></div>
+
+        <div class="carta-wrapper">
+          <div class="carta-content">
+            <p class="carta-greeting">Prezada empreendedora,</p>
+            <p class="carta-text">Nesta nova temporada, observo atentamente aquelas que dominam mais do que técnicas…</p>
+            <p class="carta-text">Mas que compreendem o verdadeiro jogo por trás de um nome respeitado.</p>
+            <p class="carta-text">O mercado está repleto de profissionais.</p>
+            <p class="carta-text carta-text--emphasis">Mas são raras aquelas que se tornam <em>impossíveis de ignorar.</em></p>
+            <p class="carta-text">E é exatamente sobre isso que será o encontro mais aguardado desta temporada…</p>
+          </div>
+
+          <p class="carta-signature">— Lady Erika</p>
+        </div>
+
+        <div class="envelope-front" aria-hidden="true">
+          <div class="envelope-pocket">
+            <div class="envelope-fold-left"></div>
+            <div class="envelope-fold-right"></div>
+            <div class="envelope-fold-bottom"></div>
+          </div>
+          <div class="envelope-flap-wrapper">
+            <div class="envelope-flap-shape"></div>
+            <img src="assets/img/selo.png" alt="Selo da Carta" class="envelope-seal envelope-seal--clickable" id="selo-intro" />
+          </div>
+        </div>
+      </div>
+      
+      <p class="click-to-open-hint" id="click-hint">
+        <span class="hint-desktop">Clique no selo para abrir</span>
+        <span class="hint-mobile">Toque no selo para abrir</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       CONTEÚDO PRINCIPAL (inicialmente oculto)
+  ══════════════════════════════ -->
+  <div id="main-content" class="main-content" style="display: none;">
+
   <canvas id="ambient-canvas"></canvas>
   <div id="petals-container" aria-hidden="true"></div>
   <div id="particles-container" aria-hidden="true"></div>
@@ -229,8 +297,6 @@
         <div class="envelope-back" aria-hidden="true"></div>
 
         <div class="carta-wrapper">
-          <p class="section-eyebrow" style="text-align:center; margin-top:2rem;">A Carta</p>
-
         <div class="carta-content">
           <p class="carta-greeting">Prezada empreendedora,</p>
           <p class="carta-text">Nesta nova temporada, observo atentamente aquelas que dominam mais do que técnicas…</p>
@@ -241,20 +307,7 @@
           <p class="carta-text">E é exatamente sobre isso que será o encontro mais aguardado desta temporada…</p>
         </div>
 
-        <div class="ornate-rose-divider" aria-hidden="true">
-          <svg viewBox="0 0 500 40">
-            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-            <g transform="translate(250,20)">
-              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
-              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
-              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
-              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
-            </g>
-            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-          </svg>
-        </div>
-
-        <p class="carta-signature">— Lady Whistledown</p>
+        <p class="carta-signature">— Lady Erika</p>
         </div>
 
         <!-- ENVELOPE FRONT LAYER -->
@@ -736,11 +789,13 @@
         </svg>
       </div>
       <p class="footer__signature">Com expectativa,</p>
-      <p class="footer__brand">— Lady Whistledown</p>
+      <p class="footer__brand">— Lady Erika</p>
       <p class="footer__tagline">Imersão Evolutions Brows · Fortaleza · Outubro 2026</p>
       <p class="footer__copy">© 2026 Evolutions Brows. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  </div><!-- Fim do main-content -->
 
   <script src="assets/js/script.js"></script>
 </body>
