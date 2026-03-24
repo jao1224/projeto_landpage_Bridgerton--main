@@ -27,6 +27,7 @@
 .suspense::after,
 .pillars::after,
 .quote-section::after,
+.idealizadora-section::after,
 .diamantes-section::after,
 .urgencia-section::after,
 .waitlist::after {
@@ -242,7 +243,6 @@
 ══════════════════════════════════════════════════════════ */
 .idealizadora-section {
   padding: 7rem 0;
-  background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 50%, var(--color-teal) 100%);
   position: relative;
   z-index: 2;
 }
@@ -251,7 +251,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: end;
 }
 
 .idealizadora-content {
@@ -293,7 +293,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  transform: translateY(-4rem);
 }
 
 .idealizadora-frame {
@@ -371,4 +372,10 @@
   .idealizadora-frame {
     max-width: 350px;
   }
+}
+
+
+/* Reduzir padding top da seção sobre */
+.suspense {
+  padding-top: 2rem !important;
 }
