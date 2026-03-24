@@ -512,7 +512,7 @@
 /* Informações do speaker */
 .speaker-card__info {
   position: absolute;
-  bottom: -4rem;
+  bottom: -5rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -521,6 +521,10 @@
   transition: all 0.6s ease;
   pointer-events: none;
   z-index: 4;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .speaker-card__name {
@@ -607,4 +611,154 @@
   .speaker-card__info {
     bottom: -3.5rem;
   }
+}
+
+
+/* Molduras somente nas imagens dos cards de técnicas */
+.tecnica-card__image-wrapper {
+  border: 2px solid rgba(201,168,76,0.3) !important;
+  box-shadow: 
+    0 0 20px rgba(201,168,76,0.1),
+    inset 0 0 30px rgba(201,168,76,0.05) !important;
+  position: relative !important;
+}
+
+.tecnica-card__image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cantos decorativos das molduras */
+.tecnica-card__image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid var(--color-gold);
+  border-left: 3px solid var(--color-gold);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tecnica-card__image::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid var(--color-gold);
+  border-right: 3px solid var(--color-gold);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tecnica-card__image::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 30px;
+  height: 30px;
+  border-bottom: 3px solid var(--color-gold);
+  border-left: 3px solid var(--color-gold);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tecnica-card__image {
+  position: relative;
+}
+
+.tecnica-card__image::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 30px;
+  height: 30px;
+  border-bottom: 3px solid var(--color-gold);
+  border-right: 3px solid var(--color-gold);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tecnica-card:hover .tecnica-card__image-wrapper {
+  border-color: rgba(201,168,76,0.6) !important;
+  box-shadow: 
+    0 0 30px rgba(201,168,76,0.2),
+    inset 0 0 40px rgba(201,168,76,0.08) !important;
+}
+
+
+/* Mudar cor de background */
+body {
+  background: #1a2328 !important;
+  background-image: url('../img/img-background.jpg') !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-attachment: fixed !important;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 40, 48, 0.6);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Forçar cor de background em todas as seções */
+.hero,
+.suspense,
+.pillars,
+.quote-section,
+.idealizadora-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  background: transparent !important;
+}
+
+.opening-screen,
+.carta-screen {
+  background: transparent !important;
+}
+
+
+/* Pétalas por toda a página */
+#petals-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9998 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+.petal {
+  position: absolute !important;
+  pointer-events: none !important;
 }
