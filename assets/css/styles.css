@@ -64,7 +64,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  background: var(--color-navy-deep);
+  background: #000000;
   color: var(--color-cream);
   font-family: var(--font-body);
   line-height: 1.75;
@@ -90,17 +90,21 @@ img { display: block; max-width: 100%; }
     opacity: 1;
     background: #000000;
   }
-  30% {
+  20% {
     opacity: 1;
-    background: radial-gradient(ellipse at center, rgba(5,5,5,0.98) 0%, rgba(0,0,0,0.99) 40%, #000000 100%);
+    background: radial-gradient(ellipse at center, rgba(8,8,8,0.98) 0%, rgba(3,3,3,0.99) 40%, #000000 100%);
+  }
+  40% {
+    opacity: 0.9;
+    background: radial-gradient(ellipse at center, rgba(15,15,15,0.85) 0%, rgba(10,10,10,0.92) 50%, rgba(0,0,0,0.97) 100%);
   }
   60% {
-    opacity: 0.8;
-    background: radial-gradient(ellipse at center, rgba(10,10,10,0.7) 0%, rgba(5,5,5,0.85) 50%, rgba(0,0,0,0.95) 100%);
+    opacity: 0.65;
+    background: radial-gradient(ellipse at center, rgba(20,20,20,0.6) 0%, rgba(12,12,12,0.75) 55%, rgba(5,5,5,0.88) 100%);
   }
-  85% {
-    opacity: 0.4;
-    background: radial-gradient(ellipse at center, rgba(15,15,15,0.3) 0%, rgba(8,8,8,0.5) 60%, rgba(0,0,0,0.7) 100%);
+  80% {
+    opacity: 0.3;
+    background: radial-gradient(ellipse at center, rgba(25,25,25,0.25) 0%, rgba(15,15,15,0.4) 65%, rgba(8,8,8,0.6) 100%);
   }
   100% {
     opacity: 0;
@@ -116,13 +120,27 @@ img { display: block; max-width: 100%; }
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: linear-gradient(135deg, #050505 0%, #0a1a1a 50%, #050505 100%);
+  background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
   transition: opacity 1.5s ease-out;
   cursor: pointer;
+}
+
+/* Floral pattern overlay for opening screen */
+.opening-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-hero.jpg');
+  background-size: 500px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .opening-screen.fade-out {
@@ -133,10 +151,13 @@ img { display: block; max-width: 100%; }
 .opening-screen__content {
   max-width: 900px;
   padding: 2rem;
-  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .opening-screen__text {
@@ -154,6 +175,7 @@ img { display: block; max-width: 100%; }
   width: 90%;
   max-width: 900px;
   will-change: transform, opacity;
+  text-align: center;
 }
 
 .opening-screen__text--first {
@@ -241,13 +263,27 @@ img { display: block; max-width: 100%; }
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background: linear-gradient(135deg, #050505 0%, #0a1a1a 50%, #050505 100%);
+  background: linear-gradient(135deg, #050505 0%, #050505 50%, #050505 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 1s ease-in;
   will-change: opacity, transform;
+}
+
+/* Floral pattern overlay for carta screen */
+.carta-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-hero.jpg');
+  background-size: 500px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .carta-screen.visible {
@@ -268,6 +304,7 @@ img { display: block; max-width: 100%; }
   transition: opacity 1.5s ease-out, transform 1.5s ease-out;
   position: relative;
   will-change: opacity, transform;
+  z-index: 2;
 }
 
 .carta-screen.visible .carta-screen__wrapper {
@@ -524,18 +561,12 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   transition: var(--transition);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* Shimmer sweep animation on button */
+/* Shimmer sweep animation on button - DISABLED */
 .btn__shimmer {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
-  animation: shimmerSweep 3s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes shimmerSweep {
@@ -617,24 +648,164 @@ img { display: block; max-width: 100%; }
 .btn--loading .btn__loading { display: flex; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Star effects for buttons */
+.btn .star-1,
+.btn .star-2,
+.btn .star-3,
+.btn .star-4,
+.btn .star-5,
+.btn .star-6 {
+  position: absolute;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btn .star-1 {
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.btn .star-2 {
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.btn .star-3 {
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.btn .star-4 {
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.btn .star-5 {
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.btn .star-6 {
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transition: all 0.8s ease;
+}
+
+.btn:hover .star-1 {
+  top: -80%;
+  left: -10%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.btn:hover .star-2 {
+  top: -15%;
+  left: 20%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.btn:hover .star-3 {
+  top: 80%;
+  left: 15%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.btn:hover .star-4 {
+  top: 20%;
+  left: 105%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.btn:hover .star-5 {
+  top: 50%;
+  left: 120%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.btn:hover .star-6 {
+  top: -10%;
+  left: 95%;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #fffdef);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.fil0 {
+  fill: #fffdef;
+}
+
 /* ════════════════════════════════
    HERO
 ════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
   z-index: 2;
   background:
     radial-gradient(ellipse 80% 60% at 50% 20%, rgba(201,168,76,0.08) 0%, transparent 70%),
     radial-gradient(ellipse 60% 80% at 20% 80%, rgba(166,107,110,0.10) 0%, transparent 60%),
     linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%);
+}
+
+/* Floral pattern overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-hero.jpg');
+  background-size: 500px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Animated mesh */
@@ -702,7 +873,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   z-index: 4;
   max-width: 750px;
-  padding: 2.5rem 2rem;
+  padding: 1rem 2rem;
   animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   overflow: visible;
 }
@@ -723,7 +894,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-rose-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   animation: fadeInUp 1s 0.2s both;
 }
 
@@ -743,7 +914,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 0.5rem;
   animation: fadeInUp 1s 0.4s both;
   overflow: visible;
-  padding: 1.5rem 0 2rem 0;
+  padding: 0.5rem 0 1rem 0;
 }
 
 /* "Imersão" — small Cinzel Decorative label above */
@@ -768,10 +939,10 @@ img { display: block; max-width: 100%; }
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
-  line-height: 1.5;
+  line-height: 1.3;
   filter: drop-shadow(0 0 40px rgba(201,168,76,0.3));
   animation: textShimmer 5s linear infinite, fadeInUp 1s 0.4s both;
-  padding: 1rem 0 1.5rem 0;
+  padding: 0.5rem 0 1rem 0;
   overflow: visible;
   white-space: nowrap;
   display: block;
@@ -790,19 +961,19 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.5em;
   color: var(--color-cream);
   text-transform: uppercase;
-  margin-top: -0.5rem;
+  margin-top: -1.5rem;
   opacity: 0;
   animation: fadeInUp 0.9s 1s forwards;
 }
 
 .hero__subtitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-weight: 300;
   color: rgba(247,240,230,0.82);
   max-width: 520px;
-  margin: 1.5rem auto 2.5rem;
-  line-height: 1.65;
+  margin: 1rem auto 1.5rem;
+  line-height: 1.5;
   animation: fadeInUp 1s 0.8s both;
 }
 .hero__subtitle em { color: var(--color-rose-light); font-style: italic; }
@@ -815,7 +986,7 @@ img { display: block; max-width: 100%; }
 /* ── Scroll indicator ──────────────────────────────────── */
 .scroll-indicator {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1094,6 +1265,112 @@ img { display: block; max-width: 100%; }
 .quote-section__bg-rose svg { width: 100%; height: 100%; }
 
 @keyframes roseRotate { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* Autoridade Content */
+.autoridade-content {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.autoridade-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--color-gold);
+  margin-bottom: 4rem;
+  letter-spacing: 0.02em;
+}
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.speaker-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.speaker-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.speaker-card__image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.speaker-card__image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(166,107,110,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(150,170,189,0.1) 0%, transparent 50%);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+.speaker-card:hover .speaker-card__image::before {
+  opacity: 0.9;
+}
+
+.speaker-card__mystery {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--color-gold);
+  opacity: 0.3;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.speaker-card:hover .speaker-card__mystery {
+  opacity: 0.6;
+  transform: scale(1.1);
+  text-shadow: 0 0 30px rgba(212,175,55,0.5);
+}
+
+.autoridade-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.autoridade-text--emphasis {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.autoridade-highlight {
+  color: transparent;
+  background: linear-gradient(135deg, var(--color-gold-pale), var(--color-gold), var(--color-gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 600;
+  font-style: italic;
+}
 
 .quote {
   text-align: center;
@@ -1442,7 +1719,7 @@ img { display: block; max-width: 100%; }
 ════════════════════════════════ */
 .carta-section {
   position: relative;
-  padding: 6rem 0 5rem;
+  padding: 8rem 0 7rem;
   background: linear-gradient(180deg, var(--color-teal-mid) 0%, var(--color-teal) 100%);
   overflow: hidden;
   z-index: 2;
@@ -1474,10 +1751,10 @@ img { display: block; max-width: 100%; }
   background-blend-mode: overlay, overlay, normal;
   border: 1px solid rgba(201,168,76,0.5);
   border-radius: 4px;
-  max-width: 680px;
+  max-width: 520px;
   width: 100%;
   margin: 0 auto;
-  padding: 5rem 4rem;
+  padding: 3.5rem 3rem;
   position: relative;
   z-index: 5;
   box-shadow: 
@@ -1500,8 +1777,8 @@ img { display: block; max-width: 100%; }
 
 /* Quando o envelope abre */
 .carta-reveal-container.is-open .carta-wrapper {
-  transform: translateY(-20px) scale(1);
-  max-height: 1500px; /* Alvo reduzido para evitar velocidade irreal de interpolação */
+  transform: translateY(-20px) scale(0.85);
+  max-height: 1100px; /* Alvo reduzido para evitar velocidade irreal de interpolação */
 }
 
 .carta-wrapper::before {
@@ -1655,17 +1932,17 @@ img { display: block; max-width: 100%; }
 .carta-text {
   font-family: var(--font-body);
   font-size: 1.15rem;
-  color: #3a2230;
+  color: #000000;
   line-height: 2.1;
   text-align: left;
   margin-bottom: 1rem;
 }
-.carta-text--emphasis { color: var(--color-rose); font-size: 1.25rem; margin: 0.8rem 0 1.2rem; font-weight: 600; }
-.carta-text--emphasis em { color: var(--color-rose); font-style: italic; font-weight: 600; }
+.carta-text--emphasis { color: #000000; font-size: 1.25rem; margin: 0.8rem 0 1.2rem; font-weight: 600; }
+.carta-text--emphasis em { color: #000000; font-style: italic; font-weight: 600; }
 .carta-signature {
   font-family: var(--font-script);
-  font-size: 2.8rem;
-  color: var(--color-teal);
+  font-size: 2.2rem;
+  color: #000000;
   text-align: right;
   margin-top: 2rem;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
@@ -1805,25 +2082,53 @@ img { display: block; max-width: 100%; }
 .diamantes-gem {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   color: var(--color-gold);
   filter: drop-shadow(0 0 18px rgba(201,168,76,0.45));
   animation: roseRotate 18s linear infinite reverse;
 }
+
+.diamantes-headline {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-cream);
+  margin-bottom: 3rem;
+  line-height: 1.4;
+}
+
+.diamantes-headline--emphasis {
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--color-gold);
+  display: block;
+  margin-top: 0.5rem;
+  filter: drop-shadow(0 0 15px rgba(201,168,76,0.3));
+}
+
 .diamantes-title {
   font-family: var(--font-script);
   font-size: clamp(2rem, 6vw, 3rem);
   color: var(--color-gold);
   filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   line-height: 1.2;
 }
+
 .diamantes-text {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: rgba(247,240,230,0.78);
   line-height: 1.85;
   margin-bottom: 0.75rem;
+}
+
+.diamantes-text--warning {
+  color: rgba(247,240,230,0.9);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  margin-top: 1.5rem;
+  font-weight: 500;
 }
 
 /* ════════════════════════════════
@@ -1921,6 +2226,22 @@ img { display: block; max-width: 100%; }
   .carta-wrapper       { padding: 2.5rem 1.5rem; }
   .diamantes-section   { padding: 4rem 0; }
   .urgencia-section    { padding: 4rem 0; }
+  
+  /* Autoridade mobile */
+  .speakers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .autoridade-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 3rem;
+  }
+  
+  .speaker-card__mystery {
+    font-size: 3.5rem;
+  }
 }
 
 
@@ -1934,11 +2255,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Divisor de onda entre seções ──────────────────── */
 .section-wave {
-  position: relative;
-  z-index: 3;
-  line-height: 0;
-  pointer-events: none;
-  overflow: hidden;
+  display: none;
 }
 
 .gold-line {
@@ -2144,4 +2461,662 @@ img { display: block; max-width: 100%; }
 @media (max-width: 600px) {
   .section-divider svg { height: 40px; }
   .section-wave svg    { height: 40px; }
+}
+
+
+/* ════════════════════════════════
+   BACKGROUND UNIFICADO
+════════════════════════════════ */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(201,168,76,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(166,107,110,0.10) 0%, transparent 60%),
+    linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%) !important;
+}
+
+/* Remover os ::before e ::after que sobrepõem o background */
+.suspense::before,
+.suspense::after,
+.pillars::before,
+.quote-section::before,
+.quote-section::after,
+.diamantes-section::before,
+.urgencia-section::before,
+.waitlist::before {
+  display: none !important;
+}
+
+.suspense, .pillars, .quote-section, .diamantes-section, .urgencia-section, .waitlist {
+  background: linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%) !important;
+}
+
+.carta-screen {
+  background: #000000 !important;
+}
+
+/* Padrão damasco em todas as seções */
+.hero::after,
+.suspense::after,
+.pillars::after,
+.quote-section::after,
+.diamantes-section::after,
+.urgencia-section::after,
+.waitlist::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-damask.jpg');
+  background-size: 400px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Atualizar padrão em todas as seções para o novo damasco */
+.hero::after {
+  background-image: url('../img/pattern-hero.jpg') !important;
+  background-size: 400px auto !important;
+  opacity: 0.08 !important;
+  mix-blend-mode: overlay !important;
+}
+
+.suspense::after,
+.pillars::after,
+.quote-section::after,
+.diamantes-section::after,
+.urgencia-section::after,
+.waitlist::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-hero.jpg');
+  background-size: 400px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* FORÇAR padrão damasco em TODAS as seções */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  position: relative !important;
+}
+
+.suspense::before,
+.pillars::before,
+.quote-section::before,
+.diamantes-section::before,
+.urgencia-section::before,
+.waitlist::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: url('../img/pattern-hero.jpg') !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  opacity: 0.08 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  mix-blend-mode: overlay !important;
+  display: block !important;
+}
+
+/* Garantir que o conteúdo fique acima do padrão */
+.suspense > *,
+.pillars > *,
+.quote-section > *,
+.diamantes-section > *,
+.urgencia-section > *,
+.waitlist > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* SOBRESCREVER COMPLETAMENTE O BACKGROUND VERDE */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist,
+.hero {
+  background: #140A14 !important;
+  background-image: none !important;
+}
+
+/* Aplicar gradiente similar ao da hero */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  background: linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+}
+
+/* APLICAR IMAGEM DIRETAMENTE NO BACKGROUND */
+.suspense {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.pillars {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.quote-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.diamantes-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.urgencia-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.waitlist {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, #0E3535 45%, #16484A 75%, #0E3535 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+/* APLICAR PADRÃO MANTENDO COR ORIGINAL - SEM DEGRADÊS */
+.hero {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.suspense {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    var(--color-teal-mid) !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-blend-mode: overlay !important;
+}
+
+.pillars {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    var(--color-teal) !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-blend-mode: overlay !important;
+}
+
+.quote-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(135deg, #140A14 0%, var(--color-teal) 50%, #140A14 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.diamantes-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    linear-gradient(135deg, #140A14 0%, var(--color-teal) 45%, #140A14 100%) !important;
+  background-size: 400px auto, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: overlay, normal !important;
+}
+
+.urgencia-section {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    var(--color-teal-mid) !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-blend-mode: overlay !important;
+}
+
+.waitlist {
+  background: 
+    url('../img/pattern-hero.jpg'),
+    radial-gradient(ellipse 80% 60% at 0% 50%, rgba(166,107,110,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 100% 0%, rgba(150,170,189,0.08) 0%, transparent 55%),
+    linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 100%) !important;
+  background-size: 400px auto, cover, cover, cover !important;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat !important;
+  background-blend-mode: overlay, normal, normal, normal !important;
+}
+
+/* Remover todos os degradês de borda */
+.suspense::after,
+.pillars::before,
+.pillars::after,
+.quote-section::before,
+.quote-section::after,
+.diamantes-section::before,
+.urgencia-section::before,
+.waitlist::before,
+.waitlist::after {
+  display: none !important;
+}
+
+/* TÉCNICAS CARDS COM SELO */
+.tecnicas-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tecnica-card {
+  position: relative;
+  background: rgba(247,240,230,0.05);
+  border-radius: 8px;
+  overflow: visible;
+  transition: transform 0.3s ease;
+  padding-top: 35px;
+}
+
+.tecnica-card:hover {
+  transform: translateY(-5px);
+}
+
+.tecnica-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.tecnica-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tecnica-card__seal {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  z-index: 10;
+}
+
+.tecnica-card__content {
+  padding: 1.5rem;
+  background: rgba(20,10,20,0.6);
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+}
+
+.tecnica-card__number {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tecnica-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .tecnicas-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tecnicas-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .tecnica-card__seal {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tecnicas-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tecnica-card__seal {
+  top: -35px !important;
+}
+
+/* Corrigir overflow para mostrar o selo completo */
+.tecnicas-cards {
+  overflow: visible !important;
+  padding-top: 50px !important;
+}
+
+.tecnica-card {
+  overflow: visible !important;
+}
+
+.tecnica-card__image-wrapper {
+  overflow: hidden !important;
+  position: relative !important;
+}
+/* Garantir que TODOS os containers permitam overflow */
+.pillars {
+  overflow: visible !important;
+}
+
+.pillars .container {
+  overflow: visible !important;
+}
+
+.tecnicas-cards {
+  overflow: visible !important;
+  padding-top: 80px !important;
+  margin-top: 6rem !important;
+}
+
+.tecnica-card {
+  overflow: visible !important;
+  padding-top: 0 !important;
+}
+
+.tecnica-card__seal {
+  top: -40px !important;
+  z-index: 999 !important;
+}
+/* Garantir que TODOS os containers permitam overflow */
+.pillars {
+  overflow: visible !important;
+}
+
+.pillars .container {
+  overflow: visible !important;
+}
+
+.tecnicas-cards {
+  overflow: visible !important;
+  padding-top: 80px !important;
+  margin-top: 6rem !important;
+}
+
+.tecnica-card {
+  overflow: visible !important;
+  padding-top: 0 !important;
+}
+
+.tecnica-card__seal {
+  top: -40px !important;
+  z-index: 999 !important;
+}
+/* SELO COMO ELEMENTO SEPARADO */
+.tecnica-seal {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  z-index: 1000;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.tecnica-card {
+  position: relative;
+  margin-top: 35px;
+}
+/* CARDS PADRÃO COMO NA REFERÊNCIA */
+.tecnicas-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 2rem !important;
+  margin: 4rem 0 !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 50px !important;
+}
+
+.tecnica-card {
+  position: relative !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  transition: transform 0.3s ease !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.tecnica-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.tecnica-card__image-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  background: #f0f0f0 !important;
+}
+
+.tecnica-card__image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.tecnica-card__content {
+  padding: 1rem 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  text-align: center !important;
+}
+
+.tecnica-card__number {
+  font-family: var(--font-serif) !important;
+  font-size: 1rem !important;
+  color: var(--color-gold) !important;
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.tecnica-card__title {
+  font-family: var(--font-serif) !important;
+  font-size: 1.2rem !important;
+  color: var(--color-cream) !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+.tecnica-seal {
+  position: absolute !important;
+  top: -35px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 70px !important;
+  height: 70px !important;
+  z-index: 1000 !important;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) !important;
+}
+
+/* Reduzir espaçamento entre seções */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  padding: 4rem 0 !important;
+}
+
+.hero {
+  margin-bottom: 0 !important;
+}
+
+section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Remover linhas divisórias entre seções */
+.section-shimmer-line,
+.gold-line {
+  display: none !important;
+}
+
+/* Remover TODAS as divisões entre seções */
+.section-wave,
+.section-divider,
+.hero__fade-bottom {
+  display: none !important;
+}
+
+/* Garantir que não haja bordas ou sombras entre seções */
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist,
+.hero {
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* Remover gradientes de borda */
+.suspense::before,
+.suspense::after,
+.pillars::before,
+.pillars::after,
+.quote-section::before,
+.quote-section::after,
+.diamantes-section::before,
+.diamantes-section::after,
+.urgencia-section::before,
+.urgencia-section::after,
+.waitlist::before,
+.waitlist::after,
+.hero__fade-bottom {
+  display: none !important;
+}
+
+/* BACKGROUND ÚNICO E SÓLIDO EM TODAS AS SEÇÕES */
+.hero,
+.suspense,
+.pillars,
+.quote-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist {
+  background: var(--color-teal) !important;
+  background-image: url('../img/pattern-hero.jpg') !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-blend-mode: overlay !important;
+}
+
+/* Remover divisão entre hero e próxima seção */
+.scroll-indicator {
+  display: none !important;
+}
+
+.hero {
+  padding-bottom: 0 !important;
+}
+
+.suspense {
+  padding-top: 4rem !important;
+}
+
+/* Frases em 2 linhas */
+.opening-screen__text {
+  max-width: 700px !important;
+  line-height: 1.6 !important;
+}
+
+/* FORÇAR REMOÇÃO DE DIVISÃO HERO */
+.hero {
+  margin-bottom: 0 !important;
+  padding-bottom: 4rem !important;
+}
+
+.hero .scroll-indicator {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.hero__fade-bottom {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.suspense {
+  margin-top: 0 !important;
+  padding-top: 4rem !important;
+  border-top: none !important;
 }

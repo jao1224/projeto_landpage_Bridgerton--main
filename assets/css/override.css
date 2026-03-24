@@ -1,0 +1,374 @@
+/* OVERRIDE FINAL - REMOVER DIVISÕES */
+
+/* Scroll indicator */
+.scroll-indicator {
+  display: none !important;
+}
+
+/* Hero fade bottom */
+.hero__fade-bottom {
+  display: none !important;
+}
+
+/* Hero sem padding bottom extra */
+.hero {
+  padding-bottom: 4rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Suspense sem padding top extra */
+.suspense {
+  padding-top: 4rem !important;
+  margin-top: 0 !important;
+}
+
+/* Background pattern em todas as seções - mantendo cor original */
+.hero::after,
+.suspense::after,
+.pillars::after,
+.quote-section::after,
+.diamantes-section::after,
+.urgencia-section::after,
+.waitlist::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/pattern-hero.jpg') !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  opacity: 0.15 !important;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Remover todos os pseudo-elementos */
+.hero::before,
+.hero::after,
+.suspense::before,
+.suspense::after,
+.pillars::before,
+.pillars::after,
+.quote-section::before,
+.quote-section::after,
+.diamantes-section::before,
+.diamantes-section::after,
+.urgencia-section::before,
+.urgencia-section::after,
+.waitlist::before,
+.waitlist::after {
+  display: none !important;
+}
+
+/* Frases em 2 linhas */
+.opening-screen__text {
+  max-width: 1000px !important;
+  line-height: 1.4 !important;
+  font-size: clamp(1.2rem, 3.2vw, 2rem) !important;
+  word-spacing: 0.05em !important;
+}
+
+
+/* Carta greeting sem negrito e preto */
+.carta-greeting {
+  color: #000000 !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+/* Todo texto da carta em itálico */
+.carta-text {
+  font-style: italic !important;
+}
+
+.carta-signature {
+  font-style: italic !important;
+}
+
+/* Fixar background da carta durante animação */
+.carta-wrapper {
+  background-attachment: fixed !important;
+}
+
+/* Mensagem sutil para pular introdução */
+.skip-intro {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-style: normal;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: rgba(201, 168, 76, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: skipFadeIn 1s ease-out 3s forwards;
+  pointer-events: auto;
+}
+
+.skip-intro:hover {
+  color: rgba(201, 168, 76, 0.9);
+  text-decoration: underline;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+@keyframes skipFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Grid de 6 colunas para técnicas - CARROSSEL */
+.tecnicas-cards {
+  grid-template-columns: repeat(6, 1fr) !important;
+  display: flex !important;
+  overflow: hidden !important;
+  gap: 2rem !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+.tecnicas-cards-wrapper {
+  display: flex !important;
+  gap: 2rem !important;
+  animation: carouselScroll 30s linear infinite !important;
+  will-change: transform !important;
+}
+
+.tecnica-card {
+  flex: 0 0 280px !important;
+  min-width: 280px !important;
+}
+
+@keyframes carouselScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 6 - 2rem * 6));
+  }
+}
+
+/* Pausar animação ao hover */
+.tecnicas-cards:hover .tecnicas-cards-wrapper {
+  animation-play-state: paused !important;
+}
+
+@media (max-width: 1200px) {
+  .tecnica-card {
+    flex: 0 0 240px !important;
+    min-width: 240px !important;
+  }
+  
+  @keyframes carouselScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-240px * 6 - 2rem * 6));
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tecnica-card {
+    flex: 0 0 200px !important;
+    min-width: 200px !important;
+  }
+  
+  @keyframes carouselScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-200px * 6 - 2rem * 6));
+    }
+  }
+}
+
+
+/* Desabilitar animação de acender luz */
+.light-on-overlay {
+  display: none !important;
+}
+
+
+/* Reativar animações da hero após transição */
+.hero__content.animate-in {
+  animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+}
+
+.hero__content.animate-in .hero__eyebrow {
+  animation: fadeInUp 1s 0.2s both !important;
+}
+
+.hero__content.animate-in .hero__title {
+  animation: fadeInUp 1s 0.4s both !important;
+}
+
+.hero__content.animate-in .hero__title-eyebrow {
+  animation: fadeInUp 0.8s 0.6s forwards !important;
+}
+
+.hero__content.animate-in .hero__title-script {
+  animation: textShimmer 5s linear infinite, fadeInUp 1s 0.4s both !important;
+}
+
+.hero__content.animate-in .hero__title-main {
+  animation: fadeInUp 0.9s 1s forwards !important;
+}
+
+.hero__content.animate-in .hero__headline {
+  animation: fadeInUp 1s 0.8s both !important;
+}
+
+.hero__content.animate-in .hero__subheadline {
+  animation: fadeInUp 1s 1s both !important;
+}
+
+.hero__content.animate-in .btn {
+  animation: fadeInUp 1s 1.2s both !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   SEÇÃO IDEALIZADORA
+══════════════════════════════════════════════════════════ */
+.idealizadora-section {
+  padding: 7rem 0;
+  background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 50%, var(--color-teal) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.idealizadora-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.idealizadora-content {
+  text-align: left;
+}
+
+.idealizadora-content .section-title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.idealizadora-content .ornate-rose-divider {
+  margin-left: 0;
+  margin-bottom: 2rem;
+}
+
+.idealizadora-text {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: rgba(247,240,230,0.85);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.idealizadora-text strong {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.idealizadora-text--emphasis {
+  color: var(--color-cream);
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+.idealizadora-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.idealizadora-frame {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  border: 2px solid rgba(201,168,76,0.4);
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 50%);
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 0 40px rgba(201,168,76,0.08);
+}
+
+.idealizadora-frame::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+}
+
+.idealizadora-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(10%) contrast(1.05);
+}
+
+/* Cantos decorativos */
+.idealizadora-frame::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .idealizadora-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .idealizadora-image {
+    order: -1;
+  }
+  
+  .idealizadora-content .section-title {
+    text-align: center;
+  }
+  
+  .idealizadora-content .ornate-rose-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .idealizadora-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .idealizadora-section {
+    padding: 4rem 0;
+  }
+  
+  .idealizadora-frame {
+    max-width: 350px;
+  }
+}

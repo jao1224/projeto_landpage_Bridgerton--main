@@ -12,7 +12,7 @@
     if (lightOverlay) {
       setTimeout(() => {
         lightOverlay.style.display = 'none';
-      }, 2500);
+      }, 3500); // Aumentado para 3.5s para coincidir com a animação
     }
   })();
 
@@ -27,15 +27,71 @@
     const textFirst = document.querySelector('.opening-screen__text--first');
     const textSecond = document.querySelector('.opening-screen__text--second');
     const textThird = document.querySelector('.opening-screen__text--third');
+    const skipIntro = document.getElementById('skip-intro');
+    const skipIntroCarta = document.getElementById('skip-intro-carta');
     
     if (!openingScreen || !cartaScreen || !mainContent) return;
 
     let currentStep = 0;
     let timeoutId;
     let isAutoPlaying = true;
+    let skipIntroActivated = false; // Flag para indicar que pulou a intro
+
+    // Função para pular direto para a hero
+    function skipToHero() {
+      skipIntroActivated = true; // Marcar que pulou a intro
+      
+      // Limpar todos os timeouts
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      // Esconder todas as telas de introdução
+      openingScreen.style.display = 'none';
+      cartaScreen.style.display = 'none';
+      
+      // Mostrar conteúdo principal
+      mainContent.style.display = 'block';
+      mainContent.classList.add('visible');
+      mainContent.style.position = 'static';
+      mainContent.style.top = 'auto';
+      mainContent.style.height = 'auto';
+      mainContent.style.zIndex = 'auto';
+      mainContent.style.transform = 'none';
+      mainContent.style.opacity = '1';
+      mainContent.style.overflow = '';
+      
+      // Restaurar scroll da página
+      document.body.style.overflow = '';
+      
+      // Scroll suave para a hero
+      setTimeout(() => {
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      }, 100);
+    }
+
+    // Evento de clique no botão skip (tela de abertura)
+    if (skipIntro) {
+      skipIntro.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que o clique na tela avance os textos
+        skipToHero();
+      });
+    }
+
+    // Evento de clique no botão skip (tela da carta)
+    if (skipIntroCarta) {
+      skipIntroCarta.addEventListener('click', (e) => {
+        e.stopPropagation();
+        skipToHero();
+      });
+    }
 
     // Função para mostrar a carta
     function showLetter() {
+      // Se a intro foi pulada, não mostrar a carta
+      if (skipIntroActivated) return;
+      
       openingScreen.classList.add('fade-out');
       
       setTimeout(() => {
@@ -139,8 +195,16 @@
         e.preventDefault();
         e.stopPropagation();
         
+        // Se a intro foi pulada, não fazer nada
+        if (skipIntroActivated) return;
+        
         if (envelopeOpened) return;
         envelopeOpened = true;
+        
+        // Esconder mensagem de pular introdução
+        if (skipIntroCarta) {
+          skipIntroCarta.style.display = 'none';
+        }
         
         // Esconder hint
         if (clickHint) {
@@ -198,15 +262,19 @@
             }
             
             animationFrame = requestAnimationFrame(() => {
-              // Carta diminui e fica no fundo
-              const scale = 1 - scrollProgress * 0.5; // Diminui até 50% do tamanho
-              const opacity = 1 - scrollProgress * 0.7; // Fica mais transparente
-              cartaScreen.style.transform = `scale(${scale})`;
-              cartaScreen.style.opacity = String(Math.max(0, opacity));
+              // Limitar scrollProgress para os cálculos visuais
+              const visualProgress = Math.min(scrollProgress, 1);
               
-              // Hero sobe por cima
-              const translateY = 100 - scrollProgress * 100; // De 100vh para 0vh
-              mainContent.style.transform = `translateY(${translateY}vh)`;
+              // Carta apenas faz fade out (sem movimento)
+              const cartaOpacity = 1 - visualProgress;
+              cartaScreen.style.transform = 'none';
+              cartaScreen.style.opacity = String(Math.max(0, cartaOpacity));
+              
+              // Hero sobe suavemente
+              const heroTranslateY = 100 - visualProgress * 100; // De 100vh para 0vh
+              const heroOpacity = visualProgress; // Fade in linear
+              mainContent.style.transform = `translateY(${heroTranslateY}vh)`;
+              mainContent.style.opacity = String(heroOpacity);
               
               // Esconder hint quando começar a rolar
               if (scrollProgress > 0.1 && scrollHint) {
@@ -215,8 +283,8 @@
                 scrollHint.style.opacity = '';
               }
               
-              // Quando completar o scroll
-              if (scrollProgress >= 0.99 && !isTransitioning) {
+              // Quando completar o scroll (só finaliza se rolar além de 1.0)
+              if (scrollProgress >= 1.0 && !isTransitioning) {
                 isTransitioning = true;
                 scrollEnabled = false;
                 
@@ -233,7 +301,26 @@
                 mainContent.style.height = 'auto';
                 mainContent.style.zIndex = 'auto';
                 mainContent.style.transform = 'none';
+                mainContent.style.opacity = '1';
                 mainContent.style.overflow = '';
+                
+                // Reativar animações da hero
+                const heroContent = document.querySelector('.hero__content');
+                if (heroContent) {
+                  // Remover animações existentes
+                  heroContent.style.animation = 'none';
+                  
+                  // Forçar reflow
+                  void heroContent.offsetWidth;
+                  
+                  // Reativar animações
+                  heroContent.style.animation = '';
+                  
+                  // Adicionar classe para trigger de animações
+                  setTimeout(() => {
+                    heroContent.classList.add('animate-in');
+                  }, 50);
+                }
                 
                 // Scroll até o topo
                 setTimeout(() => {
@@ -253,16 +340,17 @@
             const delta = e.deltaY || e.detail || -e.wheelDelta;
             
             // Ajustar sensibilidade
-            const sensitivity = 0.005;
+            const sensitivity = 0.004;
             
             if (delta > 0) {
               // Scroll para baixo
-              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1);
+              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1.2);
             } else {
               // Scroll para cima
               scrollProgress = Math.max(scrollProgress - sensitivity * Math.abs(delta), 0);
             }
             
+            console.log('Scroll Progress:', scrollProgress); // Debug
             updateTransition();
           };
           
@@ -286,10 +374,10 @@
             e.stopPropagation();
             
             // Ajustar sensibilidade para touch
-            const sensitivity = 0.002;
+            const sensitivity = 0.0015;
             
             if (delta > 0) {
-              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1);
+              scrollProgress = Math.min(scrollProgress + sensitivity * Math.abs(delta), 1.2);
             } else {
               scrollProgress = Math.max(scrollProgress - sensitivity * Math.abs(delta), 0);
             }
