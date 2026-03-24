@@ -660,4 +660,15 @@
     }
   })();
 
+  /* ─── 12. Speaker Card Reveal ─────────────────────────────── */
+  (function initSpeakerReveal() {
+    const speakerCards = document.querySelectorAll('.speaker-card');
+    
+    speakerCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.classList.add('revealed');
+      });
+    });
+  })();
+
 })();
