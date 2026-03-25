@@ -403,18 +403,7 @@
 }
 
 
-/* Hero com mesmo fundo da introdução */
-.hero,
-section.hero,
-#main-content .hero,
-#hero {
-  background-image: url('../img/carta-fundo.png') !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-color: #0a0a0a !important;
-  background-blend-mode: normal !important;
-}
+/* Waitlist — eliminar todo espaço interno */
 .waitlist__ambient {
   display: none !important;
 }
@@ -782,23 +771,14 @@ section.hero,
 }
 
 
-/* Fundo escuro sólido */
+/* Mudar cor de background */
 body {
-  background-color: #0a0c0f !important;
-  background-image: none !important;
+  background: #1a2328 !important;
+  background-image: url('../img/img-background.jpg') !important;
+  background-size: 400px auto !important;
+  background-repeat: repeat !important;
+  background-attachment: fixed !important;
   position: relative;
-}
-
-/* Todas as seções transparentes — fundo do body aparece */
-.suspense,
-.pillars,
-.quote-section,
-.idealizadora-section,
-.diamantes-section,
-.urgencia-section,
-.waitlist,
-.footer {
-  background: transparent !important;
 }
 
 body::before {
@@ -833,8 +813,9 @@ body::before {
 
 .opening-screen,
 .carta-screen {
-  background-color: #0a0a0a !important;
+  background: transparent !important;
 }
+
 
 /* Pétalas por toda a página */
 #petals-container {
@@ -898,36 +879,10 @@ body::before {
 }
 
 
-/* Fundo da introdução e carta */
+/* Aumentar opacidade do fundo na introdução */
 .opening-screen,
 .carta-screen {
-  background-image: url('../img/carta-fundo.png') !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-color: #0a0a0a !important;
-}
-
-.opening-screen::after,
-.carta-screen::after {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%) !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-  display: block !important;
-}
-
-/* Vinheta via elemento dedicado */
-.vinheta {
-  position: absolute !important;
-  inset: 0 !important;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.9) 100%) !important;
-  pointer-events: none !important;
-  z-index: 3 !important;
-  display: block !important;
-}
+  background: rgba(20, 30, 38, 0.4) !important;
 }
 
 
