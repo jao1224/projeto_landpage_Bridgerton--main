@@ -597,7 +597,7 @@
   <!-- ══════════════════════════════
        SEÇÃO 7 — URGÊNCIA
   ══════════════════════════════ -->
-  <section class="urgencia-section" id="urgencia">
+  <section class="urgencia-section" id="urgencia" style="padding: 3rem 0;">
     <div class="container">
       <div class="urgencia-inner" data-reveal>
         <h2 class="urgencia-headline">
@@ -825,6 +825,22 @@
   </div><!-- Fim do main-content -->
 
   <script src="assets/js/script.js"></script>
+  <script>
+    // Fix: forçar visibilidade de elementos data-reveal
+    function forceReveal() {
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        el.classList.add('revealed');
+      });
+    }
+    // Rodar imediatamente, no DOMContentLoaded e após 1s para garantir
+    forceReveal();
+    document.addEventListener('DOMContentLoaded', forceReveal);
+    window.addEventListener('load', forceReveal);
+    setTimeout(forceReveal, 500);
+    setTimeout(forceReveal, 1500);
+  </script>
 </body>
 
 </html>
