@@ -7,25 +7,101 @@
   <title>Imersão Evolutions Brows — A Temporada Mais Aguardada do Ano</title>
   <meta name="description"
     content="Um convite exclusivo foi enviado às mulheres mais promissoras do mercado da beleza. Entre para a lista de espera da Imersão Evolutions Brows." />
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20" />
+  <link rel="stylesheet" href="assets/css/override.css?v=2" />
 </head>
 
 <body>
 
-  <canvas id="ambient-canvas"></canvas>
+  <!-- Pétalas por todo o site -->
   <div id="petals-container" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════
+       ANIMAÇÃO DE ACENDER A LUZ
+  ══════════════════════════════ -->
+  <div id="light-on-overlay" class="light-on-overlay"></div>
+
+  <!-- ══════════════════════════════
+       TELA DE ABERTURA
+  ══════════════════════════════ -->
+  <div id="opening-screen" class="opening-screen">
+    <div class="vinheta" aria-hidden="true"></div>
+    <div class="opening-screen__content">
+      <p class="opening-screen__text opening-screen__text--first">
+        Um convite exclusivo foi enviado às mulheres mais promissoras<br />do mercado da beleza…
+      </p>
+      <p class="opening-screen__text opening-screen__text--second">
+        Aquelas que compreendem que não basta dominar técnicas —<br />é preciso ocupar o lugar de destaque que lhes pertence.
+      </p>
+      <p class="opening-screen__text opening-screen__text--third">
+        Nesta temporada, não se trata apenas de técnica…<br />Trata-se de posição, estratégia e reconhecimento.
+      </p>
+    </div>
+    <span class="skip-intro" id="skip-intro">clique aqui para pular a introdução</span>
+  </div>
+
+  <!-- ══════════════════════════════
+       TELA DA CARTA (intermediária)
+  ══════════════════════════════ -->
+  <div id="carta-screen" class="carta-screen" style="display: none;">
+    <div class="vinheta" aria-hidden="true"></div>
+    <div class="carta-screen__wrapper">
+      <div class="carta-reveal-container" id="carta-reveal-intro">
+        <div class="envelope-back" aria-hidden="true"></div>
+
+        <div class="carta-wrapper">
+          <div class="carta-content">
+            <p class="carta-greeting">Prezada empreendedora,</p>
+            <p class="carta-text">Nesta nova temporada, observo atentamente aquelas que dominam mais do que técnicas…</p>
+            <p class="carta-text">Mas que compreendem o verdadeiro jogo por trás de um nome respeitado.</p>
+            <p class="carta-text">O mercado está repleto de profissionais.</p>
+            <p class="carta-text carta-text--emphasis">Mas são raras aquelas que se tornam <em>impossíveis de ignorar.</em></p>
+            <p class="carta-text">E é exatamente sobre isso que será o encontro mais aguardado desta temporada…</p>
+          </div>
+
+          <p class="carta-signature">— Lady Erika</p>
+        </div>
+
+        <div class="envelope-front" aria-hidden="true">
+          <div class="envelope-pocket">
+            <div class="envelope-fold-left"></div>
+            <div class="envelope-fold-right"></div>
+            <div class="envelope-fold-bottom"></div>
+          </div>
+          <div class="envelope-flap-wrapper">
+            <div class="envelope-flap-shape"></div>
+            <img src="assets/img/selo.png" alt="Selo da Carta" class="envelope-seal envelope-seal--clickable" id="selo-intro" />
+          </div>
+        </div>
+      </div>
+      
+      <p class="click-to-open-hint" id="click-hint">
+        <span class="hint-desktop">Clique no selo para abrir</span>
+        <span class="hint-mobile">Toque no selo para abrir</span>
+      </p>
+    </div>
+    <span class="skip-intro skip-intro-carta" id="skip-intro-carta">clique aqui para pular a introdução</span>
+  </div>
+
+  <!-- ══════════════════════════════
+       CONTEÚDO PRINCIPAL (inicialmente oculto)
+  ══════════════════════════════ -->
+  <div id="main-content" class="main-content" style="display: none;">
+
+  <canvas id="ambient-canvas"></canvas>
   <div id="particles-container" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════
        SEÇÃO 1 — HERO
   ══════════════════════════════ -->
   <section class="hero" id="hero">
-    <!-- Ornate frame corners -->
+    <div class="vinheta" aria-hidden="true"></div>
     <div class="frame-corner frame-corner--tl" aria-hidden="true">
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
         <path d="M10 10 L10 65 M10 10 L65 10" stroke="currentColor" stroke-width="1" />
@@ -163,14 +239,6 @@
         </svg>
       </div>
 
-      <p class="hero__headline">
-        Um convite exclusivo foi enviado às mulheres mais promissoras<br />do mercado da beleza…
-      </p>
-      <p class="hero__subheadline">
-        Apenas aquelas que compreendem que não basta dominar técnicas — é preciso ocupar o lugar de destaque que lhes
-        pertence.
-      </p>
-
       <a href="#waitlist" class="btn btn--primary btn--glow">
         <span class="btn__shimmer"></span>
         <svg class="btn__icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
@@ -178,6 +246,12 @@
             d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
         </svg>
         <span>Quero entrar para a lista de espera</span>
+        <svg class="star-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+        <svg class="star-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+        <svg class="star-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+        <svg class="star-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+        <svg class="star-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+        <svg class="star-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
       </a>
     </div>
 
@@ -185,118 +259,14 @@
       <span class="scroll-indicator__text">Deslize para descobrir</span>
       <div class="scroll-indicator__bar"></div>
     </div>
-
-    <!-- Smooth fade into next section -->
-    <div class="hero__fade-bottom" aria-hidden="true"></div>
   </section>
 
-  <!-- Wave: Hero → Carta -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35 L1440,0 Z" fill="#0E3535"/>
-      <path d="M0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35 L1440,70 L0,70 Z" fill="#16484A"/>
-      <path d="M0,35 Q180,70 360,42 Q540,14 720,42 Q900,70 1080,42 Q1260,14 1440,35" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
-
   <!-- ══════════════════════════════
-       SEÇÃO 2 — A CARTA
-  ══════════════════════════════ -->
-  <section class="carta-section" id="carta">
-    <div class="section-floral-border section-floral-border--top" aria-hidden="true">
-      <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,30 Q150,5 300,30 Q450,55 600,30 Q750,5 900,30 Q1050,55 1200,30" stroke="currentColor"
-          stroke-width="0.8" fill="none" opacity="0.4" />
-        <g transform="translate(300,30)">
-          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
-          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
-        </g>
-        <g transform="translate(600,30)">
-          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
-          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
-        </g>
-        <g transform="translate(900,30)">
-          <circle cx="0" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7" />
-          <path d="M0,-5 C2,-2 5,0 0,5 C-5,0 -2,-2 0,-5Z" fill="currentColor" opacity="0.5" />
-        </g>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="carta-reveal-container" data-reveal="envelope">
-        
-        <!-- ENVELOPE BACK LAYER -->
-        <div class="envelope-back" aria-hidden="true"></div>
-
-        <div class="carta-wrapper">
-          <p class="section-eyebrow" style="text-align:center; margin-top:2rem;">A Carta</p>
-
-        <div class="carta-content">
-          <p class="carta-greeting">Prezada empreendedora,</p>
-          <p class="carta-text">Nesta nova temporada, observo atentamente aquelas que dominam mais do que técnicas…</p>
-          <p class="carta-text">Mas que compreendem o verdadeiro jogo por trás de um nome respeitado.</p>
-          <p class="carta-text">O mercado está repleto de profissionais.</p>
-          <p class="carta-text carta-text--emphasis">Mas são raras aquelas que se tornam <em>impossíveis de
-              ignorar.</em></p>
-          <p class="carta-text">E é exatamente sobre isso que será o encontro mais aguardado desta temporada…</p>
-        </div>
-
-        <div class="ornate-rose-divider" aria-hidden="true">
-          <svg viewBox="0 0 500 40">
-            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-            <g transform="translate(250,20)">
-              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
-              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
-              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
-              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
-            </g>
-            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-          </svg>
-        </div>
-
-        <p class="carta-signature">— Lady Whistledown</p>
-        </div>
-
-        <!-- ENVELOPE FRONT LAYER -->
-        <div class="envelope-front" aria-hidden="true">
-           <!-- Bolso da frente com vincos -->
-           <div class="envelope-pocket">
-             <div class="envelope-fold-left"></div>
-             <div class="envelope-fold-right"></div>
-             <div class="envelope-fold-bottom"></div>
-           </div>
-           <!-- Aba superior com selo -->
-           <div class="envelope-flap-wrapper">
-             <div class="envelope-flap-shape"></div>
-             <img src="assets/img/selo.png" alt="Selo da Carta" class="envelope-seal" />
-           </div>
-        </div>
-
-        <div class="carta-action-wrapper" style="position: absolute; top: 450px; left: 50%; transform: translateX(-50%); z-index: 30; transition: opacity 0.5s;">
-           <button id="btn-open-carta" class="btn btn--primary">Abrir a Carta</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave: Carta → Sobre o Evento -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,42 Q360,0 720,35 Q1080,70 1440,28 L1440,0 Z" fill="#16484A"/>
-      <path d="M0,42 Q360,0 720,35 Q1080,70 1440,28 L1440,70 L0,70 Z" fill="#0E3535"/>
-      <path d="M0,42 Q360,0 720,35 Q1080,70 1440,28" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
-
-  <!-- ══════════════════════════════
-       SEÇÃO 3 — SOBRE O EVENTO
+       SEÇÃO 2 — SOBRE O EVENTO
   ══════════════════════════════ -->
   <section class="suspense" id="sobre">
-    <div class="suspense__bg-text" aria-hidden="true">EVOLUTIONS</div>
     <div class="container">
       <div class="suspense__inner" data-reveal>
-        <p class="section-eyebrow">Sobre o Evento</p>
         <h2 class="section-title">
           O evento que transforma profissionais comuns<br />
           <em>em nomes de referência</em>
@@ -320,72 +290,164 @@
           e entender como se tornar uma autoridade no mercado.</p>
         <p class="suspense__text suspense__text--emphasis">Porque no cenário atual… <em>Não vence quem faz melhor. Vence
             quem é lembrada, reconhecida e desejada.</em></p>
+
+        <div class="suspense__video" style="margin-top: 3rem; width: 100%; max-width: 720px; margin-left: auto; margin-right: auto;">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; border-radius: 4px; border: 1px solid rgba(201,168,76,0.3); box-shadow: 0 8px 40px rgba(0,0,0,0.4);">
+            <source src="assets/video/evento1.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Wave: Sobre → Diferencial -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42 L1440,0 Z" fill="#0E3535"/>
-      <path d="M0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42 L1440,70 L0,70 Z" fill="#16484A"/>
-      <path d="M0,28 Q240,60 480,28 Q720,-4 960,35 Q1200,70 1440,42" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
 
   <!-- ══════════════════════════════
        SEÇÃO 4 — DIFERENCIAL / TÉCNICAS
   ══════════════════════════════ -->
   <section class="pillars" id="diferencial">
     <div class="container">
-      <p class="section-eyebrow" data-reveal>O Diferencial</p>
       <h2 class="section-title" data-reveal style="text-align:center">Nem todas estão preparadas<br /><em>para o que
           será revelado aqui…</em></h2>
       <p class="pillars__intro" data-reveal>Durante esse encontro, você terá acesso a uma nova forma de enxergar o seu
         negócio — unindo técnica, estratégia e posicionamento.</p>
 
-      <div class="tecnicas-grid" data-reveal>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">01</div>
-          <div class="tecnica-item__content">
-            <h3>Shadow</h3>
-            <p>Técnica de sombreamento que cria profundidade e naturalidade incomparável.</p>
+      <div class="tecnicas-cards" data-reveal>
+        <div class="tecnicas-cards-wrapper">
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/dream-shadow.jpg" alt="Shadow Technique" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">1.</span>
+              <h3 class="tecnica-card__title">Shadow</h3>
+            </div>
           </div>
-        </div>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">02</div>
-          <div class="tecnica-item__content">
-            <h3>Fios Realistas</h3>
-            <p>O traço perfeito que define sobrancelhas com precisão e naturalidade.</p>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/fios-realistas.jpeg" alt="Fios Realistas" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">2.</span>
+              <h3 class="tecnica-card__title">Fios Realistas</h3>
+            </div>
           </div>
-        </div>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">03</div>
-          <div class="tecnica-item__content">
-            <h3>Micropigmentação Labial</h3>
-            <p>A técnica que expande seu portfólio e multiplica seu faturamento.</p>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/aquarelle-lips.jpeg" alt="Micropigmentação Labial" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">3.</span>
+              <h3 class="tecnica-card__title">Micropigmentação Labial</h3>
+            </div>
           </div>
-        </div>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">04</div>
-          <div class="tecnica-item__content">
-            <h3>Brow Lamination</h3>
-            <p>O procedimento mais requisitado do mercado — dominado de verdade.</p>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/brow-lamination.jpg" alt="Brow Lamination" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">4.</span>
+              <h3 class="tecnica-card__title">Brow Lamination</h3>
+            </div>
           </div>
-        </div>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">05</div>
-          <div class="tecnica-item__content">
-            <h3>Posicionamento</h3>
-            <p>Como se tornar a referência que as clientes buscam — e pagam bem.</p>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" alt="Posicionamento" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">5.</span>
+              <h3 class="tecnica-card__title">Posicionamento</h3>
+            </div>
           </div>
-        </div>
-        <div class="tecnica-item">
-          <div class="tecnica-item__number">06</div>
-          <div class="tecnica-item__content">
-            <h3>Marketing</h3>
-            <p>Estratégias validadas para atrair, encantar e fidelizar clientes de alto valor.</p>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop" alt="Marketing" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">6.</span>
+              <h3 class="tecnica-card__title">Marketing</h3>
+            </div>
+          </div>
+
+          <!-- Duplicar cards para loop infinito -->
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/dream-shadow.jpg" alt="Shadow Technique" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">1.</span>
+              <h3 class="tecnica-card__title">Shadow</h3>
+            </div>
+          </div>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/fios-realistas.jpeg" alt="Fios Realistas" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">2.</span>
+              <h3 class="tecnica-card__title">Fios Realistas</h3>
+            </div>
+          </div>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/aquarelle-lips.jpeg" alt="Micropigmentação Labial" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">3.</span>
+              <h3 class="tecnica-card__title">Micropigmentação Labial</h3>
+            </div>
+          </div>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="assets/img/brow-lamination.jpg" alt="Brow Lamination" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">4.</span>
+              <h3 class="tecnica-card__title">Brow Lamination</h3>
+            </div>
+          </div>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" alt="Posicionamento" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">5.</span>
+              <h3 class="tecnica-card__title">Posicionamento</h3>
+            </div>
+          </div>
+
+          <div class="tecnica-card">
+            <img src="assets/img/selo.png" alt="Selo" class="tecnica-seal">
+            <div class="tecnica-card__image-wrapper">
+              <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop" alt="Marketing" class="tecnica-card__image">
+            </div>
+            <div class="tecnica-card__content">
+              <span class="tecnica-card__number">6.</span>
+              <h3 class="tecnica-card__title">Marketing</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -394,63 +456,117 @@
     </div>
   </section>
 
-  <!-- Wave: Diferencial → Autoridade -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,52 Q360,14 720,42 Q1080,70 1440,21 L1440,0 Z" fill="#16484A"/>
-      <path d="M0,52 Q360,14 720,42 Q1080,70 1440,21 L1440,70 L0,70 Z" fill="#0E3535"/>
-      <path d="M0,52 Q360,14 720,42 Q1080,70 1440,21" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
-
   <!-- ══════════════════════════════
        SEÇÃO 5 — AUTORIDADE
   ══════════════════════════════ -->
   <section class="quote-section">
-    <div class="quote-section__bg-rose" aria-hidden="true">
-      <svg viewBox="0 0 400 400" opacity="0.06">
-        <g transform="translate(200,200)">
-          <path d="M0,-100 C50,-50 100,0 0,100 C-100,0 -50,-50 0,-100Z" fill="currentColor" />
-          <path d="M-100,0 C-50,50 0,100 100,0 C0,-100 -50,-50 -100,0Z" fill="currentColor" />
-          <circle cx="0" cy="0" r="25" fill="currentColor" />
-        </g>
-      </svg>
-    </div>
     <div class="container">
-      <blockquote class="quote" data-reveal>
-        <div class="quote__marks" aria-hidden="true">"</div>
-        <p class="quote__text">Profissionais que hoje são destaque nacional estarão presentes para compartilhar o que
-          realmente funciona no mercado.</p>
-        <p class="quote__subtext">Sem teoria vazia. Sem fórmulas genéricas. Apenas direcionamentos validados que já
-          transformaram empreendedoras comuns em <span class="quote__highlight">grandes referências.</span></p>
-        <footer class="quote__footer">
-          <div class="ornate-rose-divider" aria-hidden="true">
-            <svg viewBox="0 0 300 30">
-              <line x1="0" y1="15" x2="110" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
-              <g transform="translate(150,15)">
+      <div class="autoridade-content" data-reveal>
+        <h2 class="autoridade-title">Diretamente das maiores referências do Brasil</h2>
+        
+        <div class="speakers-grid">
+          <div class="speaker-card">
+            <img src="assets/img/frame_rect_1.png" alt="Frame" class="speaker-card__frame">
+            <div class="speaker-card__image">
+              <img src="assets/img/erika-sousa.jpg" alt="Speaker" class="speaker-card__photo">
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__mystery">?</div>
+              </div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Nome da Especialista</h3>
+              <p class="speaker-card__specialty">Micropigmentação Avançada</p>
+            </div>
+          </div>
+          <div class="speaker-card">
+            <img src="assets/img/frame_oval.png" alt="Frame" class="speaker-card__frame">
+            <div class="speaker-card__image">
+              <img src="assets/img/erika-sousa.jpg" alt="Speaker" class="speaker-card__photo">
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__mystery">?</div>
+              </div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Nome da Especialista</h3>
+              <p class="speaker-card__specialty">Design de Sobrancelhas</p>
+            </div>
+          </div>
+          <div class="speaker-card">
+            <img src="assets/img/frame_circular.png" alt="Frame" class="speaker-card__frame">
+            <div class="speaker-card__image">
+              <img src="assets/img/erika-sousa.jpg" alt="Speaker" class="speaker-card__photo">
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__mystery">?</div>
+              </div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Nome da Especialista</h3>
+              <p class="speaker-card__specialty">Técnicas Avançadas</p>
+            </div>
+          </div>
+          <div class="speaker-card">
+            <img src="assets/img/frame_rect_2.png" alt="Frame" class="speaker-card__frame">
+            <div class="speaker-card__image">
+              <img src="assets/img/erika-sousa.jpg" alt="Speaker" class="speaker-card__photo">
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__mystery">?</div>
+              </div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Nome da Especialista</h3>
+              <p class="speaker-card__specialty">Posicionamento & Marketing</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="autoridade-text">
+          Profissionais que hoje são destaque nacional estarão presentes para compartilhar o que realmente funciona no mercado. 
+          <span class="autoridade-text--emphasis">Sem teoria vazia. Sem fórmulas genéricas.</span> 
+          Apenas direcionamentos validados que já transformaram empreendedoras comuns em <span class="autoridade-highlight">grandes referências.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 5.5 — QUEM É A IDEALIZADORA
+  ══════════════════════════════ -->
+  <section class="idealizadora-section" id="idealizadora">
+    <div class="container">
+      <div class="idealizadora-wrapper" data-reveal>
+        <div class="idealizadora-content">
+          <h2 class="section-title">Quem é a idealizadora do evento?</h2>
+          <div class="ornate-rose-divider ornate-rose-divider--left" aria-hidden="true">
+            <svg viewBox="0 0 250 30">
+              <line x1="0" y1="15" x2="85" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+              <g transform="translate(125,15)">
                 <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
                 <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
                 <circle cx="0" cy="0" r="2.5" fill="currentColor" />
               </g>
-              <line x1="190" y1="15" x2="300" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+              <line x1="165" y1="15" x2="250" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
             </svg>
           </div>
-          <p class="quote__author">Diretamente das maiores referências do Brasil</p>
-        </footer>
-      </blockquote>
+          
+          <p class="idealizadora-text">Por trás da <strong>Imersão Evolution Brows</strong> está <strong>Erika Sousa</strong>, 29 anos, natural de Fortaleza/CE, uma mulher que transformou talento em autoridade e hoje inspira profissionais de todo o Brasil.</p>
+          
+          <p class="idealizadora-text">São <strong>14 anos de trajetória no empreendedorismo da beleza</strong> e <strong>8 anos de atuação como micropigmentadora</strong>, construindo uma carreira marcada por excelência, reconhecimento e resultados. Com formações nacionais e internacionais, Erika se consolidou como referência no mercado.</p>
+          
+          <p class="idealizadora-text">Entre suas conquistas, está o <strong>1º lugar no campeonato de Shadow, em São Paulo</strong>, além da marca de <strong>mais de 4.000 alunas formadas pela ES Academy</strong>.</p>
+          
+          <p class="idealizadora-text">Sua autoridade também se destaca em entrevistas para emissoras de TV, participação como jurada em eventos, atuação como palestrante e pela experiência de ter ministrado cursos na Europa.</p>
+          
+          <p class="idealizadora-text idealizadora-text--emphasis">Mais do que uma especialista em micropigmentação, Erika Sousa é referência para mulheres que desejam dominar técnicas, fortalecer seu posicionamento e se destacar nas redes sociais.</p>
+        </div>
+        
+        <div class="idealizadora-image">
+          <div class="idealizadora-frame">
+            <img src="assets/img/erika-sousa.jpg" alt="Erika Sousa - Idealizadora da Imersão Evolution Brows" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- Wave: Autoridade → Diamantes -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,35 Q360,70 720,28 Q1080,-14 1440,42 L1440,0 Z" fill="#0E3535"/>
-      <path d="M0,35 Q360,70 720,28 Q1080,-14 1440,42 L1440,70 L0,70 Z" fill="#16484A"/>
-      <path d="M0,35 Q360,70 720,28 Q1080,-14 1440,42" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
 
   <!-- ══════════════════════════════
        SEÇÃO 6 — OS DIAMANTES
@@ -470,48 +586,24 @@
             <line x1="40" y1="5" x2="15" y2="75" stroke="currentColor" stroke-width="0.3" opacity="0.3" />
           </svg>
         </div>
-        <p class="section-eyebrow" style="text-align:center">Mistério</p>
-        <h2 class="section-title" style="text-align:center">
-          E nesta temporada…<br /><em>algumas serão escolhidas</em>
-        </h2>
-        <div class="ornate-rose-divider" aria-hidden="true">
-          <svg viewBox="0 0 500 40">
-            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-            <g transform="translate(250,20)">
-              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
-              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
-              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
-              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
-            </g>
-            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
-          </svg>
-        </div>
+        
+        <h2 class="diamantes-headline">E nesta temporada… <span class="diamantes-headline--emphasis">algumas serão escolhidas</span></h2>
+        
         <p class="diamantes-text">Entre as participantes, empreendedoras serão reconhecidas como:</p>
         <p class="diamantes-title">As Diamantes da Temporada.</p>
-        <p class="diamantes-text">Os critérios ainda não foram revelados. Mas uma coisa é certa…</p>
-        <p class="diamantes-text carta-text--emphasis"><em>Você não vai querer descobrir isso depois que tudo já tiver
-            acontecido.</em></p>
+        <p class="diamantes-text">Os critérios ainda não foram revelados.</p>
+        <p class="diamantes-text">Mas uma coisa é certa…</p>
+        <p class="diamantes-text diamantes-text--warning"><em>Você não vai querer descobrir isso depois que tudo já tiver acontecido.</em></p>
       </div>
     </div>
   </section>
 
-  <!-- Wave: Diamantes → Urgência -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,21 Q480,70 960,28 Q1200,7 1440,52 L1440,0 Z" fill="#16484A"/>
-      <path d="M0,21 Q480,70 960,28 Q1200,7 1440,52 L1440,70 L0,70 Z" fill="#0E3535"/>
-      <path d="M0,21 Q480,70 960,28 Q1200,7 1440,52" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
-
   <!-- ══════════════════════════════
        SEÇÃO 7 — URGÊNCIA
   ══════════════════════════════ -->
-  <section class="urgencia-section" id="urgencia">
+  <section class="urgencia-section" id="urgencia" style="padding: 3rem 0;">
     <div class="container">
       <div class="urgencia-inner" data-reveal>
-        <p class="section-eyebrow" style="text-align:center">Urgência</p>
         <h2 class="urgencia-headline">
           O último e mais aguardado espetáculo da temporada<br />está prestes a começar
         </h2>
@@ -533,20 +625,16 @@
         <a href="#waitlist" class="btn btn--primary btn--glow" style="margin-top:2rem;">
           <span class="btn__shimmer"></span>
           <span>Garantir meu lugar agora</span>
+          <svg class="star-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+          <svg class="star-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+          <svg class="star-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+          <svg class="star-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+          <svg class="star-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+          <svg class="star-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
         </a>
       </div>
     </div>
   </section>
-
-  <!-- Wave: Urgência → Formulário -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21 L1440,0 Z" fill="#0E3535"/>
-      <path d="M0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21 L1440,70 L0,70 Z" fill="#16484A"/>
-      <path d="M0,42 Q240,70 480,35 Q720,0 960,42 Q1200,70 1440,21" fill="none" class="gold-line"/>
-    </svg>
-    <div class="section-shimmer-line"></div>
-  </div>
 
   <!-- ══════════════════════════════
        SEÇÃO 8 — FORMULÁRIO (CTA)
@@ -566,7 +654,6 @@
     <div class="container">
       <div class="waitlist__wrapper">
         <div class="waitlist__left" data-reveal>
-          <p class="section-eyebrow">Seção 8 · Formulário</p>
           <h2 class="waitlist__title">
             Garanta seu lugar<br /><em>antes da abertura oficial</em>
           </h2>
@@ -674,6 +761,12 @@
                       d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
                   </svg>
                 </span>
+                <svg class="star-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+                <svg class="star-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+                <svg class="star-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+                <svg class="star-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+                <svg class="star-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+                <svg class="star-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
               </button>
               <p class="form__disclaimer">🔒 Seus dados estão seguros. Prometemos não enviar spam.</p>
             </form>
@@ -696,15 +789,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Wave: Formulário → Footer -->
-  <div class="section-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px;">
-      <path d="M0,0 L0,28 Q360,70 720,35 Q1080,0 1440,49 L1440,0 Z" fill="#0E3535"/>
-      <path d="M0,28 Q360,70 720,35 Q1080,0 1440,49 L1440,70 L0,70 Z" fill="#040a12"/>
-      <path d="M0,28 Q360,70 720,35 Q1080,0 1440,49" fill="none" class="gold-line"/>
-    </svg>
-  </div>
 
   <!-- ══════════════════════════════
        SEÇÃO 9 — FECHAMENTO
@@ -736,13 +820,31 @@
         </svg>
       </div>
       <p class="footer__signature">Com expectativa,</p>
-      <p class="footer__brand">— Lady Whistledown</p>
+      <p class="footer__brand">— Lady Erika</p>
       <p class="footer__tagline">Imersão Evolutions Brows · Fortaleza · Outubro 2026</p>
       <p class="footer__copy">© 2026 Evolutions Brows. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  </div><!-- Fim do main-content -->
+
   <script src="assets/js/script.js"></script>
+  <script>
+    // Fix: forçar visibilidade de elementos data-reveal
+    function forceReveal() {
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        el.classList.add('revealed');
+      });
+    }
+    // Rodar imediatamente, no DOMContentLoaded e após 1s para garantir
+    forceReveal();
+    document.addEventListener('DOMContentLoaded', forceReveal);
+    window.addEventListener('load', forceReveal);
+    setTimeout(forceReveal, 500);
+    setTimeout(forceReveal, 1500);
+  </script>
 </body>
 
 </html>
