@@ -120,7 +120,11 @@ img { display: block; max-width: 100%; }
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #000000;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,11 +138,11 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../img/pattern-hero.jpg');
-  background-size: 500px auto;
-  background-repeat: repeat;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.25;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
 }
@@ -263,7 +267,11 @@ img { display: block; max-width: 100%; }
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background: linear-gradient(135deg, #050505 0%, #050505 50%, #050505 100%);
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,11 +285,11 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../img/pattern-hero.jpg');
-  background-size: 500px auto;
-  background-repeat: repeat;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.25;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
 }
@@ -2496,7 +2504,11 @@ img { display: block; max-width: 100%; }
 }
 
 .carta-screen {
-  background: #000000 !important;
+  background-image: url('../img/carta-fundo.png') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #0a0a0a !important;
 }
 
 /* Padrão damasco em todas as seções */
