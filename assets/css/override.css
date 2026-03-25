@@ -490,6 +490,7 @@
   border: none !important;
   box-shadow: none !important;
   overflow: visible !important;
+  transition: transform 0.4s ease !important;
 }
 
 .speaker-card__frame {
@@ -509,7 +510,7 @@
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   background: transparent !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
   overflow: hidden !important;
   display: block !important;
 }
@@ -541,13 +542,39 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  opacity: 1 !important;
+  opacity: 0 !important;
+  transition: opacity 0.6s ease !important;
   z-index: 1 !important;
-  transform: none !important;
+}
+
+.speaker-card:nth-child(2) .speaker-card__photo {
+  object-position: center 30% !important;
+}
+
+.speaker-card:nth-child(3) .speaker-card__photo {
+  object-position: center 35% !important;
+  transform: scale(1.4) !important;
 }
 
 .speaker-card__overlay {
-  display: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.98) 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 3 !important;
+  opacity: 1 !important;
+  transition: opacity 0.6s ease !important;
+}
+
+.speaker-card__mystery {
+  font-size: 4rem !important;
+  color: var(--color-gold) !important;
+  opacity: 0.6 !important;
 }
 
 .speaker-card__image::before {
@@ -562,11 +589,49 @@
   text-align: center !important;
   width: 100% !important;
   height: 4rem !important;
-  opacity: 1 !important;
+  opacity: 0 !important;
+  transition: opacity 0.6s ease !important;
+  pointer-events: none !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
   z-index: 4 !important;
+}
+
+/* Hover - revela temporariamente */
+.speaker-card:hover .speaker-card__photo {
+  opacity: 1 !important;
+}
+
+.speaker-card:hover .speaker-card__overlay {
+  opacity: 0 !important;
+}
+
+.speaker-card:hover .speaker-card__info {
+  opacity: 1 !important;
+}
+
+.speaker-card:hover {
+  transform: translateY(-8px) !important;
+}
+
+.speaker-card:hover .speaker-card__frame {
+  filter: drop-shadow(0 10px 30px rgba(201,168,76,0.4)) !important;
+}
+
+/* Revealed - permanece revelado */
+.speaker-card.revealed .speaker-card__photo {
+  opacity: 1 !important;
+}
+
+.speaker-card.revealed .speaker-card__overlay {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.speaker-card.revealed .speaker-card__info {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .autoridade-content {
