@@ -779,12 +779,12 @@ img { display: block; max-width: 100%; }
 ════════════════════════════════ */
 .hero {
   position: relative;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: auto; /* Reduzido de 100vh - evita o vão enorme antes do Suspense */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 5rem 0;
   text-align: center;
   overflow: hidden;
   z-index: 2;
@@ -1022,7 +1022,7 @@ img { display: block; max-width: 100%; }
 ════════════════════════════════ */
 .suspense {
   position: relative;
-  padding: 8rem 0;
+  padding: 4rem 0; /* Reduzido de 8rem */
   background: linear-gradient(180deg, var(--color-teal-mid) 0%, var(--color-teal) 100%);
   overflow: hidden;
   z-index: 2;
@@ -1091,7 +1091,7 @@ img { display: block; max-width: 100%; }
    PILLARS
 ════════════════════════════════ */
 .pillars {
-  padding: 7rem 0;
+  padding: 3rem 0; /* Reduzido de 7rem - previne gap excessivo */
   background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 50%, var(--color-teal) 100%);
   position: relative;
   z-index: 2;
@@ -1224,7 +1224,7 @@ img { display: block; max-width: 100%; }
    QUOTE
 ════════════════════════════════ */
 .quote-section {
-  padding: 8rem 0;
+  padding: 3rem 0; /* Reduzido de 8rem - previne gap excessivo */
   background: linear-gradient(135deg, #140A14 0%, var(--color-teal) 50%, #140A14 100%);
   position: relative;
   overflow: hidden;
@@ -1413,7 +1413,7 @@ img { display: block; max-width: 100%; }
    WAITLIST
 ════════════════════════════════ */
 .waitlist {
-  padding: 8rem 0 6rem;
+  padding: 4rem 0 3rem; /* Reduzido de 8rem 0 6rem */
   background:
     radial-gradient(ellipse 80% 60% at 0% 50%, rgba(166,107,110,0.12) 0%, transparent 60%),
     radial-gradient(ellipse 50% 50% at 100% 0%, rgba(150,170,189,0.08) 0%, transparent 55%),
