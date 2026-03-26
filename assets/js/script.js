@@ -472,4 +472,13 @@
     }
   })();
 
+  /* ─── 12. Speaker Card Reveal (permanente ao hover) ─────── */
+  (function initSpeakerReveal() {
+    document.querySelectorAll('.speaker-card').forEach(card => {
+      card.addEventListener('mouseenter', function () {
+        this.classList.add('revealed');
+      });
+    });
+  })();
+
 })();

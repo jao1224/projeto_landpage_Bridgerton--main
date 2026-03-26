@@ -586,6 +586,7 @@ section.hero,
   z-index: 3 !important;
   opacity: 1 !important;
   transition: opacity 0.6s ease !important;
+  pointer-events: none !important;
 }
 
 .speaker-card__mystery {
