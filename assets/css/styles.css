@@ -1,38 +1,38 @@
 /* ================================================================
-   IMERSÃO EVOLUTIONS BROWS — Bridgerton-Inspired Landing Page
-   Paleta Oficial da Cliente — 100% Fiel à Imagem:
-   ─ Teal Escuro      #0E3535  → fundo principal (tom mais escuro)
-   ─ Teal Médio       #16484A  → seções de fundo secundárias
-   ─ Teal Claro       #1E5C5E  → hover / cards
-   ─ Sage Verde       #8A9178  → accent verde-oliva
-   ─ Slate Azul Claro #9AAFC4  → accent azul frio
-   ─ Slate Azul Médio #7BA0BC  → secundário azul
-   ─ Rosé Suave       #C99AA0  → tom rosa empoeirado
-   ─ Rosé Intenso     #A66B6E  → destaque rosé
-   ─ Cinza Bege       #D6D4CE  → texto / fundos claros
-   ─ Off-White        #F0EEE8  → textos e títulos
+   IMERS├âO EVOLUTIONS BROWS ÔÇö Bridgerton-Inspired Landing Page
+   Paleta Oficial da Cliente ÔÇö 100% Fiel ├á Imagem:
+   ÔöÇ Teal Escuro      #0E3535  ÔåÆ fundo principal (tom mais escuro)
+   ÔöÇ Teal M├®dio       #16484A  ÔåÆ se├º├Áes de fundo secund├írias
+   ÔöÇ Teal Claro       #1E5C5E  ÔåÆ hover / cards
+   ÔöÇ Sage Verde       #8A9178  ÔåÆ accent verde-oliva
+   ÔöÇ Slate Azul Claro #9AAFC4  ÔåÆ accent azul frio
+   ÔöÇ Slate Azul M├®dio #7BA0BC  ÔåÆ secund├írio azul
+   ÔöÇ Ros├® Suave       #C99AA0  ÔåÆ tom rosa empoeirado
+   ÔöÇ Ros├® Intenso     #A66B6E  ÔåÆ destaque ros├®
+   ÔöÇ Cinza Bege       #D6D4CE  ÔåÆ texto / fundos claros
+   ÔöÇ Off-White        #F0EEE8  ÔåÆ textos e t├¡tulos
    ================================================================ */
 
-/* ── Design Tokens ─────────────────────────────────────── */
+/* ÔöÇÔöÇ Design Tokens ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 :root {
-  /* ── Paleta 100% Fiel à Imagem da Cliente ── */
-  --color-teal:        #0E3535;   /* Teal escuro — fundo principal */
-  --color-teal-mid:    #16484A;   /* Teal médio — seções de fundo */
-  --color-teal-light:  #1E5C5E;   /* Teal claro — hover / cards */
-  --color-sage:        #8A9178;   /* Sage verde-oliva — accent vegetal */
+  /* ÔöÇÔöÇ Paleta 100% Fiel ├á Imagem da Cliente ÔöÇÔöÇ */
+  --color-teal:        #0E3535;   /* Teal escuro ÔÇö fundo principal */
+  --color-teal-mid:    #16484A;   /* Teal m├®dio ÔÇö se├º├Áes de fundo */
+  --color-teal-light:  #1E5C5E;   /* Teal claro ÔÇö hover / cards */
+  --color-sage:        #8A9178;   /* Sage verde-oliva ÔÇö accent vegetal */
   --color-sage-light:  #A8B09A;   /* Sage claro */
-  --color-slate:       #9AAFC4;   /* Slate azul claro — accent frio */
-  --color-slate-mid:   #7BA0BC;   /* Slate azul médio */
+  --color-slate:       #9AAFC4;   /* Slate azul claro ÔÇö accent frio */
+  --color-slate-mid:   #7BA0BC;   /* Slate azul m├®dio */
   --color-slate-light: #B8CCDC;   /* Slate muito claro */
-  --color-mauve:       #C99AA0;   /* Rosé suave / mauve */
-  --color-rose:        #A66B6E;   /* Rosé intenso — destaques */
+  --color-mauve:       #C99AA0;   /* Ros├® suave / mauve */
+  --color-rose:        #A66B6E;   /* Ros├® intenso ÔÇö destaques */
   --color-rose-light:  #C99AA0;   /* Alias mauve */
   --color-beige:       #D6D4CE;   /* Cinza-bege quente */
-  --color-cream:       #F0EEE8;   /* Quase-branco — textos e títulos */
-  --color-offwhite:    #F7F5F0;   /* Muito claro — fundos carta */
+  --color-cream:       #F0EEE8;   /* Quase-branco ÔÇö textos e t├¡tulos */
+  --color-offwhite:    #F7F5F0;   /* Muito claro ÔÇö fundos carta */
   --color-white:       #ffffff;
 
-  /* Gold — mantido para ornamentos Bridgerton, CTAs, selos */
+  /* Gold ÔÇö mantido para ornamentos Bridgerton, CTAs, selos */
   --color-gold:        #c9a84c;
   --color-gold-light:  #e0c97a;
   --color-gold-pale:   #f0e2b2;
@@ -60,7 +60,7 @@
 }
 
 
-/* ── Reset & Base ──────────────────────────────────────── */
+/* ÔöÇÔöÇ Reset & Base ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
@@ -73,9 +73,9 @@ body {
 .container { width: 90%; max-width: 1120px; margin: 0 auto; }
 img { display: block; max-width: 100%; }
 
-/* ══════════════════════════════════════════════════════════
-   ANIMAÇÃO DE ACENDER A LUZ
-══════════════════════════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   ANIMA├ç├âO DE ACENDER A LUZ
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .light-on-overlay {
   position: fixed;
   inset: 0;
@@ -113,14 +113,18 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* ══════════════════════════════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    TELA DE ABERTURA (Opening Screen)
-══════════════════════════════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .opening-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #000000;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,11 +138,11 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../img/pattern-hero.jpg');
-  background-size: 500px auto;
-  background-repeat: repeat;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.25;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
 }
@@ -256,14 +260,18 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* ══════════════════════════════════════════════════════════
-   TELA DA CARTA (Intermediária)
-══════════════════════════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   TELA DA CARTA (Intermedi├íria)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .carta-screen {
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background: linear-gradient(135deg, #050505 0%, #050505 50%, #050505 100%);
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,11 +285,11 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../img/pattern-hero.jpg');
-  background-size: 500px auto;
-  background-repeat: repeat;
+  background-image: url('../img/carta-fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.25;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
 }
@@ -312,7 +320,7 @@ img { display: block; max-width: 100%; }
   transform: translateY(0);
 }
 
-/* Animação sutil do envelope */
+/* Anima├º├úo sutil do envelope */
 .carta-screen.visible .carta-reveal-container {
   animation: envelopeFloat 4s ease-in-out infinite;
 }
@@ -433,7 +441,7 @@ img { display: block; max-width: 100%; }
   opacity: 1;
 }
 
-/* ── Ambient Canvas ────────────────────────────────────── */
+/* ÔöÇÔöÇ Ambient Canvas ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 #ambient-canvas {
   position: fixed;
   inset: 0;
@@ -441,7 +449,7 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
-/* ── Petals ────────────────────────────────────────────── */
+/* ÔöÇÔöÇ Petals ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 #petals-container {
   position: fixed;
   inset: 0;
@@ -465,7 +473,7 @@ img { display: block; max-width: 100%; }
   100% { transform: translateY(110vh) rotate(720deg) scale(1.1); opacity: 0; }
 }
 
-/* ── Gold Particles ────────────────────────────────────── */
+/* ÔöÇÔöÇ Gold Particles ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 #particles-container {
   position: fixed;
   inset: 0;
@@ -488,7 +496,7 @@ img { display: block; max-width: 100%; }
   100% { transform: translateY(-5vh) scale(1.1); opacity: 0; }
 }
 
-/* ── Typography utilities ──────────────────────────────── */
+/* ÔöÇÔöÇ Typography utilities ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .section-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.65rem;
@@ -519,7 +527,7 @@ img { display: block; max-width: 100%; }
   margin-top: 0.1em;
 }
 
-/* ── Ornate Dividers ───────────────────────────────────── */
+/* ÔöÇÔöÇ Ornate Dividers ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .ornate-divider {
   width: 100%;
   max-width: 400px;
@@ -536,7 +544,7 @@ img { display: block; max-width: 100%; }
 }
 .ornate-rose-divider--left { margin-left: 0; }
 
-/* ── Section Floral Borders ────────────────────────────── */
+/* ÔöÇÔöÇ Section Floral Borders ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .section-floral-border {
   width: 100%;
   color: var(--color-gold);
@@ -545,7 +553,7 @@ img { display: block; max-width: 100%; }
 }
 .section-floral-border svg { width: 100%; height: 60px; }
 
-/* == BUTTONS ══════════════════════════════════════════════ */
+/* == BUTTONS ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -774,12 +782,12 @@ img { display: block; max-width: 100%; }
   fill: #fffdef;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    HERO
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .hero {
   position: relative;
-  min-height: auto; /* Reduzido de 100vh - evita o vão enorme antes do Suspense */
+  min-height: auto; /* Reduzido de 100vh - evita o v├úo enorme antes do Suspense */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -824,7 +832,7 @@ img { display: block; max-width: 100%; }
   to   { background-position: 65px 65px; }
 }
 
-/* ── Hero bottom fade — barely-there dissolve ── */
+/* ÔöÇÔöÇ Hero bottom fade ÔÇö barely-there dissolve ÔöÇÔöÇ */
 .hero__fade-bottom {
   position: absolute;
   bottom: 0;
@@ -836,7 +844,7 @@ img { display: block; max-width: 100%; }
   z-index: 3;
 }
 
-/* ── Frame Corners ─────────────────────────────────────── */
+/* ÔöÇÔöÇ Frame Corners ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .frame-corner {
   position: absolute;
   color: var(--color-gold);
@@ -855,7 +863,7 @@ img { display: block; max-width: 100%; }
 .frame-corner--bl { bottom: 20px; left: 20px; }
 .frame-corner--br { bottom: 20px; right: 20px; }
 
-/* ── Floral side elements ──────────────────────────────── */
+/* ÔöÇÔöÇ Floral side elements ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .hero__floral {
   position: absolute;
   top: 50%;
@@ -868,7 +876,7 @@ img { display: block; max-width: 100%; }
 .hero__floral--left  { left:  0; }
 .hero__floral--right { right: 0; }
 
-/* ── Hero Content ──────────────────────────────────────── */
+/* ÔöÇÔöÇ Hero Content ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .hero__content {
   position: relative;
   z-index: 4;
@@ -917,7 +925,7 @@ img { display: block; max-width: 100%; }
   padding: 0.5rem 0 1rem 0;
 }
 
-/* "Imersão" — small Cinzel Decorative label above */
+/* "Imers├úo" ÔÇö small Cinzel Decorative label above */
 .hero__title-eyebrow {
   font-family: var(--font-sans);
   font-size: clamp(0.6rem, 1.5vw, 0.85rem);
@@ -930,15 +938,16 @@ img { display: block; max-width: 100%; }
   animation: fadeInUp 0.8s 0.6s forwards;
 }
 
-/* "Evolutions" — Great Vibes script, animated shimmer */
+/* "Evolutions" ÔÇö Great Vibes script, animated shimmer */
 .hero__title-script {
   font-family: var(--font-script);
   font-size: clamp(4.5rem, 11vw, 8rem);
-  color: transparent;
+  color: var(--color-gold); /* Fallback */
   background: linear-gradient(135deg, var(--color-gold-pale) 0%, var(--color-gold) 35%, var(--color-gold-light) 55%, var(--color-gold) 80%, var(--color-gold-pale) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1.3;
   filter: drop-shadow(0 0 40px rgba(201,168,76,0.3));
   animation: textShimmer 5s linear infinite, fadeInUp 1s 0.4s both;
@@ -953,7 +962,7 @@ img { display: block; max-width: 100%; }
   100% { background-position: 200% center; }
 }
 
-/* "BROWS" — Cinzel Decorative, spaced, cream */
+/* "BROWS" ÔÇö Cinzel Decorative, spaced, cream */
 .hero__title-main {
   font-family: var(--font-title);
   font-size: clamp(1.4rem, 4vw, 2.6rem);
@@ -983,7 +992,7 @@ img { display: block; max-width: 100%; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Scroll indicator ──────────────────────────────────── */
+/* ÔöÇÔöÇ Scroll indicator ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .scroll-indicator {
   position: absolute;
   bottom: 1.5rem;
@@ -1017,9 +1026,9 @@ img { display: block; max-width: 100%; }
   50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    SUSPENSE
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .suspense {
   position: relative;
   padding: 4rem 0; /* Reduzido de 8rem */
@@ -1087,9 +1096,9 @@ img { display: block; max-width: 100%; }
 .suspense__text--emphasis { color: var(--color-cream); font-size: 1.25rem; margin: 1.5rem 0 1rem; }
 .suspense__text--emphasis em { color: var(--color-gold-light); font-style: italic; font-weight: 500; }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    PILLARS
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .pillars {
   padding: 3rem 0; /* Reduzido de 7rem - previne gap excessivo */
   background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 50%, var(--color-teal) 100%);
@@ -1220,9 +1229,9 @@ img { display: block; max-width: 100%; }
 }
 .pillar-card__bottom-ornament svg { width: 100%; }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    QUOTE
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .quote-section {
   padding: 3rem 0; /* Reduzido de 8rem - previne gap excessivo */
   background: linear-gradient(135deg, #140A14 0%, var(--color-teal) 50%, #140A14 100%);
@@ -1409,9 +1418,9 @@ img { display: block; max-width: 100%; }
   font-style: italic;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    WAITLIST
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .waitlist {
   padding: 4rem 0 3rem; /* Reduzido de 8rem 0 6rem */
   background:
@@ -1503,7 +1512,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 0 12px rgba(201,168,76,0.3);
 }
 
-/* ── Form Card ─────────────────────────────────────────── */
+/* ÔöÇÔöÇ Form Card ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .form-card {
   background: linear-gradient(145deg, rgba(14,53,53,0.98), rgba(8,30,30,0.99));
   border: var(--border-gold);
@@ -1546,7 +1555,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 2rem;
 }
 
-/* ── Form ──────────────────────────────────────────────── */
+/* ÔöÇÔöÇ Form ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .form__group { margin-bottom: 1.35rem; }
 
 .form__label {
@@ -1609,7 +1618,7 @@ img { display: block; max-width: 100%; }
   line-height: 1.6;
 }
 
-/* ── Form Success ──────────────────────────────────────── */
+/* ÔöÇÔöÇ Form Success ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .form-success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 2rem 0; gap: 1.25rem; }
 .form-success.visible { display: flex; animation: successReveal 0.7s cubic-bezier(0.16,1,0.3,1) both; }
 
@@ -1640,7 +1649,7 @@ img { display: block; max-width: 100%; }
 }
 .form-success__text strong { color: var(--color-gold-light); }
 
-/* ── Footer ────────────────────────────────────────────── */
+/* ÔöÇÔöÇ Footer ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .footer {
   padding: 3.5rem 0;
   background: #040A12;
@@ -1678,9 +1687,9 @@ img { display: block; max-width: 100%; }
   color: rgba(247,240,230,0.22);
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    SCROLL REVEAL
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 [data-reveal] {
   opacity: 0;
   transform: translateY(35px);
@@ -1691,9 +1700,9 @@ img { display: block; max-width: 100%; }
 [data-reveal-delay="2"] { transition-delay: 0.22s; }
 [data-reveal-delay="3"] { transition-delay: 0.35s; }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    HERO HEADLINE / SUBHEADLINE
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .hero__headline {
   font-family: var(--font-body);
   font-style: italic;
@@ -1714,9 +1723,9 @@ img { display: block; max-width: 100%; }
   animation: fadeInUp 1s 1s both;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    CARTA SECTION
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .carta-section {
   position: relative;
   padding: 8rem 0 7rem;
@@ -1724,7 +1733,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
   z-index: 2;
 }
-/* ── Envelope 3D Animation ────────────────────────────── */
+/* ÔöÇÔöÇ Envelope 3D Animation ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .carta-reveal-container {
   position: relative;
   display: flex;
@@ -1769,7 +1778,7 @@ img { display: block; max-width: 100%; }
   max-height: 220px;
   overflow: hidden;
   transform: translateY(140px) scale(0.92);
-  /* Transições suaves e alongadas para um efeito majestoso e delicado */
+  /* Transi├º├Áes suaves e alongadas para um efeito majestoso e delicado */
   transition: transform 2s ease-in-out 0.5s, 
               scale 2s ease-in-out 0.5s,
               max-height 3s ease-in-out 1.2s; /* Desdobramento lento e real */
@@ -1778,7 +1787,7 @@ img { display: block; max-width: 100%; }
 /* Quando o envelope abre */
 .carta-reveal-container.is-open .carta-wrapper {
   transform: translateY(-20px) scale(0.85);
-  max-height: 1100px; /* Alvo reduzido para evitar velocidade irreal de interpolação */
+  max-height: 1100px; /* Alvo reduzido para evitar velocidade irreal de interpola├º├úo */
 }
 
 .carta-wrapper::before {
@@ -1815,7 +1824,7 @@ img { display: block; max-width: 100%; }
 .carta-reveal-container.is-open .envelope-back,
 .carta-reveal-container.is-open .envelope-front {
   opacity: 0;
-  /* Suavizado o grau e o deslize para acompanhar a lentidão */
+  /* Suavizado o grau e o deslize para acompanhar a lentid├úo */
   transform: translateX(-50%) translateY(350px) rotate(-2deg);
 }
 .envelope-pocket {
@@ -1951,9 +1960,9 @@ img { display: block; max-width: 100%; }
 .carta-wrapper .section-eyebrow { color: var(--color-rose); font-weight: 600; opacity: 1; }
 
 
-/* ════════════════════════════════
-   TÉCNICAS GRID  (Seção 4)
-════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   T├ëCNICAS GRID  (Se├º├úo 4)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .pillars__intro {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.1rem);
@@ -2055,9 +2064,9 @@ img { display: block; max-width: 100%; }
   margin-top: 0.75rem;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    DIAMANTES SECTION
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .diamantes-section {
   padding: 7rem 0;
   position: relative;
@@ -2131,9 +2140,9 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
 }
 
-/* ════════════════════════════════
-   URGÊNCIA SECTION
-════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   URG├èNCIA SECTION
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .urgencia-section {
   padding: 6rem 0;
   background: var(--color-teal-mid);
@@ -2178,9 +2187,9 @@ img { display: block; max-width: 100%; }
   margin-bottom: 1rem;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    FOOTER CLOSING (Lady Whistledown)
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .footer__closing {
   font-family: var(--font-body);
   font-style: italic;
@@ -2203,9 +2212,9 @@ img { display: block; max-width: 100%; }
   font-style: italic;
 }
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    RESPONSIVE
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 @media (max-width: 900px) {
   .waitlist__wrapper   { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero__floral        { display: none; }
@@ -2245,15 +2254,15 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* ════════════════════════════════════════════════════
-   TRANSIÇÕES ENTRE SEÇÕES — Elegância Bridgerton
-   Estratégia:
-   ─ .section-wave: divisores SVG de onda entre seções
-   ─ gradientes de borda estendidos (top/bottom fades)
-   ─ margin-top negativo para sobreposição suave
-   ════════════════════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   TRANSI├ç├òES ENTRE SE├ç├òES ÔÇö Eleg├óncia Bridgerton
+   Estrat├®gia:
+   ÔöÇ .section-wave: divisores SVG de onda entre se├º├Áes
+   ÔöÇ gradientes de borda estendidos (top/bottom fades)
+   ÔöÇ margin-top negativo para sobreposi├º├úo suave
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 
-/* ── Divisor de onda entre seções ──────────────────── */
+/* ÔöÇÔöÇ Divisor de onda entre se├º├Áes ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .section-wave {
   display: none;
 }
@@ -2269,12 +2278,12 @@ img { display: block; max-width: 100%; }
   width: 100%;
 }
 
-/* ── Variantes de onda por cor de origem → destino ── */
+/* ÔöÇÔöÇ Variantes de onda por cor de origem ÔåÆ destino ÔöÇÔöÇ */
 .section-wave--dark-to-mid svg { filter: drop-shadow(0 -4px 12px rgba(0,0,0,0.3)); }
 .section-wave--mid-to-dark svg { filter: drop-shadow(0  4px 12px rgba(0,0,0,0.3)); }
 
-/* ── Aprimoramento: fundos de seção começam mais cedo
-      para a onda já ter cor antes de aparecer ──────── */
+/* ÔöÇÔöÇ Aprimoramento: fundos de se├º├úo come├ºam mais cedo
+      para a onda j├í ter cor antes de aparecer ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .carta-section {
   margin-top: -2px; /* cola perfeitamente com a wave acima */
 }
@@ -2304,7 +2313,7 @@ img { display: block; max-width: 100%; }
   margin-top: -2px;
 }
 
-/* ── Gradientes de fusão mais profundos nos topos ─── */
+/* ÔöÇÔöÇ Gradientes de fus├úo mais profundos nos topos ÔöÇÔöÇÔöÇ */
 /* Suspense / Sobre o Evento */
 .suspense::after {
   height: 90px;
@@ -2337,7 +2346,7 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(to bottom, rgba(8,30,30,0.55) 0%, transparent 100%);
 }
 
-/* Urgência */
+/* Urg├¬ncia */
 .urgencia-section::before {
   content: '';
   position: absolute;
@@ -2357,7 +2366,7 @@ img { display: block; max-width: 100%; }
   z-index: 1;
 }
 
-/* ── Ornamento separador dourado ─────────────────── */
+/* ÔöÇÔöÇ Ornamento separador dourado ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .wave-ornament {
   display: flex;
   align-items: center;
@@ -2376,7 +2385,7 @@ img { display: block; max-width: 100%; }
   animation: cornerPulse 3s ease-in-out infinite;
 }
 
-/* ── Seções com posição relativa para o ornamento ── */
+/* ÔöÇÔöÇ Se├º├Áes com posi├º├úo relativa para o ornamento ÔöÇÔöÇ */
 .carta-section,
 .suspense,
 .pillars,
@@ -2386,7 +2395,7 @@ img { display: block; max-width: 100%; }
   position: relative;
 }
 
-/* ── Esmaecimento estendido do hero ─────────────── */
+/* ÔöÇÔöÇ Esmaecimento estendido do hero ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .hero__fade-bottom {
   height: 120px;
   background: linear-gradient(
@@ -2397,7 +2406,7 @@ img { display: block; max-width: 100%; }
   );
 }
 
-/* ── Transição section-floral-border aprimorada ─── */
+/* ÔöÇÔöÇ Transi├º├úo section-floral-border aprimorada ÔöÇÔöÇÔöÇ */
 .section-floral-border {
   width: 100%;
   color: var(--color-gold);
@@ -2412,7 +2421,7 @@ img { display: block; max-width: 100%; }
   z-index: 2;
 }
 
-/* ── Linha brilhante entre seções ────────────────── */
+/* ÔöÇÔöÇ Linha brilhante entre se├º├Áes ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .section-shimmer-line {
   width: 100%;
   height: 1px;
@@ -2428,7 +2437,7 @@ img { display: block; max-width: 100%; }
   z-index: 5;
 }
 
-/* ── Linha shimmer com gema central ─────────────── */
+/* ÔöÇÔöÇ Linha shimmer com gema central ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
 .section-shimmer-line::before {
   content: '';
   position: absolute;
@@ -2443,7 +2452,7 @@ img { display: block; max-width: 100%; }
   animation: cornerPulse 3s ease-in-out infinite;
 }
 
-/* ── Diamantes ornamentais (wave SVG wrapper) ──── */
+/* ÔöÇÔöÇ Diamantes ornamentais (wave SVG wrapper) ÔöÇÔöÇÔöÇÔöÇ */
 .section-divider {
   position: relative;
   z-index: 4;
@@ -2464,9 +2473,9 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* ════════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    BACKGROUND UNIFICADO
-════════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .suspense,
 .pillars,
 .quote-section,
@@ -2479,7 +2488,7 @@ img { display: block; max-width: 100%; }
     linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%) !important;
 }
 
-/* Remover os ::before e ::after que sobrepõem o background */
+/* Remover os ::before e ::after que sobrep├Áem o background */
 .suspense::before,
 .suspense::after,
 .pillars::before,
@@ -2496,10 +2505,14 @@ img { display: block; max-width: 100%; }
 }
 
 .carta-screen {
-  background: #000000 !important;
+  background-image: url('../img/carta-fundo.png') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #0a0a0a !important;
 }
 
-/* Padrão damasco em todas as seções */
+/* Padr├úo damasco em todas as se├º├Áes */
 .hero::after,
 .suspense::after,
 .pillars::after,
@@ -2520,7 +2533,7 @@ img { display: block; max-width: 100%; }
   mix-blend-mode: overlay;
 }
 
-/* Atualizar padrão em todas as seções para o novo damasco */
+/* Atualizar padr├úo em todas as se├º├Áes para o novo damasco */
 .hero::after {
   background-image: url('../img/pattern-hero.jpg') !important;
   background-size: 400px auto !important;
@@ -2547,7 +2560,7 @@ img { display: block; max-width: 100%; }
   mix-blend-mode: overlay;
 }
 
-/* FORÇAR padrão damasco em TODAS as seções */
+/* FOR├çAR padr├úo damasco em TODAS as se├º├Áes */
 .suspense,
 .pillars,
 .quote-section,
@@ -2577,7 +2590,7 @@ img { display: block; max-width: 100%; }
   display: block !important;
 }
 
-/* Garantir que o conteúdo fique acima do padrão */
+/* Garantir que o conte├║do fique acima do padr├úo */
 .suspense > *,
 .pillars > *,
 .quote-section > *,
@@ -2665,7 +2678,7 @@ img { display: block; max-width: 100%; }
   background-blend-mode: overlay, normal !important;
 }
 
-/* APLICAR PADRÃO MANTENDO COR ORIGINAL - SEM DEGRADÊS */
+/* APLICAR PADR├âO MANTENDO COR ORIGINAL - SEM DEGRAD├èS */
 .hero {
   background: 
     url('../img/pattern-hero.jpg'),
@@ -2731,7 +2744,7 @@ img { display: block; max-width: 100%; }
   background-blend-mode: overlay, normal, normal, normal !important;
 }
 
-/* Remover todos os degradês de borda */
+/* Remover todos os degrad├¬s de borda */
 .suspense::after,
 .pillars::before,
 .pillars::after,
@@ -2744,7 +2757,7 @@ img { display: block; max-width: 100%; }
   display: none !important;
 }
 
-/* TÉCNICAS CARDS COM SELO */
+/* T├ëCNICAS CARDS COM SELO */
 .tecnicas-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2925,7 +2938,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   margin-top: 35px;
 }
-/* CARDS PADRÃO COMO NA REFERÊNCIA */
+/* CARDS PADR├âO COMO NA REFER├èNCIA */
 .tecnicas-cards {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
@@ -3001,7 +3014,7 @@ img { display: block; max-width: 100%; }
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) !important;
 }
 
-/* Reduzir espaçamento entre seções */
+/* Reduzir espa├ºamento entre se├º├Áes */
 .suspense,
 .pillars,
 .quote-section,
@@ -3020,20 +3033,20 @@ section {
   margin-bottom: 0 !important;
 }
 
-/* Remover linhas divisórias entre seções */
+/* Remover linhas divis├│rias entre se├º├Áes */
 .section-shimmer-line,
 .gold-line {
   display: none !important;
 }
 
-/* Remover TODAS as divisões entre seções */
+/* Remover TODAS as divis├Áes entre se├º├Áes */
 .section-wave,
 .section-divider,
 .hero__fade-bottom {
   display: none !important;
 }
 
-/* Garantir que não haja bordas ou sombras entre seções */
+/* Garantir que n├úo haja bordas ou sombras entre se├º├Áes */
 .suspense,
 .pillars,
 .quote-section,
@@ -3063,7 +3076,7 @@ section {
   display: none !important;
 }
 
-/* BACKGROUND ÚNICO E SÓLIDO EM TODAS AS SEÇÕES */
+/* BACKGROUND ├ÜNICO E S├ôLIDO EM TODAS AS SE├ç├òES */
 .hero,
 .suspense,
 .pillars,
@@ -3078,7 +3091,7 @@ section {
   background-blend-mode: overlay !important;
 }
 
-/* Remover divisão entre hero e próxima seção */
+/* Remover divis├úo entre hero e pr├│xima se├º├úo */
 .scroll-indicator {
   display: none !important;
 }
@@ -3097,7 +3110,7 @@ section {
   line-height: 1.6 !important;
 }
 
-/* FORÇAR REMOÇÃO DE DIVISÃO HERO */
+/* FOR├çAR REMO├ç├âO DE DIVIS├âO HERO */
 .hero {
   margin-bottom: 0 !important;
   padding-bottom: 4rem !important;

@@ -1,0 +1,120 @@
+<!-- ══════════════════════════════
+     SEÇÃO 8 — FORMULÁRIO (CTA)
+══════════════════════════════ -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist__ambient" aria-hidden="true"></div>
+  <div class="waitlist__top-border" aria-hidden="true">
+    <svg viewBox="0 0 1200 50" preserveAspectRatio="none">
+      <path d="M0,25 L550,25" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
+      <g transform="translate(600,25)">
+        <circle cx="0" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.8" />
+        <circle cx="0" cy="0" r="1.5" fill="currentColor" opacity="0.9" />
+      </g>
+      <path d="M650,25 L1200,25" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
+    </svg>
+  </div>
+  <div class="container">
+    <div class="waitlist__wrapper">
+      <div class="waitlist__left" data-reveal>
+        <h2 class="waitlist__title">
+          Garanta seu lugar<br /><em>antes da abertura oficial</em>
+        </h2>
+        <div class="ornate-rose-divider ornate-rose-divider--left" aria-hidden="true">
+          <svg viewBox="0 0 250 30">
+            <line x1="0" y1="15" x2="85" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+            <g transform="translate(125,15)">
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="165" y1="15" x2="250" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+          </svg>
+        </div>
+        <p class="waitlist__intro">Se você deseja parar de ser apenas mais uma profissional e finalmente se tornar uma
+          referência no seu mercado…</p>
+        <p class="waitlist__intro waitlist__intro--emphasis">Este é o seu momento.</p>
+        <ul class="waitlist__perks">
+          <li class="perk-item" data-reveal data-reveal-delay="1">
+            <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg></div>
+            Acesso antecipado antes da abertura oficial
+          </li>
+          <li class="perk-item" data-reveal data-reveal-delay="2">
+            <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg></div>
+            Condições exclusivas para membros da lista VIP
+          </li>
+          <li class="perk-item" data-reveal data-reveal-delay="3">
+            <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg></div>
+            Conteúdos exclusivos antes do início da imersão
+          </li>
+          <li class="perk-item" data-reveal data-reveal-delay="3">
+            <div class="perk-item__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg></div>
+            Vagas muito limitadas — as primeiras são as mais disputadas
+          </li>
+        </ul>
+      </div>
+      <div class="waitlist__right" data-reveal data-reveal-delay="2">
+        <div class="form-card">
+          <div class="form-card__corner form-card__corner--tl" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50"><path d="M5 5 L5 25 M5 5 L25 5" stroke="currentColor" stroke-width="1" /><circle cx="5" cy="5" r="2" fill="currentColor" /></svg></div>
+          <div class="form-card__corner form-card__corner--tr" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50"><path d="M45 5 L45 25 M45 5 L25 5" stroke="currentColor" stroke-width="1" /><circle cx="45" cy="5" r="2" fill="currentColor" /></svg></div>
+          <div class="form-card__corner form-card__corner--bl" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50"><path d="M5 45 L5 25 M5 45 L25 45" stroke="currentColor" stroke-width="1" /><circle cx="5" cy="45" r="2" fill="currentColor" /></svg></div>
+          <div class="form-card__corner form-card__corner--br" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50"><path d="M45 45 L45 25 M45 45 L25 45" stroke="currentColor" stroke-width="1" /><circle cx="45" cy="45" r="2" fill="currentColor" /></svg></div>
+
+          <p class="form-card__label">Convite Oficial</p>
+          <h3 class="form-card__title">Preencha seus dados</h3>
+          <form id="waitlist-form" class="form" novalidate>
+            <div class="form__group">
+              <label class="form__label" for="name">Nome</label>
+              <div class="form__input-wrapper">
+                <input class="form__input" type="text" id="name" name="name" placeholder="Como devemos chamá-la?" required autocomplete="name" />
+                <span class="form__input-line"></span>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="whatsapp">WhatsApp</label>
+              <div class="form__input-wrapper">
+                <input class="form__input" type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" />
+                <span class="form__input-line"></span>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">E-mail</label>
+              <div class="form__input-wrapper">
+                <input class="form__input" type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+                <span class="form__input-line"></span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--submit btn--glow" id="submit-btn">
+              <span class="btn__shimmer"></span>
+              <span class="btn__text">Quero receber meu convite exclusivo</span>
+              <span class="btn__loading" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                </svg>
+              </span>
+              <svg class="star-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+              <svg class="star-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+              <svg class="star-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+              <svg class="star-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+              <svg class="star-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+              <svg class="star-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"/></svg>
+            </button>
+            <p class="form__disclaimer">🔒 Seus dados estão seguros. Prometemos não enviar spam.</p>
+          </form>
+          <div class="form-success" id="form-success" aria-hidden="true">
+            <div class="form-success__rose" aria-hidden="true">
+              <svg width="60" height="60" viewBox="0 0 60 60">
+                <g transform="translate(30,30)">
+                  <path d="M0,-22 C11,-11 22,0 0,22 C-22,0 -11,-11 0,-22Z" fill="currentColor" opacity="0.7" />
+                  <path d="M-22,0 C-11,11 0,22 22,0 C0,-22 -11,-11 -22,0Z" fill="currentColor" opacity="0.6" />
+                  <circle cx="0" cy="0" r="5" fill="currentColor" />
+                </g>
+              </svg>
+            </div>
+            <h3 class="form-success__title">Convite enviado!</h3>
+            <p class="form-success__text">Você agora faz parte da lista de espera da <strong>Imersão Evolutions Brows</strong>. Fique de olho no seu WhatsApp e e-mail. A temporada está chegando. 🌹</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
