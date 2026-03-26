@@ -4,6 +4,214 @@
 (function () {
   'use strict';
 
+  /* ─── 0. Opening Screen + Carta + Transição para Hero ────── */
+  (function initOpeningScreen() {
+    const openingScreen = document.getElementById('opening-screen');
+    const cartaScreen   = document.getElementById('carta-screen');
+    const mainContent   = document.getElementById('main-content');
+    const seloIntro     = document.getElementById('selo-intro');
+    const textFirst     = document.querySelector('.opening-screen__text--first');
+    const textSecond    = document.querySelector('.opening-screen__text--second');
+    const textThird     = document.querySelector('.opening-screen__text--third');
+    const skipIntro     = document.getElementById('skip-intro');
+    const skipIntroCarta = document.getElementById('skip-intro-carta');
+
+    if (!openingScreen || !cartaScreen || !mainContent) return;
+
+    let currentStep = 0;
+    let timeoutId;
+    let isAutoPlaying = true;
+    let skipIntroActivated = false;
+
+    function revealHero() {
+      mainContent.style.display = 'block';
+      mainContent.style.position = 'static';
+      mainContent.style.top = 'auto';
+      mainContent.style.height = 'auto';
+      mainContent.style.zIndex = 'auto';
+      mainContent.style.transform = 'none';
+      mainContent.style.opacity = '1';
+      mainContent.style.overflow = '';
+      document.body.style.overflow = '';
+      mainContent.classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      const heroContent = document.querySelector('.hero__content');
+      if (heroContent) {
+        heroContent.style.animation = 'none';
+        void heroContent.offsetWidth;
+        heroContent.style.animation = '';
+        heroContent.classList.add('animate-in');
+      }
+    }
+
+    function skipToHero() {
+      skipIntroActivated = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      openingScreen.style.display = 'none';
+      cartaScreen.style.display = 'none';
+      revealHero();
+    }
+
+    if (skipIntro) skipIntro.addEventListener('click', (e) => { e.stopPropagation(); skipToHero(); });
+    if (skipIntroCarta) skipIntroCarta.addEventListener('click', (e) => { e.stopPropagation(); skipToHero(); });
+
+    function showLetter() {
+      if (skipIntroActivated) return;
+      openingScreen.classList.add('fade-out');
+      setTimeout(() => {
+        openingScreen.style.display = 'none';
+        cartaScreen.style.display = 'flex';
+        setTimeout(() => cartaScreen.classList.add('visible'), 50);
+        // Mostrar hint após 3.5s
+        setTimeout(() => {
+          const clickHint = document.getElementById('click-hint');
+          if (clickHint && cartaScreen.classList.contains('visible')) {
+            clickHint.classList.add('visible');
+          }
+        }, 3500);
+      }, 500);
+    }
+
+    function nextStep() {
+      if (timeoutId) clearTimeout(timeoutId);
+      isAutoPlaying = false;
+      currentStep++;
+      if (currentStep === 1) {
+        if (textFirst) textFirst.style.display = 'none';
+        if (textSecond) textSecond.classList.add('active');
+        timeoutId = setTimeout(nextStep, 5000);
+      } else if (currentStep === 2) {
+        if (textSecond) textSecond.classList.add('fade-out');
+        setTimeout(() => {
+          if (textSecond) textSecond.style.display = 'none';
+          if (textThird) textThird.classList.add('active');
+          timeoutId = setTimeout(showLetter, 5000);
+        }, 800);
+      } else {
+        showLetter();
+      }
+    }
+
+    openingScreen.addEventListener('click', () => { if (isAutoPlaying) isAutoPlaying = false; nextStep(); });
+
+    // Timeline automática
+    timeoutId = setTimeout(() => {
+      if (currentStep === 0 && isAutoPlaying) {
+        if (textFirst) textFirst.style.display = 'none';
+        if (textSecond) textSecond.classList.add('active');
+        currentStep = 1;
+        timeoutId = setTimeout(() => {
+          if (currentStep === 1 && isAutoPlaying) {
+            if (textSecond) textSecond.classList.add('fade-out');
+            setTimeout(() => {
+              if (textSecond) textSecond.style.display = 'none';
+              if (textThird) textThird.classList.add('active');
+              currentStep = 2;
+              timeoutId = setTimeout(() => { if (currentStep === 2 && isAutoPlaying) showLetter(); }, 5000);
+            }, 800);
+          }
+        }, 5000);
+      }
+    }, 5500);
+
+    // Clique no selo — abre envelope e inicia transição por scroll
+    if (seloIntro) {
+      const cartaRevealIntro = document.getElementById('carta-reveal-intro');
+      const clickHint = document.getElementById('click-hint');
+      let envelopeOpened = false;
+      let scrollEnabled = false;
+
+      seloIntro.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (skipIntroActivated || envelopeOpened) return;
+        envelopeOpened = true;
+
+        if (skipIntroCarta) skipIntroCarta.style.display = 'none';
+        if (clickHint) clickHint.style.opacity = '0';
+        if (cartaRevealIntro) { cartaRevealIntro.style.animation = 'none'; cartaRevealIntro.classList.add('is-open'); }
+
+        setTimeout(() => {
+          scrollEnabled = true;
+          mainContent.style.display = 'block';
+          mainContent.style.opacity = '0';
+          mainContent.style.position = 'fixed';
+          mainContent.style.top = '100vh';
+          mainContent.style.left = '0';
+          mainContent.style.right = '0';
+          mainContent.style.height = '100vh';
+          mainContent.style.zIndex = '9999';
+          mainContent.style.overflow = 'hidden';
+          cartaScreen.style.transition = 'none';
+          mainContent.style.transition = 'none';
+
+          const scrollHint = document.createElement('p');
+          scrollHint.className = 'scroll-hint-carta';
+          scrollHint.innerHTML = '<span class="hint-desktop">Role para continuar</span><span class="hint-mobile">Deslize para continuar</span>';
+          cartaScreen.appendChild(scrollHint);
+          setTimeout(() => scrollHint.classList.add('visible'), 500);
+
+          let scrollProgress = 0;
+          let isTransitioning = false;
+          let animationFrame = null;
+
+          const updateTransition = () => {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+            animationFrame = requestAnimationFrame(() => {
+              const vp = Math.min(scrollProgress, 1);
+              cartaScreen.style.transform = 'none';
+              cartaScreen.style.opacity = String(Math.max(0, 1 - vp));
+              mainContent.style.transform = `translateY(${100 - vp * 100}vh)`;
+              mainContent.style.opacity = String(vp);
+              if (scrollProgress > 0.1 && scrollHint) scrollHint.style.opacity = '0';
+              else if (scrollHint) scrollHint.style.opacity = '';
+
+              if (scrollProgress >= 1.0 && !isTransitioning) {
+                isTransitioning = true;
+                scrollEnabled = false;
+                window.removeEventListener('wheel', handleScroll);
+                window.removeEventListener('touchmove', handleTouchMove);
+                window.removeEventListener('touchstart', handleTouchStart);
+                document.body.style.overflow = '';
+                cartaScreen.style.display = 'none';
+                revealHero();
+              }
+            });
+          };
+
+          const handleScroll = (e) => {
+            if (!scrollEnabled) return;
+            e.preventDefault(); e.stopPropagation();
+            const delta = e.deltaY || e.detail || -e.wheelDelta;
+            const sensitivity = 0.02;
+            scrollProgress = delta > 0
+              ? Math.min(scrollProgress + sensitivity * Math.abs(delta), 1.2)
+              : Math.max(scrollProgress - sensitivity * Math.abs(delta), 0);
+            updateTransition();
+          };
+
+          let lastTouchY = 0;
+          const handleTouchStart = (e) => { if (!scrollEnabled) return; lastTouchY = e.touches[0].clientY; };
+          const handleTouchMove = (e) => {
+            if (!scrollEnabled) return;
+            e.preventDefault(); e.stopPropagation();
+            const delta = lastTouchY - e.touches[0].clientY;
+            scrollProgress = delta > 0
+              ? Math.min(scrollProgress + 0.008 * Math.abs(delta), 1.2)
+              : Math.max(scrollProgress - 0.008 * Math.abs(delta), 0);
+            updateTransition();
+            lastTouchY = e.touches[0].clientY;
+          };
+
+          document.body.style.overflow = 'hidden';
+          window.addEventListener('wheel', handleScroll, { passive: false });
+          window.addEventListener('touchstart', handleTouchStart, { passive: false });
+          window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        }, 3000);
+      });
+    }
+  })();
+
   /* ─── 1. Ambient canvas (aurora background) ─────────────── */
   (function initAmbientCanvas() {
     const canvas = document.getElementById('ambient-canvas');

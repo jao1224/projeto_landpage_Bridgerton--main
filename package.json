@@ -5,13 +5,15 @@
   "main": "assets/js/script.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc --watch"
+    "start": "tsc --watch",
+    "dev": "live-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "live-server": "^1.2.2",
     "typescript": "^5.9.3"
   }
 }
