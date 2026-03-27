@@ -1249,3 +1249,15 @@ body::before {
     background: #000000 !important;
     background-image: none !important;
 }
+
+/* Intense Fade-in / Fade-out for Pillars carousel */
+.tecnicas-cards {
+    mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%) !important;
+}
+
+/* Ultra Intense Fade-in / Fade-out (40% each side) for Pillars carousel */
+.tecnicas-cards {
+    mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%) !important;
+}
