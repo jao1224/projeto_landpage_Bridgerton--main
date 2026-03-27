@@ -1222,3 +1222,30 @@ body::before {
 .suspense .container {
  z-index: 4 !important;
 } 
+
+/* Match hero background to cover the entire section */
+#hero {
+    background-size: cover, cover !important;
+}
+
+/* Match " pillars\ background with hero gradient (no image) */
+.pillars {
+ background: linear-gradient(175deg, #140A14 0%, var(--color-teal) 45%, var(--color-teal-mid) 75%, var(--color-teal) 100%) !important;
+ background-size: cover !important;
+ background-repeat: no-repeat !important;
+ background-blend-mode: normal !important;
+}
+
+/* Darken Pillars Background to match other sections */
+.pillars {
+    background: linear-gradient(180deg, #0a0a0a 0%, #112a2a 50%, #0a0a0a 100%) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: normal !important;
+}
+
+/* Final fix for Pillars background - Absolute Black */
+.pillars {
+    background: #000000 !important;
+    background-image: none !important;
+}
