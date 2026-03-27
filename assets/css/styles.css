@@ -1931,7 +1931,7 @@ img { display: block; max-width: 100%; }
 .carta-greeting {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   color: var(--color-teal);
   margin-bottom: 2rem;
   text-align: left;
@@ -1940,7 +1940,7 @@ img { display: block; max-width: 100%; }
 }
 .carta-text {
   font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   color: #000000;
   line-height: 2.1;
   text-align: left;
