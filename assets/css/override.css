@@ -1194,3 +1194,20 @@ body::before {
   }
 }
 
+
+/* Correção de alinhamento das colunas da seção Sobre */
+.suspense__body {
+  padding-top: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.suspense__grid {
+  align-items: flex-start !important;
+}
+
+.suspense__header .section-title {
+  margin-top: 0 !important;
+}
+
