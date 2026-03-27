@@ -239,6 +239,18 @@
   opacity: 1 !important;
 }
 
+/* Evolution — dourado claro brilhante para contrastar com o fundo escuro */
+.hero__title-script {
+  background: linear-gradient(135deg, #fff8e7 0%, #ffe066 30%, #fff0a0 55%, #ffe066 80%, #fff8e7 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8)) drop-shadow(0 0 30px rgba(255,220,80,0.4)) !important;
+  overflow: visible !important;
+  padding-right: 2rem !important;
+}
+
 .hero__content.animate-in {
   animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both !important;
 }
