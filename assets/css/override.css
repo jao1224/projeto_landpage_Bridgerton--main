@@ -1261,3 +1261,84 @@ body::before {
     mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%) !important;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%) !important;
 }
+
+/* Dark Brown background for Pillars section */
+.pillars {
+    background: #140c08 !important;
+    background-image: none !important;
+}
+
+/* Ultra Dark Brown background for Pillars section (almost black) */
+.pillars {
+    background: #0a0604 !important;
+    background-image: none !important;
+}
+
+/* Absolute Dark Brown background for Pillars section (virtually black) */
+.pillars {
+    background: #050302 !important;
+    background-image: none !important;
+}
+
+/* Midnight Brown background for Pillars section (absolute limit before black) */
+.pillars {
+    background: #020101 !important;
+    background-image: none !important;
+}
+
+/* Absolute Black final background for Pillars section */
+.pillars {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* ABSOLUTE FIX: Match Pillars background with provided image color using ID selector */
+#diferencial {
+    background-color: #0f0e12 !important;
+    background-image: none !important;
+    background: #0f0e12 !important;
+}
+
+/* Darken Pillars background slightly while maintaining the tone */
+#diferencial {
+    background: #080709 !important;
+}
+
+/* Darken Pillars background further to reach an ultra-deep tone */
+#diferencial {
+    background: #040305 !important;
+}
+
+/* Match Pillars background with the deep teal tones of the Sobre video */
+#diferencial {
+    background: #071a1a !important;
+}
+
+/* Ultra-Darken Pillars background (Deep Oceanic Black) */
+#diferencial {
+    background: #020808 !important;
+}
+
+/* Absolute Deep Teal-Black limit for Pillars section */
+#diferencial {
+    background: #010303 !important;
+}
+
+/* Warm Mahogany overlay for Sobre section video matching reference image */
+.suspense__overlay {
+    background: linear-gradient(175deg, rgba(15, 10, 10, 0.6) 0%, rgba(22, 11, 11, 0.75) 45%, rgba(10, 7, 7, 0.9) 100%) !important;
+    mix-blend-mode: multiply !important;
+}
+
+/* === UNIFIED MAHOGANY BACKGROUND FOR ALL SECTIONS === */
+.quote-section,
+.idealizadora-section,
+.diamantes-section,
+.urgencia-section,
+.waitlist,
+.footer,
+.pillars,
+#diferencial {
+    background: #0f0e12 !important;
+    background-image: none !important;
+}
