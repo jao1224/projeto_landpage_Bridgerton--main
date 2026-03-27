@@ -275,33 +275,41 @@
        SEÇÃO 2 — SOBRE O EVENTO
   ══════════════════════════════ -->
   <section class="suspense" id="sobre">
-    <video class="suspense__video-bg" autoplay muted loop playsinline>
-      <source src="assets/video/evento1.mp4" type="video/mp4" />
-    </video>
-    <div class="suspense__overlay"></div>
-
     <div class="container">
-      <div class="suspense__grid" data-reveal>
-        <div class="suspense__header">
-          <p class="section-eyebrow">Sobre o evento</p>
-          <h2 class="section-title">
-            O evento que transforma profissionais comuns<br />
-            em nomes de referência
-          </h2>
-          <div class="ornate-line-divider" aria-hidden="true"></div>
+      <div class="suspense__inner" data-reveal>
+        <h2 class="section-title">
+          O evento que transforma profissionais comuns<br />
+          <em>em nomes de referência</em>
+        </h2>
+        <div class="ornate-rose-divider" aria-hidden="true">
+          <svg viewBox="0 0 500 40">
+            <line x1="0" y1="20" x2="185" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+            <g transform="translate(250,20)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <path d="M0,-8 C4,-4 8,0 0,8 C-8,0 -4,-4 0,-8Z" fill="currentColor" opacity="0.7" />
+              <path d="M-8,0 C-4,4 0,8 8,0 C0,-8 -4,-4 -8,0Z" fill="currentColor" opacity="0.6" />
+              <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+            </g>
+            <line x1="315" y1="20" x2="500" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6" />
+          </svg>
         </div>
-        
-        <div class="suspense__body">
-          <p class="suspense__text">Este não é mais um evento sobre técnicas. É um encontro criado para empreendedoras que
-            atuam na área das sobrancelhas e que já perceberam que <strong>apenas saber fazer não é mais
-              suficiente.</strong></p>
-          <p class="suspense__text">Aqui, você vai desenvolver clareza sobre o seu negócio, fortalecer seu posicionamento
-            e entender como se tornar uma autoridade no mercado.</p>
-          <div class="suspense__quote">
-            <p class="quote-eyebrow">Porque no cenário atual…</p>
-            <p class="quote-main">Não vence quem faz melhor.</p>
-            <p class="quote-sub">Vence quem é lembrada, reconhecida e desejada.</p>
-          </div>
+        <p class="suspense__text">Este não é mais um evento sobre técnicas. É um encontro criado para empreendedoras que
+          atuam na área das sobrancelhas e que já perceberam que <strong>apenas saber fazer não é mais
+            suficiente.</strong></p>
+        <p class="suspense__text">Aqui, você vai desenvolver clareza sobre o seu negócio, fortalecer seu posicionamento
+          e entender como se tornar uma autoridade no mercado.</p>
+        <p class="suspense__text suspense__text--emphasis">Porque no cenário atual… <em>Não vence quem faz melhor. Vence
+            quem é lembrada, reconhecida e desejada.</em></p>
+
+        <div class="suspense__video" style="margin-top: 3rem; width: 100%; max-width: 720px; margin-left: auto; margin-right: auto;">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; border-radius: 4px; border: 1px solid rgba(201,168,76,0.3); box-shadow: 0 8px 40px rgba(0,0,0,0.4);">
+            <source src="assets/video/evento1.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeo HTML5.
+          </video>
         </div>
       </div>
     </div>
