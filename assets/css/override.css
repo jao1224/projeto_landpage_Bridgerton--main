@@ -431,10 +431,12 @@
 section.hero,
 #main-content .hero,
 #hero {
-  background-image: url('../img/carta-fundo.png') !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
+  background-image: 
+    radial-gradient(ellipse at center, transparent 40%, #0a0a0a 75%),
+    url('../img/carta-fundo.png') !important;
+  background-size: cover, 80% !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: center, center !important;
   background-color: #0a0a0a !important;
   background-blend-mode: normal !important;
 }
