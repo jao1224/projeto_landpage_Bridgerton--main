@@ -1211,3 +1211,14 @@ body::before {
   margin-top: 0 !important;
 }
 
+
+/* Match " sobre\ video overlay with hero background */
+.suspense__overlay {
+ background: linear-gradient(175deg, rgba(20, 10, 20, 0.6) 0%, rgba(14, 53, 53, 0.7) 45%, rgba(22, 72, 74, 0.8) 75%, rgba(14, 53, 53, 0.85) 100%) !important;
+ mix-blend-mode: multiply !important;
+}
+
+/* Match " sobre\ vignette and container layers with hero */
+.suspense .container {
+ z-index: 4 !important;
+} 
