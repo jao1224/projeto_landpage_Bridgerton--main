@@ -375,7 +375,24 @@
 
       submitBtn.classList.add('btn--loading');
       submitBtn.disabled = true;
-      await new Promise(r => setTimeout(r, 1800));
+
+      try {
+        const res = await fetch('http://localhost/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome: n.value.trim(),
+            whatsapp: w.value.trim(),
+            email: m.value.trim()
+          })
+        });
+        if (!res.ok) throw new Error('Erro ao enviar');
+      } catch (err) {
+        console.error(err);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('btn--loading');
+      }
 
       form.style.display = 'none';
       success.classList.add('visible');

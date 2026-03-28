@@ -18,16 +18,7 @@
 </head>
 
 <body>
-  <script>
-    window.onerror = function(msg, src, line, col, error) {
-      fetch('http://localhost:8085', {method: 'POST', body: 'ERROR: ' + msg + ' at ' + src + ':' + line + ':' + col});
-    };
-    const ogError = console.error;
-    console.error = function(...args) {
-      ogError.apply(console, args);
-      fetch('http://localhost:8085', {method: 'POST', body: 'CONSOLE ERROR: ' + args.join(' ')});
-    };
-  </script>
+
 
   <!-- Pétalas por todo o site -->
   <div id="petals-container" aria-hidden="true"></div>

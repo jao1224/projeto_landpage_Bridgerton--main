@@ -11,40 +11,75 @@ const mimeTypes = {
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.mp4': 'video/mp4',
   '.pdf': 'application/pdf'
 };
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type'
+};
+
 const server = http.createServer((req, res) => {
-  // Remove query strings from URL
-  let urlPath = req.url.split('?')[0];
+  const urlPath = req.url.split('?')[0];
+
+  // CORS preflight
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, CORS_HEADERS);
+    res.end();
+    return;
+  }
+
+  // API: POST /api/leads
+  if (urlPath === '/api/leads' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const lead = JSON.parse(body);
+        console.log(`[${new Date().toLocaleTimeString()}] 📋 Novo lead:`, lead);
+
+        // Salva em leads.json
+        const leadsFile = path.join(__dirname, 'leads.json');
+        const leads = fs.existsSync(leadsFile)
+          ? JSON.parse(fs.readFileSync(leadsFile, 'utf-8'))
+          : [];
+        leads.push({ ...lead, timestamp: new Date().toISOString() });
+        fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
+
+        res.writeHead(200, { 'Content-Type': 'application/json', ...CORS_HEADERS });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (e) {
+        res.writeHead(400, { 'Content-Type': 'application/json', ...CORS_HEADERS });
+        res.end(JSON.stringify({ ok: false, error: 'Invalid JSON' }));
+      }
+    });
+    return;
+  }
+
+  // Serve arquivos estáticos
   let filePath = '.' + urlPath;
   if (filePath === './') filePath = './index.html';
 
   const extname = path.extname(filePath);
   const contentType = mimeTypes[extname] || 'application/octet-stream';
 
-  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url} -> ${filePath}`);
+  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${urlPath}`);
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
-      if (err.code === 'ENOENT') {
-        console.log(`  ❌ 404 - Arquivo não encontrado: ${filePath}`);
-        res.writeHead(404);
-        res.end('404 - File Not Found');
-      } else {
-        console.log(`  ❌ 500 - Erro: ${err.message}`);
-        res.writeHead(500);
-        res.end('500 - Internal Server Error');
-      }
+      res.writeHead(err.code === 'ENOENT' ? 404 : 500, CORS_HEADERS);
+      res.end(err.code === 'ENOENT' ? '404 - Not Found' : '500 - Server Error');
     } else {
-      console.log(`  ✅ 200 - ${contentType}`);
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content, 'utf-8');
+      res.writeHead(200, { 'Content-Type': contentType, ...CORS_HEADERS });
+      res.end(content);
     }
   });
 });
 
 server.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
-  console.log('Pressione Ctrl+C para parar o servidor');
+  console.log('API de leads: POST http://localhost:${PORT}/api/leads');
 });
