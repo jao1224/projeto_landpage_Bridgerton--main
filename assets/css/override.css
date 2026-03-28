@@ -1383,7 +1383,8 @@ body::before {
 .diamantes-section {
   position: relative !important;
   background-color: transparent !important;
-  background-image: none !important; /* Movemos a imagem para o ::before */
+  background-image: none !important;
+  /* Movemos a imagem para o ::before */
   z-index: 1 !important;
   overflow: hidden !important;
 }
@@ -1401,7 +1402,7 @@ body::before {
   background-position: center 65% !important;
   z-index: -2 !important;
   display: block !important;
-  
+
   /* Corrige problema de herança de transparência do styles.css */
   opacity: 1 !important;
   mix-blend-mode: normal !important;
@@ -1428,7 +1429,7 @@ body::before {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.98) 45%, #000000 90%) !important;
   z-index: -1 !important;
   display: block !important;
-  
+
   /* Garantir consistência e limpar filters residuais do css base */
   opacity: 1 !important;
   mix-blend-mode: normal !important;
@@ -1439,4 +1440,156 @@ body::before {
 .diamantes-inner {
   position: relative !important;
   z-index: 2 !important;
+}
+
+/* =========================================
+   FLASHES DE DIAMANTE ALEATÓRIOS
+   ========================================= */
+.diamond-flashes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0 !important;
+  /* Na frente do gradiente e do background, atrás do texto */
+}
+
+/* Criando a estrela perfeita de 8 pontas com borrão no núcleo */
+.flash {
+  position: absolute;
+  /* .flash principal é agora o borrão luminoso central */
+  width: 8px; /* Menor e mais concentrado */
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 12px 4px rgba(255, 255, 255, 0.9), 
+    0 0 30px 12px rgba(201, 168, 76, 0.6); /* Brilho dourado mais intenso */
+  opacity: 0;
+  animation: flashDiamondAlpha 3s cubic-bezier(0.4, 0, 0.2, 1) infinite; /* Curva mais dramática */
+  mix-blend-mode: screen;
+}
+
+/* Pseudo-elementos desenham os 8 feixes de luz a partir do núcleo */
+.flash::after,
+.flash::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  background-color: #ffffff !important;
+  /* O corte vetorial produz uma agulha perfeitamente afiada */
+  clip-path: polygon(50% 0%, 52% 48%, 100% 50%, 52% 52%, 50% 100%, 48% 52%, 0% 50%, 48% 48%) !important;
+  display: block !important;
+}
+
+/* 4 Pontas principais da Vertical/Horizontal */
+.flash::before {
+  width: 50px !important; /* Pontas mais longas */
+  height: 50px !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Outras 4 pontas diagonais para fechar 8 pernas (pouco menores para o clássico design de joia) */
+.flash::after {
+  width: 25px !important;
+  height: 25px !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+@keyframes flashDiamondAlpha {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotate(0deg);
+  }
+
+  30% { /* Aparece rápido com mais intensidade */
+    opacity: 1;
+    transform: scale(1.3) rotate(45deg);
+    filter: brightness(1.5);
+  }
+
+  70% { /* Começa a sumir suavemente */
+    opacity: 0.5;
+    transform: scale(0.8) rotate(90deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.1) rotate(135deg);
+  }
+}
+
+/* Espalhando os flashes aleatoriamente pela seção */
+.flash-1 {
+  top: 25%;
+  left: 15%;
+  animation-delay: 0.2s;
+  animation-duration: 4.5s;
+}
+
+.flash-2 {
+  top: 75%;
+  left: 85%;
+  animation-delay: 1.5s;
+  animation-duration: 3.2s;
+}
+
+.flash-3 {
+  top: 40%;
+  left: 80%;
+  animation-delay: 2.1s;
+  animation-duration: 5.1s;
+}
+
+.flash-4 {
+  top: 65%;
+  left: 10%;
+  animation-delay: 0.8s;
+  animation-duration: 4.8s;
+}
+
+.flash-5 {
+  top: 85%;
+  left: 35%;
+  animation-delay: 3.4s;
+  animation-duration: 3.8s;
+}
+
+.flash-6 {
+  top: 15%;
+  left: 70%;
+  animation-delay: 1.9s;
+  animation-duration: 4.3s;
+}
+
+.flash-7 {
+  top: 50%;
+  left: 50%;
+  animation-delay: 0.5s;
+  animation-duration: 5.5s;
+}
+
+.flash-8 {
+  top: 80%;
+  left: 60%;
+  animation-delay: 2.7s;
+  animation-duration: 3.5s;
+}
+
+.flash-9 {
+  top: 30%;
+  left: 45%;
+  animation-delay: 1.2s;
+  animation-duration: 4.0s;
+}
+
+.flash-10 {
+  top: 55%;
+  left: 25%;
+  animation-delay: 2.5s;
+  animation-duration: 4.9s;
 }
