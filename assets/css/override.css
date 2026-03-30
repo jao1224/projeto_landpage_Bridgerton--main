@@ -1,4 +1,4 @@
-﻿/* OVERRIDE FINAL - REMOVER DIVISÃƒâ€¢ES */
+/* OVERRIDE FINAL - REMOVER DIVISÃƒâ€¢ES */
 
 /* ForÃƒÂ§ar a exibiÃƒÂ§ÃƒÂ£o do texto e dos cards de autoridade! (Evita bug de opacity 0 do JS) */
 .autoridade-content,
@@ -454,7 +454,7 @@ section.hero,
   background-size: cover, cover !important;
   background-position: center top, center top !important;
   background-repeat: no-repeat, no-repeat !important;
-  filter: blur(6px) !important;
+  filter: blur(2px) !important;
   z-index: 0 !important;
   pointer-events: none !important;
 }
