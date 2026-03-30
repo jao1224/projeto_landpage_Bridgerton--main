@@ -1,6 +1,6 @@
-/* OVERRIDE FINAL - REMOVER DIVISÃ•ES */
+﻿/* OVERRIDE FINAL - REMOVER DIVISÃƒâ€¢ES */
 
-/* ForÃ§ar a exibiÃ§Ã£o do texto e dos cards de autoridade! (Evita bug de opacity 0 do JS) */
+/* ForÃƒÂ§ar a exibiÃƒÂ§ÃƒÂ£o do texto e dos cards de autoridade! (Evita bug de opacity 0 do JS) */
 .autoridade-content,
 .autoridade-content [data-reveal],
 .urgencia-inner,
@@ -34,7 +34,7 @@
   justify-content: flex-start !important;
 }
 
-/* Garantir que o main-content nÃ£o deixe resÃ­duos apÃ³s a transiÃ§Ã£o da carta */
+/* Garantir que o main-content nÃƒÂ£o deixe resÃƒÂ­duos apÃƒÂ³s a transiÃƒÂ§ÃƒÂ£o da carta */
 .main-content.visible {
   position: static !important;
   top: auto !important;
@@ -50,7 +50,7 @@
   margin-top: 0 !important;
 }
 
-/* Background pattern em todas as seÃ§Ãµes - mantendo cor original */
+/* Background pattern em todas as seÃƒÂ§ÃƒÂµes - mantendo cor original */
 .hero::after,
 .suspense::after,
 .pillars::after,
@@ -70,7 +70,7 @@
 }
 
 /* Remover todos os pseudo-elementos */
-/* .hero::before é reativado abaixo para o efeito de blur */
+/* .hero::before Ã© reativado abaixo para o efeito de blur */
 .hero::after,
 .suspense::before,
 .suspense::after,
@@ -108,7 +108,7 @@
   font-style: italic !important;
 }
 
-/* Todo texto da carta em itÃ¡lico */
+/* Todo texto da carta em itÃƒÂ¡lico */
 .carta-text {
   font-style: italic !important;
 }
@@ -117,9 +117,9 @@
   font-style: italic !important;
 }
 
-/* background-attachment: fixed removido â€” quebrava a textura da carta */
+/* background-attachment: fixed removido Ã¢â‚¬â€ quebrava a textura da carta */
 
-/* Mensagem sutil para pular introduÃ§Ã£o */
+/* Mensagem sutil para pular introduÃƒÂ§ÃƒÂ£o */
 .skip-intro {
   position: fixed;
   bottom: 2rem;
@@ -155,7 +155,7 @@
   }
 }
 
-/* Grid de 6 colunas para tÃ©cnicas - CARROSSEL */
+/* Grid de 6 colunas para tÃƒÂ©cnicas - CARROSSEL */
 .tecnicas-cards {
   grid-template-columns: repeat(6, 1fr) !important;
   display: flex !important;
@@ -187,7 +187,7 @@
   }
 }
 
-/* Pausar animaÃ§Ã£o ao hover */
+/* Pausar animaÃƒÂ§ÃƒÂ£o ao hover */
 .tecnicas-cards:hover .tecnicas-cards-wrapper {
   animation-play-state: paused !important;
 }
@@ -227,13 +227,13 @@
 }
 
 
-/* Desabilitar animaÃ§Ã£o de acender luz */
+/* Desabilitar animaÃƒÂ§ÃƒÂ£o de acender luz */
 .light-on-overlay {
   display: none !important;
 }
 
 
-/* Reativar animaÃ§Ãµes da hero apÃ³s transiÃ§Ã£o */
+/* Reativar animaÃƒÂ§ÃƒÂµes da hero apÃƒÂ³s transiÃƒÂ§ÃƒÂ£o */
 .hero__content {
   opacity: 1;
 }
@@ -243,7 +243,7 @@
   opacity: 1 !important;
 }
 
-/* Evolution â€” dourado claro brilhante para contrastar com o fundo escuro */
+/* Evolution Ã¢â‚¬â€ dourado claro brilhante para contrastar com o fundo escuro */
 .hero__title-script {
   background: linear-gradient(135deg, #fff8e7 0%, #ffe066 30%, #fff0a0 55%, #ffe066 80%, #fff8e7 100%) !important;
   background-size: 200% auto !important;
@@ -292,9 +292,9 @@
 }
 
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   SEÃ‡ÃƒO IDEALIZADORA
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+   SEÃƒâ€¡ÃƒÆ’O IDEALIZADORA
+Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 .idealizadora-section {
   padding: 4rem 0 !important;
   background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-mid) 50%, var(--color-teal) 100%);
@@ -430,7 +430,7 @@
 }
 
 
-/* Hero com mesmo fundo da introduÃ§Ã£o */
+/* Hero com mesmo fundo da introduÃƒÂ§ÃƒÂ£o */
 .hero,
 section.hero,
 #main-content .hero,
@@ -441,7 +441,7 @@ section.hero,
   overflow: hidden !important;
 }
 
-/* Background embaçado da hero via pseudo-elemento */
+/* Background embaÃ§ado da hero via pseudo-elemento */
 .hero::before {
   display: block !important;
   content: '' !important;
@@ -459,7 +459,7 @@ section.hero,
   pointer-events: none !important;
 }
 
-/* Garantir que o conteúdo da hero fique na frente do fundo embaçado */
+/* Garantir que o conteÃºdo da hero fique na frente do fundo embaÃ§ado */
 .hero__content,
 .hero .container {
   position: relative !important;
@@ -507,14 +507,14 @@ section.hero,
   padding-top: 3rem !important;
 }
 
-/* UrgÃªncia sem padding excessivo */
+/* UrgÃƒÂªncia sem padding excessivo */
 .urgencia-section {
   padding: 3rem 0 !important;
   min-height: 0 !important;
   height: auto !important;
 }
 
-/* ForÃ§ar visibilidade do conteÃºdo da urgÃªncia */
+/* ForÃƒÂ§ar visibilidade do conteÃƒÂºdo da urgÃƒÂªncia */
 .urgencia-section .container,
 .urgencia-section .urgencia-inner {
   min-height: 0 !important;
@@ -527,7 +527,7 @@ section.hero,
 }
 
 
-/* Cor branca para data/local e "ImersÃ£o" na hero */
+/* Cor branca para data/local e "ImersÃƒÂ£o" na hero */
 .hero__eyebrow {
   color: var(--color-cream) !important;
 }
@@ -537,7 +537,7 @@ section.hero,
 }
 
 
-/* Molduras ornamentadas na seÃ§Ã£o autoridade */
+/* Molduras ornamentadas na seÃƒÂ§ÃƒÂ£o autoridade */
 .speakers-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
@@ -712,7 +712,7 @@ section.hero,
   width: 100% !important;
 }
 
-/* EspaÃ§o controlado para acomodar os nomes dos speakers */
+/* EspaÃƒÂ§o controlado para acomodar os nomes dos speakers */
 .quote-section {
   padding-bottom: 4rem !important;
 }
@@ -749,7 +749,7 @@ section.hero,
 }
 
 
-/* Molduras somente nas imagens dos cards de tÃ©cnicas */
+/* Molduras somente nas imagens dos cards de tÃƒÂ©cnicas */
 .tecnica-card__image-wrapper {
   border: 2px solid rgba(201, 168, 76, 0.3) !important;
   box-shadow:
@@ -835,14 +835,14 @@ section.hero,
 }
 
 
-/* Fundo escuro sÃ³lido */
+/* Fundo escuro sÃƒÂ³lido */
 body {
   background-color: #0a0c0f !important;
   background-image: none !important;
   position: relative;
 }
 
-/* Todas as seÃ§Ãµes transparentes â€” fundo do body aparece */
+/* Todas as seÃƒÂ§ÃƒÂµes transparentes Ã¢â‚¬â€ fundo do body aparece */
 .suspense,
 .pillars,
 .quote-section,
@@ -872,7 +872,7 @@ body::before {
 }
 
 
-/* ForÃ§ar cor de background em todas as seÃ§Ãµes */
+/* ForÃƒÂ§ar cor de background em todas as seÃƒÂ§ÃƒÂµes */
 .hero,
 .suspense,
 .pillars,
@@ -889,7 +889,7 @@ body::before {
   background-color: #0a0a0a !important;
 }
 
-/* PÃ©talas por toda a pÃ¡gina */
+/* PÃƒÂ©talas por toda a pÃƒÂ¡gina */
 #petals-container {
   position: fixed !important;
   top: 0 !important;
@@ -907,7 +907,7 @@ body::before {
 }
 
 
-/* Aumentar visibilidade das pÃ©talas */
+/* Aumentar visibilidade das pÃƒÂ©talas */
 .petal {
   opacity: 1 !important;
   filter: brightness(1.3) contrast(1.2) !important;
@@ -938,7 +938,7 @@ body::before {
 }
 
 
-/* BotÃ£o da hero mais vibrante */
+/* BotÃƒÂ£o da hero mais vibrante */
 .hero .btn--primary {
   background: linear-gradient(135deg, #a88a3d 0%, #c9a84c 50%, #a88a3d 100%) !important;
   box-shadow:
@@ -964,7 +964,7 @@ body::before {
 }
 
 
-/* Fundo da introduÃ§Ã£o e carta */
+/* Fundo da introduÃƒÂ§ÃƒÂ£o e carta */
 .opening-screen,
 .carta-screen {
   background-image: url('../img/carta-fundo.png') !important;
@@ -995,7 +995,7 @@ body::before {
   display: block !important;
 }
 
-/* Brilho extra para textos da Hero para igualar à seção Diamantes */
+/* Brilho extra para textos da Hero para igualar Ã  seÃ§Ã£o Diamantes */
 .hero__eyebrow,
 .hero__title-eyebrow,
 .hero__subtitle {
@@ -1018,7 +1018,7 @@ body::before {
 }
 
 /* ----------------------------------------------------------
-   SEÇÃO SOBRE (REESTRUTURADA - FIX)
+   SEÃ‡ÃƒO SOBRE (REESTRUTURADA - FIX)
 ---------------------------------------------------------- */
 .suspense {
   position: relative !important;
@@ -1130,7 +1130,7 @@ body::before {
 }
 
 /* ----------------------------------------------------------
-   SEÇÃO SOBRE (SUSPENSE) - NOVO LAYOUT
+   SEÃ‡ÃƒO SOBRE (SUSPENSE) - NOVO LAYOUT
 ---------------------------------------------------------- */
 .suspense {
   position: relative !important;
@@ -1254,7 +1254,7 @@ body::before {
 }
 
 
-/* Correção de alinhamento das colunas da seção Sobre */
+/* CorreÃ§Ã£o de alinhamento das colunas da seÃ§Ã£o Sobre */
 .suspense__body {
   padding-top: 0 !important;
   display: flex !important;
@@ -1321,91 +1321,70 @@ body::before {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%) !important;
 }
 
-/* Dark Brown background for Pillars section */
-.pillars {
-  background: #140c08 !important;
-  background-image: none !important;
-}
-
-/* Ultra Dark Brown background for Pillars section (almost black) */
-.pillars {
-  background: #0a0604 !important;
-  background-image: none !important;
-}
-
-/* Absolute Dark Brown background for Pillars section (virtually black) */
-.pillars {
-  background: #050302 !important;
-  background-image: none !important;
-}
-
-/* Midnight Brown background for Pillars section (absolute limit before black) */
-.pillars {
-  background: #020101 !important;
-  background-image: none !important;
-}
-
-/* Absolute Black final background for Pillars section */
-.pillars {
-  background: #000000 !important;
-  background-image: none !important;
-}
-
-/* ABSOLUTE FIX: Match Pillars background with provided image color using ID selector */
-#diferencial {
-  background-color: #0f0e12 !important;
-  background-image: none !important;
-  background: #0f0e12 !important;
-}
-
-/* Darken Pillars background slightly while maintaining the tone */
-#diferencial {
-  background: #080709 !important;
-}
-
-/* Darken Pillars background further to reach an ultra-deep tone */
-#diferencial {
-  background: #040305 !important;
-}
-
-/* Match Pillars background with the deep teal tones of the Sobre video */
-#diferencial {
-  background: #071a1a !important;
-}
-
-/* Ultra-Darken Pillars background (Deep Oceanic Black) */
-#diferencial {
-  background: #020808 !important;
-}
-
-/* Absolute Deep Teal-Black limit for Pillars section */
-#diferencial {
-  background: #010303 !important;
-}
-
-/* Warm Mahogany overlay for Sobre section video matching reference image */
-.suspense__overlay {
-  background: linear-gradient(175deg, rgba(15, 10, 10, 0.6) 0%, rgba(22, 11, 11, 0.75) 45%, rgba(10, 7, 7, 0.9) 100%) !important;
-  mix-blend-mode: multiply !important;
-}
-
-/* === UNIFIED MAHOGANY BACKGROUND FOR ALL SECTIONS === */
+/* EstilizaÃ§Ã£o DinÃ¢mica dos Fundos (TÃ©cnicas, Autoridade, Idealizadora, UrgÃªncia, Waitlist e Footer) */
+#diferencial, 
+.pillars,
 .quote-section,
 .idealizadora-section,
-.diamantes-section,
 .urgencia-section,
 .waitlist,
-.footer,
-.pillars,
-#diferencial {
-  background: #0f0e12 !important;
-  background-image: none !important;
+.footer {
+  position: relative !important;
+  background-color: #000000 !important;
+  background-image: 
+    /* Gradientes de Borda (Top/Bottom Fades) para transiÃ§Ã£o suave */
+    linear-gradient(to bottom, #000000 0%, transparent 15%),
+    linear-gradient(to top, #000000 0%, transparent 15%),
+    /* Efeito de Spotlight Mahogany */
+    radial-gradient(circle at center, #1a0000 0%, #0a0000 50%, #000000 100%) !important;
+  background-size: 100% 100% !important;
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden !important;
 }
 
-/* Lighten Sobre video overlay - reduce opacity */
+/* Reativando pseudo-elementos para brilho extra e vinheta nestas seÃ§Ãµes */
+#diferencial::after,
+.quote-section::after,
+.idealizadora-section::after,
+.urgencia-section::after,
+.waitlist::after,
+.footer::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* Aplicando filtro Mahogany (#100000) sobre o vÃ­deo da seÃ§Ã£o Sobre (Suspense) */
 .suspense__overlay {
-  background: linear-gradient(175deg, rgba(15, 10, 10, 0.35) 0%, rgba(22, 11, 11, 0.5) 45%, rgba(10, 7, 7, 0.65) 100%) !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  /* TransiÃ§Ã£o do tom de vÃ­deo para o tom Mahogany que vem abaixo */
+  background: linear-gradient(180deg, rgba(16, 0, 0, 0.65) 0%, rgba(16, 0, 0, 0.95) 85%, #050000 100%) !important;
   mix-blend-mode: multiply !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+}
+
+.suspense .vinheta,
+.suspense::before,
+.suspense::after {
+  display: none !important;
+}
+
+.suspense__video-bg {
+  opacity: 1 !important;
+}
+
+/* === UNIFIED MAHOGANY BACKGROUND FOR REMAINING SECTIONS === */
+.diamantes-section {
+  background: #0f0e12 !important;
+  background-image: none !important;
 }
 
 /* Hero must fill the entire viewport */
@@ -1414,7 +1393,7 @@ body::before {
   height: 100vh !important;
 }
 
-/* Fundo da Seção Diamantes com a imagem enviada */
+/* Fundo da SeÃ§Ã£o Diamantes com a imagem enviada */
 .diamantes-section {
   position: relative !important;
   background-color: transparent !important;
@@ -1438,7 +1417,7 @@ body::before {
   z-index: -2 !important;
   display: block !important;
 
-  /* Corrige problema de herança de transparência do styles.css */
+  /* Corrige problema de heranÃ§a de transparÃªncia do styles.css */
   opacity: 1 !important;
   mix-blend-mode: normal !important;
   pointer-events: none !important;
@@ -1457,7 +1436,7 @@ body::before {
   height: 100% !important;
   /* 
      Vinheta mais forte e fechada: 
-     - O centro está agora bem mais escuro com 65% de sombra (rgba(0,0,0,0.65)).
+     - O centro estÃ¡ agora bem mais escuro com 65% de sombra (rgba(0,0,0,0.65)).
      - O escuro ao redor aperta mais para esconder o resto.
      - Troque "at center" se o foco do diamante precisar ser movido pelo eixo X Y.
   */
@@ -1465,7 +1444,7 @@ body::before {
   z-index: -1 !important;
   display: block !important;
 
-  /* Garantir consistência e limpar filters residuais do css base */
+  /* Garantir consistÃªncia e limpar filters residuais do css base */
   opacity: 1 !important;
   mix-blend-mode: normal !important;
   pointer-events: none !important;
@@ -1478,7 +1457,7 @@ body::before {
 }
 
 /* =========================================
-   FLASHES DE DIAMANTE ALEATÓRIOS
+   FLASHES DE DIAMANTE ALEATÃ“RIOS
    ========================================= */
 .diamond-flashes {
   position: absolute;
@@ -1488,13 +1467,13 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 0 !important;
-  /* Na frente do gradiente e do background, atrás do texto */
+  /* Na frente do gradiente e do background, atrÃ¡s do texto */
 }
 
-/* Criando a estrela perfeita de 8 pontas com borrão no núcleo */
+/* Criando a estrela perfeita de 8 pontas com borrÃ£o no nÃºcleo */
 .flash {
   position: absolute;
-  /* .flash principal é agora o borrão luminoso central */
+  /* .flash principal Ã© agora o borrÃ£o luminoso central */
   width: 8px;
   /* Menor e mais concentrado */
   height: 8px;
@@ -1506,11 +1485,11 @@ body::before {
   /* Brilho dourado mais intenso */
   opacity: 0;
   animation: flashDiamondAlpha 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  /* Curva mais dramática */
+  /* Curva mais dramÃ¡tica */
   mix-blend-mode: screen;
 }
 
-/* Pseudo-elementos desenham os 8 feixes de luz a partir do núcleo */
+/* Pseudo-elementos desenham os 8 feixes de luz a partir do nÃºcleo */
 .flash::after,
 .flash::before {
   content: '' !important;
@@ -1531,7 +1510,7 @@ body::before {
   transform: translate(-50%, -50%) !important;
 }
 
-/* Outras 4 pontas diagonais para fechar 8 pernas (pouco menores para o clássico design de joia) */
+/* Outras 4 pontas diagonais para fechar 8 pernas (pouco menores para o clÃ¡ssico design de joia) */
 .flash::after {
   width: 25px !important;
   height: 25px !important;
@@ -1546,14 +1525,14 @@ body::before {
   }
 
   30% {
-    /* Aparece rápido com mais intensidade */
+    /* Aparece rÃ¡pido com mais intensidade */
     opacity: 1;
     transform: scale(1.3) rotate(45deg);
     filter: brightness(1.5);
   }
 
   70% {
-    /* Começa a sumir suavemente */
+    /* ComeÃ§a a sumir suavemente */
     opacity: 0.5;
     transform: scale(0.8) rotate(90deg);
   }
@@ -1564,7 +1543,7 @@ body::before {
   }
 }
 
-/* Espalhando os flashes aleatoriamente pela seção */
+/* Espalhando os flashes aleatoriamente pela seÃ§Ã£o */
 .flash-1 {
   top: 25%;
   left: 15%;
@@ -1634,3 +1613,28 @@ body::before {
   animation-delay: 2.5s;
   animation-duration: 4.9s;
 }
+/* === FORMULÁRIO MAHOGANY === */ 
+.form-card {
+  background: linear-gradient(145deg, #1a0000, #080000) !important;
+  border-color: rgba(201, 168, 76, 0.4) !important;
+  box-shadow: var(--shadow-card), 0 0 30px rgba(26, 0, 0, 0.5) !important;
+}
+
+.form__input {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(201, 168, 76, 0.15) !important;
+}
+
+.form__input:focus {
+  background: rgba(26, 0, 0, 0.3) !important;
+  border-color: rgba(201, 168, 76, 0.4) !important;
+}
+
+.form__label {
+  color: rgba(201, 168, 76, 0.8) !important;
+}
+
+.form__input-line {
+  background: linear-gradient(90deg, #c9a84c, #1a0000, #c9a84c) !important;
+}
+
