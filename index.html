@@ -29,28 +29,9 @@
   <div id="light-on-overlay" class="light-on-overlay"></div>
 
   <!-- ══════════════════════════════
-       TELA DE ABERTURA
-  ══════════════════════════════ -->
-  <div id="opening-screen" class="opening-screen">
-    <div class="vinheta" aria-hidden="true"></div>
-    <div class="opening-screen__content">
-      <p class="opening-screen__text opening-screen__text--first">
-        Um convite exclusivo foi enviado às mulheres mais promissoras<br />do mercado da beleza…
-      </p>
-      <p class="opening-screen__text opening-screen__text--second">
-        Aquelas que compreendem que não basta dominar técnicas —<br />é preciso ocupar o lugar de destaque que lhes pertence.
-      </p>
-      <p class="opening-screen__text opening-screen__text--third">
-        Nesta temporada, não se trata apenas de técnica…<br />Trata-se de posição, estratégia e reconhecimento.
-      </p>
-    </div>
-    <span class="skip-intro" id="skip-intro">clique aqui para pular a introdução</span>
-  </div>
-
-  <!-- ══════════════════════════════
        TELA DA CARTA (intermediária)
   ══════════════════════════════ -->
-  <div id="carta-screen" class="carta-screen" style="display: none;">
+  <div id="carta-screen" class="carta-screen" style="display: flex;">
     <div class="vinheta" aria-hidden="true"></div>
     <div class="carta-screen__wrapper">
       <div class="carta-reveal-container" id="carta-reveal-intro">
@@ -204,6 +185,25 @@
     <div class="scroll-indicator">
       <span class="scroll-indicator__text">Deslize para descobrir</span>
       <div class="scroll-indicator__bar"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SEÇÃO 1.5 — INTRODUÇÃO
+  ══════════════════════════════ -->
+  <section class="intro-section" id="intro">
+    <div class="container">
+      <div class="intro-content" data-reveal>
+        <p class="intro-text intro-text--first">
+          Um convite exclusivo foi enviado às mulheres mais promissoras do mercado da beleza…
+        </p>
+        <p class="intro-text intro-text--second">
+          Aquelas que compreendem que não basta dominar técnicas — é preciso ocupar o lugar de destaque que lhes pertence.
+        </p>
+        <p class="intro-text intro-text--third">
+          Nesta temporada, não se trata apenas de técnica… Trata-se de posição, estratégia e reconhecimento.
+        </p>
+      </div>
     </div>
   </section>
 

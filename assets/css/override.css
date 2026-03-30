@@ -1688,3 +1688,76 @@ body::before {
 }
 .hero { padding-bottom: 10rem !important; }
 
+
+
+/* ═══════════════════════════════════════════════════════════
+   SEÇÃO INTRODUÇÃO (após hero)
+═══════════════════════════════════════════════════════════ */
+.intro-section {
+  padding: 6rem 0;
+  position: relative !important;
+  background-color: #000000 !important;
+  background-image: 
+    /* Gradientes de Borda (Top/Bottom Fades) para transição suave */
+    linear-gradient(to bottom, #000000 0%, transparent 15%),
+    linear-gradient(to top, #000000 0%, transparent 15%),
+    /* Efeito de Spotlight Mahogany */
+    radial-gradient(circle at center, #1a0000 0%, #0a0000 50%, #000000 100%) !important;
+  background-size: 100% 100% !important;
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden !important;
+  z-index: 2;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
+.intro-text--first {
+  color: var(--color-gold);
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  margin-bottom: 3rem;
+}
+
+.intro-text--second {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.intro-text--third {
+  color: var(--color-gold-light);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 4rem 0;
+  }
+  
+  .intro-text {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    margin-bottom: 2rem;
+  }
+  
+  .intro-text--first {
+    font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+    margin-bottom: 2rem;
+  }
+}

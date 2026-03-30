@@ -4,24 +4,29 @@
 (function () {
   'use strict';
 
-  /* ─── 0. Opening Screen + Carta + Transição para Hero ────── */
-  (function initOpeningScreen() {
-    const openingScreen = document.getElementById('opening-screen');
+  /* ─── 0. Carta + Transição para Hero ────── */
+  (function initCartaScreen() {
     const cartaScreen   = document.getElementById('carta-screen');
     const mainContent   = document.getElementById('main-content');
     const seloIntro     = document.getElementById('selo-intro');
-    const textFirst     = document.querySelector('.opening-screen__text--first');
-    const textSecond    = document.querySelector('.opening-screen__text--second');
-    const textThird     = document.querySelector('.opening-screen__text--third');
-    const skipIntro     = document.getElementById('skip-intro');
     const skipIntroCarta = document.getElementById('skip-intro-carta');
 
-    if (!openingScreen || !cartaScreen || !mainContent) return;
+    if (!cartaScreen || !mainContent) return;
 
-    let currentStep = 0;
-    let timeoutId;
-    let isAutoPlaying = true;
     let skipIntroActivated = false;
+
+    // Tornar a carta visível imediatamente
+    setTimeout(() => {
+      cartaScreen.classList.add('visible');
+    }, 50);
+
+    // Mostrar hint após 3.5s
+    setTimeout(() => {
+      const clickHint = document.getElementById('click-hint');
+      if (clickHint) {
+        clickHint.classList.add('visible');
+      }
+    }, 3500);
 
     function revealHero() {
       mainContent.style.display = 'block';
@@ -46,73 +51,11 @@
 
     function skipToHero() {
       skipIntroActivated = true;
-      if (timeoutId) clearTimeout(timeoutId);
-      openingScreen.style.display = 'none';
       cartaScreen.style.display = 'none';
       revealHero();
     }
 
-    if (skipIntro) skipIntro.addEventListener('click', (e) => { e.stopPropagation(); skipToHero(); });
     if (skipIntroCarta) skipIntroCarta.addEventListener('click', (e) => { e.stopPropagation(); skipToHero(); });
-
-    function showLetter() {
-      if (skipIntroActivated) return;
-      openingScreen.classList.add('fade-out');
-      setTimeout(() => {
-        openingScreen.style.display = 'none';
-        cartaScreen.style.display = 'flex';
-        setTimeout(() => cartaScreen.classList.add('visible'), 50);
-        // Mostrar hint após 3.5s
-        setTimeout(() => {
-          const clickHint = document.getElementById('click-hint');
-          if (clickHint && cartaScreen.classList.contains('visible')) {
-            clickHint.classList.add('visible');
-          }
-        }, 3500);
-      }, 500);
-    }
-
-    function nextStep() {
-      if (timeoutId) clearTimeout(timeoutId);
-      isAutoPlaying = false;
-      currentStep++;
-      if (currentStep === 1) {
-        if (textFirst) textFirst.style.display = 'none';
-        if (textSecond) textSecond.classList.add('active');
-        timeoutId = setTimeout(nextStep, 5000);
-      } else if (currentStep === 2) {
-        if (textSecond) textSecond.classList.add('fade-out');
-        setTimeout(() => {
-          if (textSecond) textSecond.style.display = 'none';
-          if (textThird) textThird.classList.add('active');
-          timeoutId = setTimeout(showLetter, 5000);
-        }, 800);
-      } else {
-        showLetter();
-      }
-    }
-
-    openingScreen.addEventListener('click', () => { if (isAutoPlaying) isAutoPlaying = false; nextStep(); });
-
-    // Timeline automática
-    timeoutId = setTimeout(() => {
-      if (currentStep === 0 && isAutoPlaying) {
-        if (textFirst) textFirst.style.display = 'none';
-        if (textSecond) textSecond.classList.add('active');
-        currentStep = 1;
-        timeoutId = setTimeout(() => {
-          if (currentStep === 1 && isAutoPlaying) {
-            if (textSecond) textSecond.classList.add('fade-out');
-            setTimeout(() => {
-              if (textSecond) textSecond.style.display = 'none';
-              if (textThird) textThird.classList.add('active');
-              currentStep = 2;
-              timeoutId = setTimeout(() => { if (currentStep === 2 && isAutoPlaying) showLetter(); }, 5000);
-            }, 800);
-          }
-        }, 5000);
-      }
-    }, 5500);
 
     // Clique no selo — abre envelope e inicia transição por scroll
     if (seloIntro) {
