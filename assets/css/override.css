@@ -70,7 +70,7 @@
 }
 
 /* Remover todos os pseudo-elementos */
-.hero::before,
+/* .hero::before é reativado abaixo para o efeito de blur */
 .hero::after,
 .suspense::before,
 .suspense::after,
@@ -435,14 +435,35 @@
 section.hero,
 #main-content .hero,
 #hero {
-  background-image:
-    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, #0a0a0a 90%),
-    url('../img/carta-fundo.png') !important;
-  background-size: cover, 80% !important;
-  background-repeat: no-repeat, no-repeat !important;
-  background-position: center, center !important;
+  background-image: none !important;
   background-color: #0a0a0a !important;
-  background-blend-mode: normal !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Background embaçado da hero via pseudo-elemento */
+.hero::before {
+  display: block !important;
+  content: '' !important;
+  position: absolute !important;
+  inset: -40px !important;
+  /* margem negativa para esconder bordas do blur */
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 100%),
+    url('../img/hero-bg.png') !important;
+  background-size: cover, cover !important;
+  background-position: center top, center top !important;
+  background-repeat: no-repeat, no-repeat !important;
+  filter: blur(6px) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Garantir que o conteúdo da hero fique na frente do fundo embaçado */
+.hero__content,
+.hero .container {
+  position: relative !important;
+  z-index: 2 !important;
 }
 
 .waitlist__ambient {
@@ -964,14 +985,28 @@ body::before {
   display: block !important;
 }
 
-/* Vinheta via elemento dedicado */
+/* Vinheta via elemento dedicado - Suavizada para maior clareza na Hero */
 .vinheta {
   position: absolute !important;
   inset: 0 !important;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 50%, #000000 100%) !important;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.85) 100%) !important;
   pointer-events: none !important;
   z-index: 3 !important;
   display: block !important;
+}
+
+/* Brilho extra para textos da Hero para igualar à seção Diamantes */
+.hero__eyebrow,
+.hero__title-eyebrow,
+.hero__subtitle {
+  color: var(--color-cream) !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important;
+}
+
+.hero__title-main {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.3) !important;
 }
 
 
@@ -1460,15 +1495,18 @@ body::before {
 .flash {
   position: absolute;
   /* .flash principal é agora o borrão luminoso central */
-  width: 8px; /* Menor e mais concentrado */
+  width: 8px;
+  /* Menor e mais concentrado */
   height: 8px;
   background: #ffffff;
   border-radius: 50%;
-  box-shadow: 
-    0 0 12px 4px rgba(255, 255, 255, 0.9), 
-    0 0 30px 12px rgba(201, 168, 76, 0.6); /* Brilho dourado mais intenso */
+  box-shadow:
+    0 0 12px 4px rgba(255, 255, 255, 0.9),
+    0 0 30px 12px rgba(201, 168, 76, 0.6);
+  /* Brilho dourado mais intenso */
   opacity: 0;
-  animation: flashDiamondAlpha 3s cubic-bezier(0.4, 0, 0.2, 1) infinite; /* Curva mais dramática */
+  animation: flashDiamondAlpha 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  /* Curva mais dramática */
   mix-blend-mode: screen;
 }
 
@@ -1487,7 +1525,8 @@ body::before {
 
 /* 4 Pontas principais da Vertical/Horizontal */
 .flash::before {
-  width: 50px !important; /* Pontas mais longas */
+  width: 50px !important;
+  /* Pontas mais longas */
   height: 50px !important;
   transform: translate(-50%, -50%) !important;
 }
@@ -1506,13 +1545,15 @@ body::before {
     transform: scale(0.1) rotate(0deg);
   }
 
-  30% { /* Aparece rápido com mais intensidade */
+  30% {
+    /* Aparece rápido com mais intensidade */
     opacity: 1;
     transform: scale(1.3) rotate(45deg);
     filter: brightness(1.5);
   }
 
-  70% { /* Começa a sumir suavemente */
+  70% {
+    /* Começa a sumir suavemente */
     opacity: 0.5;
     transform: scale(0.8) rotate(90deg);
   }
